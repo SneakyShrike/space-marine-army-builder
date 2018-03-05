@@ -6,41 +6,45 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import elites.Dreadnought;
-import elites.Ironclad_Dreadnought;
-import elites.Venerable_Dreadnought;
-import elites.assault_terminator.Assault_Terminator;
 import elites.centurion_assault.Centurion_Assault;
 import elites.command.Command;
+import elites.deadnought.Dreadnought;
 import elites.honour_guard.Honour_Guard;
-import elites.sternguard.Sternguard_Veteran;
+import elites.ironclad_dreadnought.Ironclad_Dreadnought;
+import elites.sternguard_veteran.Sternguard_Veteran;
 import elites.terminator.Terminator;
-import elites.vanguard.Vanguard_Veterans;
-import fast_attack.Attack_Bike;
-import fast_attack.Stormhawk_Interceptor;
-import fast_attack.Stormtalon_Gunship;
+import elites.terminator_assault.Terminator_Assault;
+import elites.vanguard_veteran.Vanguard_Veterans;
+import elites.venerable_dreadnought.Venerable_Dreadnought;
 import fast_attack.assault.Assault;
+import fast_attack.attack_bike.Attack_Bike;
 import fast_attack.bike.Bike;
+import fast_attack.drop_pod.Drop_Pod;
 import fast_attack.land_speeder.Land_Speeder;
+import fast_attack.land_speeder_storm.Land_Speeder_Storm;
+import fast_attack.razorback.Razorback;
+import fast_attack.rhino.Rhino;
 import fast_attack.scout_bike.Scout_Bike;
+import fast_attack.stormhawk_interceptor.Stormhawk_Interceptor;
+import fast_attack.stormtalon_gunship.Stormtalon_Gunship;
 import gui.model.Unit;
 import gui.model.Unit_Type;
-import heavy_support.Hunter;
-import heavy_support.Land_Raider;
-import heavy_support.Land_Raider_Crusader;
-import heavy_support.Land_Raider_Redeemer;
-import heavy_support.Predator;
-import heavy_support.Stalker;
-import heavy_support.Stormraven_Gunship;
-import heavy_support.Vindicator;
-import heavy_support.Whirlwind;
 import heavy_support.centurion_devastator.Centurion_Devastator;
 import heavy_support.devastator.Devastator;
+import heavy_support.hunter.Hunter;
+import heavy_support.land_raider.Land_Raider;
+import heavy_support.land_raider_crusader.Land_Raider_Crusader;
+import heavy_support.land_raider_redeemer.Land_Raider_Redeemer;
+import heavy_support.predator.Predator;
+import heavy_support.stalker.Stalker;
+import heavy_support.stormraven_gunship.Stormraven_Gunship;
 import heavy_support.thunderfire_cannon.Thunderfire_Cannon;
-import hq.Captain;
-import hq.Chaplain;
-import hq.Librarian;
-import hq.Techmarine;
+import heavy_support.vindicator.Vindicator;
+import heavy_support.whirlwind.Whirlwind;
+import hq.captain.Captain;
+import hq.chaplain.Chaplain;
+import hq.librarian.Librarian;
+import hq.techmarine.Techmarine;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -58,18 +62,19 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import troops.scout.Scout;
 import troops.tactical.Tactical;
+import wargear.weapon.Weapon;
 
 public class AddUnitPane extends GridPane
 {
-	private Label unitTypeLbl, unitLbl, squadNameLbl, squadSizeLbl;
+	private Label unitTypeLbl, unitLbl, unitSizeLbl, unitWeaponLbl, unitNameLbl;
 	private ComboBox<Unit_Type> unitTypeCombo; 
 	private ComboBox<Unit> unitCombo;
 	private ComboBox<Integer> unitSizeCombo;
+	private ComboBox<Weapon> unitWeaponCombo;
 	private TextField unitNameTf;
 	private Button addUnitBtn;
 	
-	private Unit_Type infantryCharacater, infantry, vehicleWalker, bike, vehicleTransport, vehicleSkimmer, 
-	artillery, vehicleTank, vehicleFlyer, HQ, troops, elites, fast_attack, heavy_support;
+	private Unit_Type HQ, troops, elites, fast_attack, heavy_support;
 	
 	public AddUnitPane()
 	{
@@ -88,65 +93,36 @@ public class AddUnitPane extends GridPane
 		
 		troops = new Unit_Type("Troops", new Scout(), new Tactical());
 		
-		elites = new Unit_Type("Elites", new Dreadnought(), new Ironclad_Dreadnought(), new Venerable_Dreadnought(), new Assault_Terminator(),
-				new Terminator(), new Sternguard_Veteran(), new Vanguard_Veterans(), new Centurion_Assault(), new Command(), new Honour_Guard());
+		elites = new Unit_Type("Elites", new Centurion_Assault(), new Command(), new Dreadnought(), new Honour_Guard(), 
+				 new Ironclad_Dreadnought(), new Sternguard_Veteran(), new Terminator(), new Terminator_Assault(), 
+				 new Vanguard_Veterans(), new Venerable_Dreadnought());
 		
-		fast_attack = new Unit_Type("Fast Attack", new Stormhawk_Interceptor(), new Stormtalon_Gunship(), new Land_Speeder(), new Bike(), 
-				new Scout_Bike(), new Attack_Bike(), new Assault()); 
+		fast_attack = new Unit_Type("Fast Attack", new Assault(), new Attack_Bike(), new Bike(), new Drop_Pod(), 
+				      new Land_Speeder(), new Land_Speeder_Storm(), new Razorback(), new Rhino(), new Scout_Bike(),  
+				      new Stormhawk_Interceptor(), new Stormtalon_Gunship()); 
 		
-		heavy_support = new Unit_Type("Heavy Support", new Hunter(), new Stalker(), new Whirlwind(), new Vindicator(), new Predator(), 
-				new Stormraven_Gunship(), new Land_Raider(), new Land_Raider_Crusader(), new Land_Raider_Redeemer(), new Centurion_Devastator(),
-				new Devastator(), new Thunderfire_Cannon());
-		
-		//initialise all the Unit types, by naming them and populating them with Units
-		
-        /*infantryCharacater = new Unit_Type("Infantry (Characater)", new Unit("Captain"), new Unit("Librarian"), 
-        		new Unit("Techmarine"), new Unit("Chaplin"), new Unit("Marneus Calgar"));
-        
-        infantry = new Unit_Type("Infantry", new Unit("Tactical Squad"), new Unit("Scout Squad"), 
-        		new Unit("Crusader Squad"), new Unit("Command Squad"), new Unit("Honour Guard"),
-        		new Unit("Centurion Assault Squad"), new Unit("Vanguard Veteran Squad"), new Unit("Sternguard Veteran Squad"),
-        		new Unit("Legion Of The Damned"), new Unit("Terminator Squad"), new Unit("Terminator Assault Squad"),
-        		new Unit("Assault Squad"), new Unit("Devastator Squad"), new Unit("Centurion Devastator Squad"));
-        
-        vehicleWalker = new Unit_Type("Vehicle (Walker)", new Unit("Dreadnoughts"), new Unit("Venerable Dreadnoughts"),
-        		new Unit("Ironclad Dreadnoughts"));
-        
-        bike = new Unit_Type("Bike", new Unit("Scout Bike Squad"), new Unit("Bike Squad"),
-        		new Unit("Attack Bike Squad"));
-        
-        vehicleTransport = new Unit_Type("Vehicle (Transport)", new Unit("Drop Pod"));
-        
-        vehicleSkimmer = new Unit_Type("Vehicle (Skimmer)", new Unit("Land Speeders"), new Unit("Land Speeder Storm"));
-        
-        vehicleFlyer = new Unit_Type("Vehicle (Flyer)", new Unit("Stormraven Gunship"), new Unit("Stormtalon Gunship"));
-                
-        artillery = new Unit_Type("Artillery", new Unit("Thunderfire Cannons"));
-        
-        vehicleTank = new Unit_Type("Vehicle (Tank)", new Unit("Predators"), new Unit("Whirlwinds"), 
-        		new Unit("Vindicators"), new Unit("Predators"), new Unit("Hunters"), 
-        		new Unit("Stalkers"), new Unit("Land Raider"), new Unit("Land Raider Crusader"),
-        		new Unit("Land Raider Redeemer"), new Unit("Rhino"), new Unit("Razorback"));
-	
-		ObservableList<Unit_Type> unitTypeOList = FXCollections.observableArrayList(infantryCharacater, infantry, vehicleWalker, 
-				bike, vehicleTransport, vehicleSkimmer, vehicleFlyer, artillery, vehicleTank); //add each Unit_Type to an Observable List*/
-		
-		ObservableList<Unit_Type> unitTypeOList = FXCollections.observableArrayList(HQ, troops, elites, fast_attack, heavy_support);
+		heavy_support = new Unit_Type("Heavy Support", new Centurion_Devastator(), new Devastator(), new Hunter(), 
+				        new Land_Raider(), new Land_Raider_Crusader(), new Land_Raider_Redeemer(), new Predator(), 
+				        new Stalker(), new Stormraven_Gunship(), new Thunderfire_Cannon(), new Vindicator(),
+				        new Whirlwind());
+				
+		ObservableList<Unit_Type> unitTypeOList = FXCollections.observableArrayList(HQ, troops, elites, fast_attack, heavy_support); //create an observable list of unit types
 			
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 							
 		unitTypeLbl = new Label("Select The Unit Type: "); //Initialise all of the labels
 		unitLbl = new Label("Select The Unit: ");
-		squadNameLbl = new Label("Type The Unit Name: ");
-		squadSizeLbl = new Label("Select The Unit Size");
+		unitSizeLbl = new Label("Select The Unit Size");
+		unitWeaponLbl = new Label("Select The Unit's Weapons");
+		unitNameLbl = new Label("Type The Unit Name: ");
 		
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 				        
 		unitTypeCombo = new ComboBox<Unit_Type>(); //Initialise the unitTypeCombo (first ComboBox)
 		unitTypeCombo.setItems(unitTypeOList); //Populate the unitTypeCombo with the UnitTypeOList (observable list) from line 84
-		//unitTypeCombo.getSelectionModel().selectFirst();
+		//unitTypeCombo.getSelectionModel().selectFirst(); //automatically select the first item from the UnitTypeOList
 		
-		unitCombo = new ComboBox<>(); //Initialise the unitCombo (second ComboBox)
+		unitCombo = new ComboBox<Unit>(); //Initialise the unitCombo (second ComboBox)
 		
 		unitTypeCombo.valueProperty().addListener(new ChangeListener<Unit_Type>() //populates the unitCombo (second ComboBox) based on the unit type chosen
 		{
@@ -154,24 +130,28 @@ public class AddUnitPane extends GridPane
 		    public void changed(ObservableValue<? extends Unit_Type> observable, Unit_Type oldValue, Unit_Type newValue) 
 		    {
 		        unitCombo.setItems(newValue == null ? FXCollections.emptyObservableList() : newValue.getUnitsForType());
-		        unitCombo.getSelectionModel().selectFirst();
+		        unitCombo.getSelectionModel().selectFirst(); //Selects the first unit in the unitCombo (second ComboBox)
 		    }
 		});
 				    	
-		unitNameTf = new TextField(); //Initialise the unit name TextField
+				
+		unitSizeCombo = new ComboBox<>(); //Initialise the unit unitSizeCombo (third ComboBox)
+		unitWeaponCombo = new ComboBox<>();
 		
-		unitSizeCombo = new ComboBox<>(); //Initialise the unit size ComboBox (third ComboBox)
-		
-		unitCombo.valueProperty().addListener(new ChangeListener<Unit>() //size ComboBox (third ComboBox) based on the Unit Chosen
+		unitCombo.valueProperty().addListener(new ChangeListener<Unit>() //unitSizeCombo (third ComboBox) based on the Unit Chosen
 		{
 			@Override
 			public void changed(ObservableValue<? extends Unit> observable, Unit oldValue, Unit newValue) 
 			{												
 				unitSizeCombo.setItems(newValue == null ? FXCollections.emptyObservableList() : newValue.getUnitSize());
-				unitSizeCombo.getSelectionModel().selectFirst();
-		    }
+				unitSizeCombo.getSelectionModel().selectFirst(); //Selects the first size value of the unitSizeCombo (third ComboBox)
+				unitWeaponCombo.setItems(newValue == null ? FXCollections.emptyObservableList() : newValue.getUnitWeapons());
+				unitWeaponCombo.getSelectionModel().selectFirst();
+		    }			
 		});
 		
+		unitNameTf = new TextField(); //Initialise the unit name TextField
+						
 		addUnitBtn = new Button("Add Unit");
 	
 		this.add(unitTypeLbl, 0, 1);
@@ -180,45 +160,52 @@ public class AddUnitPane extends GridPane
 		this.add(unitLbl, 0, 2);
 		this.add(unitCombo, 1, 2);
 		
-		this.add(squadNameLbl, 0, 3);
-		this.add(unitNameTf, 1, 3);
+		this.add(unitSizeLbl, 0, 3);
+		this.add(unitSizeCombo, 1, 3);
 		
-		this.add(squadSizeLbl, 0, 4);
-		this.add(unitSizeCombo, 1, 4);
+		this.add(unitWeaponLbl, 0, 4);
+		this.add(unitWeaponCombo, 1, 4);
 		
-		this.add(new HBox(), 0, 5);
-		this.add(addUnitBtn, 1, 5);		
+		this.add(unitNameLbl, 0, 5);
+		this.add(unitNameTf, 1, 5);
+				
+		this.add(new HBox(), 0, 6);
+		this.add(addUnitBtn, 1, 6);		
 	}
 	
-	public Unit_Type getUnitType()
+	public Unit_Type getUnitType() //returns the selected unit type from the unitTypeCombo (first ComboBox)
 	{
 		return unitTypeCombo.getSelectionModel().getSelectedItem();		
 	}
 	
-	public Unit getUnit()
+	public Unit getUnit() //returns the selected unit from the unitCombo (second ComboBox)
 	{
 		return unitCombo.getSelectionModel().getSelectedItem();
 	}
-	
-	public String getUnitName()
-	{
-		return unitNameTf.getText();
-	}
-	
-	public Integer getUnitSize()
+		
+	public Integer getUnitSize() //returns the selected unit size from the unitSizeCombo (third ComboBox)
 	{
 		return unitSizeCombo.getSelectionModel().getSelectedItem();
 	}
+	
+	public Weapon getUnitWeapon() //returns the selected unit weapon from the unitWeaponCombo (fourth ComboBox)
+	{
+		return unitWeaponCombo.getSelectionModel().getSelectedItem();
+	}
+	
+	public String getUnitName() //returns the user specified name given to the unit or squad
+	{
+		return unitNameTf.getText();
+	}
 		
-	public void AddUnitHandler(EventHandler<ActionEvent> handler)
+	public void AddUnitHandler(EventHandler<ActionEvent> handler) //when the add button is pressed, control is allocated to an event handler in controller
 	{
 		addUnitBtn.setOnAction(handler);		
 	}
 	
-	public void setDefaultValues()
+	public void setDefaultValues() //clears the combo boxes when the add button is pressed
 	{
 		unitTypeCombo.getSelectionModel().clearSelection();
-		unitNameTf.clear();
-		
+		unitNameTf.clear();		
 	}
 }

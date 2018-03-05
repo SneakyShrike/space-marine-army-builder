@@ -50,25 +50,38 @@ public class WeaponList
 		put("Plasma Gun", new Special("Plasma Gun", 15));		
 	}};
 	
+	static Map<String, ScoutWeapon> scoutWeapons = new HashMap<String, ScoutWeapon>()
+	{{			
+		put("Shotgun", new ScoutWeapon("Shotgun", 0));
+		put("Close Combat Weapon", new ScoutWeapon("Close Combat Weapon", 0));
+		put("Sniper Rifle", new ScoutWeapon("Sniper Rifle", 1));
+		put("Heavy Bolter (Hellfire Shell)", new ScoutWeapon("Heavy Bolter (Hellfire Shell)", 8 + 5)); //THIS NEEDS REVIEWING	
+	}};
+	
 		
-	public static Ranged getRanged(String index)
+	public static Ranged getRanged(String key)
 	{		
-        return rangedWeapons.get(index);   
+        return rangedWeapons.get(key);   
 	}
 	
-	public static Melee getMelee(String index)
+	public static Melee getMelee(String key)
 	{		
-        return meleeWeapons.get(index);   
+        return meleeWeapons.get(key);   
 	}
 	
-	public static Heavy getHeavy(String index)
+	public static Heavy getHeavy(String key)
 	{		
-        return heavyWeapons.get(index);   
+        return heavyWeapons.get(key);   
 	}
 	
-	public static Special getSpecial(String index)
+	public static Special getSpecial(String key)
 	{		
-        return specialWeapons.get(index);   
+        return specialWeapons.get(key);   
+	}
+	
+	public static ScoutWeapon getScoutWeapon(String key)
+	{		
+        return scoutWeapons.get(key);   
 	}
 		
 	public static Map<String, Ranged> getRangedList()

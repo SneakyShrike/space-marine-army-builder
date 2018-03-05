@@ -15,7 +15,7 @@ public class ScoutSergeant extends Scout
 	}
 	
 	@Override
-	public void weaponUpgrade(Weapon weapon) 
+	public void scoutWeaponUpgrade(Weapon weapon) 
 	{		
 		 this.weapon = weapon; 
 	     points = points + weapon.getWeaponPoints();

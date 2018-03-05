@@ -1,24 +1,19 @@
 package troops.tactical;
 
 import gui.model.Unit;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import wargear.weapon.Weapon;
 import wargear.weapon.WeaponList;
 
 public class Tactical extends Unit
-{
-	private Weapon weapon;
-	private final int weaponSkill, ballisticSkill, strength, 
-	                  toughness, wounds, initiative, attacks,  
-	                  leadership;
-		
-	private  String save;
-	
-	private int points;
-	private final int maxSize;
-	
+{	
 	//DEFAULT Tactical
 	public Tactical() 
-	{   
+	{  
+		//super();
+		unitName = "Tactical Squad";
+		COMBOMAXSIZE = 7;
         weapon = WeaponList.getRanged("Boltgun");
         weaponSkill = 4;
         ballisticSkill = 4;
@@ -31,9 +26,23 @@ public class Tactical extends Unit
         save = "3+";
         points = 14; 
         points = points + weapon.getWeaponPoints();
-        maxSize = 9;
+        
+        unitWeaponsList.add(WeaponList.getSpecial("Flamer"));
+        unitWeaponsList.add(WeaponList.getSpecial("Meltagun"));
+        unitWeaponsList.add(WeaponList.getSpecial("Grav-Gun"));
+        unitWeaponsList.add(WeaponList.getSpecial("Plasma Gun"));
+        unitWeaponsList.add(WeaponList.getHeavy("Heavy Bolter"));
+        unitWeaponsList.add(WeaponList.getHeavy("Multi-Melta"));
+        unitWeaponsList.add(WeaponList.getHeavy("Missle Launcher (Frag)"));
+        unitWeaponsList.add(WeaponList.getHeavy("Missle Launcher (Krak)"));
+        unitWeaponsList.add(WeaponList.getHeavy("Missle Launcher (Flakk)"));
+        unitWeaponsList.add(WeaponList.getHeavy("Plasma Cannon"));
+        unitWeaponsList.add(WeaponList.getHeavy("Lascannon"));
+        unitWeaponsList.add(WeaponList.getHeavy("Grav-Cannon"));
+        unitWeaponsList.add(WeaponList.getHeavy("Grav-Amp"));
+
 	}
-	
+		
 	public void weaponUpgrade(Weapon weapon) 
 	{		
 		switch(weapon.toString())
@@ -84,9 +93,8 @@ public class Tactical extends Unit
 	
 	public int getMaxSize()
 	{
-		return maxSize;
+		return COMBOMAXSIZE;
 	}
 
-	
 
 }

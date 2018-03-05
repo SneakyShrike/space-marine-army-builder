@@ -53,8 +53,7 @@ public class ArmyDisplayPane extends BorderPane
 		return units;
 	}*/
 	
-	
-	
+		
 	public void SaveArmyHandler(EventHandler<ActionEvent> handler)
 	{
 		saveDisplay.setOnAction(handler);

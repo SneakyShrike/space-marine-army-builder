@@ -2,6 +2,7 @@ package gui.controller;
 
 
 import java.util.ArrayList;
+
 import java.util.Collection;
 
 import gui.model.ArmyBuilderProfile;
@@ -21,6 +22,7 @@ import troops.scout.ScoutSergeant;
 import troops.scout.ScoutSquad;
 import troops.tactical.Tactical;
 import troops.tactical.TacticalSquad;
+import wargear.weapon.WeaponList;
 
 public class ArmyBuilderController 
 {
@@ -125,20 +127,26 @@ public class ArmyBuilderController
 			ScoutSquad scouts;
 			TacticalSquad tactical;
 			
-			switch(au.getUnit().toString())
+			switch(au.getUnit().toString()) //gets the selected unit from the unitCombo (second ComboBox)
 			{
 			case "Scout Squad" : scouts = new ScoutSquad(au.getUnitName()); //create a new scoutSquad with the inputed name
 			                     scouts.addScout(new ScoutSergeant()); //add a scout sergeant to the scout squad
-			                     scouts.addScoutSquad(new Scout(), au.getUnitSize() -1 ); /*then add as many scouts as specified by the user, 
+			                     //scouts.addScoutSquad(new Scout(), au.getUnitSize() -1 );
+			                   for (int i = 1; i < au.getUnitSize(); i++) //then the rest of the scouts are added to the squad
+			             		{
+			             			scouts.addScout(new Scout());			  							
+			             		}
+			                     scouts.getScout(3).scoutWeaponUpgrade(au.getUnitWeapon());/*then add as many scouts as specified by the user, 
 			                     then -1 to compensate for the scout sergeant*/
-			                     dp.setDisplayInput(scouts.getScoutSquad()); //display the results of the newly created scout squad to the dp (display pane
-			                     uu.setUnitNameCombo(scouts.getName());
-			                     //uu.setUnitNameCombo(au.getUnitName());
+			                     //scouts.getScout(3).scoutWeaponUpgrade(WeaponList.getScoutWeapon("Sniper Rifle"));
+			                     dp.setDisplayInput(scouts.getScoutSquad()); //display the results of the newly created scout squad to the display pane
+			                     
+
 			break;
 			case "Tactical Squad" : tactical = new TacticalSquad(au.getUnitName());
 			                        tactical.addTacticalSquad(new Tactical(), au.getUnitSize());
 			                        dp.setDisplayInput(tactical.getTacticalSquad());
-			                        uu.setUnitNameCombo(tactical.getName());
+
 			}
 			
 			
@@ -153,6 +161,7 @@ public class ArmyBuilderController
 	{
 		public void handle(ActionEvent e) 
 		{
+			
 			
 									
 		}		
