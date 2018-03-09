@@ -1,12 +1,7 @@
 package gui.view;
 
-import java.util.ArrayList;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 import elites.centurion_assault.Centurion_Assault;
+
 import elites.command.Command;
 import elites.deadnought.Dreadnought;
 import elites.honour_guard.Honour_Guard;
@@ -66,10 +61,11 @@ import wargear.weapon.Weapon;
 
 public class AddUnitPane extends GridPane
 {
-	private Label unitTypeLbl, unitLbl, unitSizeLbl, unitWeaponLbl, unitNameLbl;
+	private Label unitTypeLbl, unitLbl, unitSizeLbl, unitAmountSelectedLbl, unitWeaponLbl, unitNameLbl;
 	private ComboBox<Unit_Type> unitTypeCombo; 
 	private ComboBox<Unit> unitCombo;
 	private ComboBox<Integer> unitSizeCombo;
+	private ComboBox<Integer> unitAmountSelectedCombo;
 	private ComboBox<Weapon> unitWeaponCombo;
 	private TextField unitNameTf;
 	private Button addUnitBtn;
@@ -107,13 +103,14 @@ public class AddUnitPane extends GridPane
 				        new Whirlwind());
 				
 		ObservableList<Unit_Type> unitTypeOList = FXCollections.observableArrayList(HQ, troops, elites, fast_attack, heavy_support); //create an observable list of unit types
-			
+        ObservableList<Integer> unitAmountSelectedOlist = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9);	
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 							
 		unitTypeLbl = new Label("Select The Unit Type: "); //Initialise all of the labels
 		unitLbl = new Label("Select The Unit: ");
-		unitSizeLbl = new Label("Select The Unit Size");
-		unitWeaponLbl = new Label("Select The Unit's Weapons");
+		unitSizeLbl = new Label("Select The Unit Size: ");
+		unitAmountSelectedLbl = new Label("Select The Amount Of Members To Upgrade: ")
+;		unitWeaponLbl = new Label("Select The Unit Members Weapon Upgrade: ");
 		unitNameLbl = new Label("Type The Unit Name: ");
 		
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -133,8 +130,7 @@ public class AddUnitPane extends GridPane
 		        unitCombo.getSelectionModel().selectFirst(); //Selects the first unit in the unitCombo (second ComboBox)
 		    }
 		});
-				    	
-				
+				    		
 		unitSizeCombo = new ComboBox<>(); //Initialise the unit unitSizeCombo (third ComboBox)
 		unitWeaponCombo = new ComboBox<>();
 		
@@ -147,9 +143,25 @@ public class AddUnitPane extends GridPane
 				unitSizeCombo.getSelectionModel().selectFirst(); //Selects the first size value of the unitSizeCombo (third ComboBox)
 				unitWeaponCombo.setItems(newValue == null ? FXCollections.emptyObservableList() : newValue.getUnitWeapons());
 				unitWeaponCombo.getSelectionModel().selectFirst();
+				//unitAmountSelectedCombo.setItems(newValue == null ? FXCollections.emptyObservableList() 
+						//: newValue.getWeaponUpgradeAmount(unitSizeCombo.getSelectionModel().getSelectedItem()));
+				//unitAmountSelectedCombo.getSelectionModel().selectFirst(); //Selects the first size value of the unitSizeCombo (third ComboBox)
 		    }			
 		});
+				
+		/*unitSizeCombo.valueProperty().addListener(new ChangeListener<Integer>() //unitSizeCombo (third ComboBox) based on the Unit Chosen
+		{
+			@Override
+			public void changed(ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) 
+			{												
+				unitAmountSelectedCombo.setItems(unitAmountSelectedOlist);
+				unitAmountSelectedCombo.getSelectionModel().selectFirst(); //Selects the first size value of the unitSizeCombo (third ComboBox)
+			}			
+		});*/
 		
+		unitAmountSelectedCombo = new ComboBox<>();
+	    unitAmountSelectedCombo.setItems(unitAmountSelectedOlist);
+				
 		unitNameTf = new TextField(); //Initialise the unit name TextField
 						
 		addUnitBtn = new Button("Add Unit");
@@ -166,11 +178,14 @@ public class AddUnitPane extends GridPane
 		this.add(unitWeaponLbl, 0, 4);
 		this.add(unitWeaponCombo, 1, 4);
 		
-		this.add(unitNameLbl, 0, 5);
-		this.add(unitNameTf, 1, 5);
+		this.add(unitAmountSelectedLbl, 0, 5);
+		this.add(unitAmountSelectedCombo, 1, 5);
+		
+		this.add(unitNameLbl, 0, 6);
+		this.add(unitNameTf, 1, 6);
 				
-		this.add(new HBox(), 0, 6);
-		this.add(addUnitBtn, 1, 6);		
+		this.add(new HBox(), 0, 7);
+		this.add(addUnitBtn, 1, 7);		
 	}
 	
 	public Unit_Type getUnitType() //returns the selected unit type from the unitTypeCombo (first ComboBox)
@@ -193,6 +208,11 @@ public class AddUnitPane extends GridPane
 		return unitWeaponCombo.getSelectionModel().getSelectedItem();
 	}
 	
+	public Integer getUnitAmountSelected() //returns the selected unit size from the unitSizeCombo (third ComboBox)
+	{
+		return unitAmountSelectedCombo.getSelectionModel().getSelectedItem();
+	}
+	
 	public String getUnitName() //returns the user specified name given to the unit or squad
 	{
 		return unitNameTf.getText();
@@ -203,6 +223,15 @@ public class AddUnitPane extends GridPane
 		addUnitBtn.setOnAction(handler);		
 	}
 	
+	/*public void setunitAmountSelected()
+	{
+		for (int i = 1; i < unitSizeCombo.getSelectionModel().getSelectedItem(); i++)
+		{
+			unitAmountSelectedCombo.setI
+			
+		}
+		
+	}*/
 	public void setDefaultValues() //clears the combo boxes when the add button is pressed
 	{
 		unitTypeCombo.getSelectionModel().clearSelection();

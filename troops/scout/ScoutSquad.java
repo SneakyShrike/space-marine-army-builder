@@ -46,16 +46,39 @@ public class ScoutSquad implements Iterable<Scout>
 			System.out.println("You can only have 9 or less scouts");							
 	}
 	
-	public void addScoutSquad (Scout s, int number)//adds scouts to the specified number instead of max
+	public void addScoutSquad (int number)//adds scouts to the specified number instead of max
 	{
 		for (int i = 0; i < number; i++)
 		{
 			if (scoutList.size() < MAX)
-				scoutList.add(s);
-			
+				scoutList.add(new Scout());
+		
 			else 
 				System.out.println("You can only have 9 or less scouts");
 		}			
+	}
+	
+	public void weaponUpgrade(Weapon weapon, int amount)
+	{
+		for (int i = 1; i <= amount; i++)
+		{
+			switch(weapon.toString())
+			{
+			   case "Heavy Bolter" :
+			   case "Heavy Bolter (Hellfire Shell)" :			 
+			   case "Missle Launcher (Frag)" :
+			   case "Missle Launcher (Krak)" :
+			   case "Missle Launcher (Flakk)" :
+				   amount = 1;
+			   default:
+				   getScout(i).scoutWeaponUpgrade(weapon);				   				
+			}
+		}
+	}
+	
+	public int getSquadSize ()
+	{
+		return number;
 	}
 				
 	public void removeScout (int number) //remove a single scout from a squad, specified by the squad member number
@@ -107,31 +130,6 @@ public class ScoutSquad implements Iterable<Scout>
 		return MAX;
 	}
 	
-	public void setScoutSquadWeapons(int index, Weapon weapon)
-	{
-
-		scoutList.get(index);
-		
-	}
-		
-	public void SquadWeaponsCheck() //checks to ensure there are only 1 of certain weapons in a squad
-	{ 
-		int HeavyBolterCount = 0;
-		
-		for (Scout scout : scoutList) //for all the scouts in the squad
-        {
-        	if (scout.getWeaponUpgrade().equals(WeaponList.getHeavy("Heavy Bolter"))) //if the scouts weapon upgrade = heavy bolter 
-        	{
-        		HeavyBolterCount++; //increment the heavy bolter count
-        	
-                if (HeavyBolterCount > 1) //if the heavy bolter count is greater than 1 
-                {
-                	System.out.println("A Scout Squad is permitted to 1 Heavy Bolter only."); //print this
-                	scout.scoutWeaponUpgrade(WeaponList.getRanged("Boltgun")); //reset the weapon upgrade back to a default boltgun
-                	scout.setPoints(11); //set points back to default            	
-                }      		
-        	}
-        }		
-	}
+	
 		
 }

@@ -1,25 +1,21 @@
 package gui.model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import troops.scout.Scout;
-import troops.scout.ScoutSquad;
 import wargear.weapon.Weapon;
-import wargear.weapon.WeaponList;
 
 public abstract class Unit
 {
 	protected String unitName; //a unit has a name
 	protected int COMBOMAXSIZE, points; //max number of values in the combo box, NEEDS TO INHERIT FROM SCOUT SQUAD SQUAD MAXSIZE SOMEHOW
-	private ArrayList<Integer> unitSizeList; //a unit has a size
+	protected ArrayList<Integer> unitSizeList, weaponUpgradeAmount; //a unit has a size
 	protected ArrayList<Weapon> unitWeaponsList;
 	protected Weapon weapon;
 	protected int weaponSkill, ballisticSkill, strength, toughness, 
     wounds, initiative, attacks, leadership;
-	protected  String save;	
+	protected String save;	
 	
 	public Unit()
 	{
@@ -44,7 +40,18 @@ public abstract class Unit
 		return unitWeaponsOList;
 	}
 	
+	public ObservableList<Integer> getWeaponUpgradeAmount(int amount)
+	{	
+			   for (int i = 1; i < amount; i++)
+			   {
+				   weaponUpgradeAmount.add(i);				   
+			   }
+
+		ObservableList<Integer> weaponUpgradeAmountOList = FXCollections.observableArrayList(weaponUpgradeAmount);
+		return weaponUpgradeAmountOList;
+	}
 	
+		
 	@Override
 	public String toString() 
 	{

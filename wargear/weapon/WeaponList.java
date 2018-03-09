@@ -1,6 +1,7 @@
 package wargear.weapon;
 
 import java.util.HashMap;
+
 import java.util.Map;
 
 public class WeaponList

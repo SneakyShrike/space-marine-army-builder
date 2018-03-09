@@ -62,32 +62,11 @@ public class Scout extends Unit
 	 */
 	
 	public void scoutWeaponUpgrade(Weapon weapon) 
-	{		
-		/*switch(weapon.toString())
-		{
-		   case "Boltgun" : 
-		   case "Shotgun" :
-		   case "Close Combat Weapon" :
-		   case "Sniper Rifle" :*/
-			   this.weapon = weapon; 
-	           points = points + weapon.getWeaponPoints();
-	       /*break;
-		   case "Heavy Bolter" :
-			   weapon.setWeaponPoints(8); //THIS NEEDS REVIEWING
-		   case "Heavy Bolter (Hellfire Shell)" :			 
-		   case "Missle Launcher (Frag)" :
-		   case "Missle Launcher (Krak)" :
-		   case "Missle Launcher (Flakk)" :
-		       this.weapon = weapon; 
-	           points = points + weapon.getWeaponPoints();
-	        break;        
-	        default :
-	        	System.out.println("A Scout can't have a " + weapon);	       	        	
-		}*/
+	{
+		this.weapon = weapon; 
+	    points = points + weapon.getWeaponPoints();
     }
-	
-	
-	
+		
 	public List<Weapon> getScoutWeapons ()
 	{
 		return unitWeaponsList;

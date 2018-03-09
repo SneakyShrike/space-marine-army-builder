@@ -1,9 +1,15 @@
 package wargear.weapon;
 
+import java.util.ArrayList;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public abstract class Weapon 
 {
 	private String name;
 	private int points;
+	private ArrayList<Integer> weaponUpgradeAmount;
 
 	public Weapon(String name, int points)
 	{
@@ -42,4 +48,33 @@ public abstract class Weapon
 		
 		return this.name.equals(other.name);
 	}
+	
+	
+	/*public ObservableList<Integer> getWeaponUpgradeAmount(Weapon weapon)
+	{	switch(weapon.toString())
+		{
+		   case "Boltgun" : 
+		   case "Shotgun" :
+		   case "Close Combat Weapon" :
+		   case "Sniper Rifle" :
+			   for (int i = 1; i == 5; i++)
+			   {
+				   weaponUpgradeAmount.add(i);				   
+			   }				   			   
+	       break;
+		   case "Heavy Bolter" :
+		   case "Heavy Bolter (Hellfire Shell)" :			 
+		   case "Missle Launcher (Frag)" :
+		   case "Missle Launcher (Krak)" :
+		   case "Missle Launcher (Flakk)" :
+			   for (int i = 1; i == 1; i++)
+			   {
+				   weaponUpgradeAmount.add(i);				   
+			   }
+	        break;        
+       	        	
+		}
+		ObservableList<Integer> weaponUpgradeAmountOList = FXCollections.observableArrayList(weaponUpgradeAmount);
+		return weaponUpgradeAmountOList;
+	}*/
 }

@@ -1,8 +1,6 @@
 package troops.scout;
 
-import wargear.weapon.Ranged;
 import wargear.weapon.Weapon;
-import wargear.weapon.WeaponList;
 
 public class ScoutSergeant extends Scout 
 {

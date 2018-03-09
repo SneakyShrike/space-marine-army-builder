@@ -2,7 +2,7 @@ package main_test;
 
 import java.util.Scanner;
 
-import troops.scout.Scout;
+
 import troops.scout.ScoutSergeant;
 import troops.scout.ScoutSquad;
 import wargear.weapon.WeaponList;
@@ -27,7 +27,7 @@ public class ArmyBuilderDemo
 		//System.out.println(details.getCharacteristics());
 						
 		squad1.addScout(new ScoutSergeant()); //a scout sergeant is first added to the squad
-		squad1.addScoutSquad(new Scout(), size );
+		//squad1.addScoutSquad(new Scout(), size );
 
 		//for (int i = 1; i < 5; i++) //then the rest of the scouts are added to the squad
 		//{

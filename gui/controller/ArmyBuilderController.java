@@ -3,11 +3,8 @@ package gui.controller;
 
 import java.util.ArrayList;
 
-import java.util.Collection;
 
 import gui.model.ArmyBuilderProfile;
-import gui.model.Unit;
-import gui.model.Unit_Type;
 import gui.view.AddUnitPane;
 import gui.view.ArmyBuilderMenuBar;
 import gui.view.ArmyBuilderRootPane;
@@ -17,12 +14,10 @@ import gui.view.UpdateUnitPane;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import troops.scout.Scout;
 import troops.scout.ScoutSergeant;
 import troops.scout.ScoutSquad;
 import troops.tactical.Tactical;
 import troops.tactical.TacticalSquad;
-import wargear.weapon.WeaponList;
 
 public class ArmyBuilderController 
 {
@@ -131,14 +126,8 @@ public class ArmyBuilderController
 			{
 			case "Scout Squad" : scouts = new ScoutSquad(au.getUnitName()); //create a new scoutSquad with the inputed name
 			                     scouts.addScout(new ScoutSergeant()); //add a scout sergeant to the scout squad
-			                     //scouts.addScoutSquad(new Scout(), au.getUnitSize() -1 );
-			                   for (int i = 1; i < au.getUnitSize(); i++) //then the rest of the scouts are added to the squad
-			             		{
-			             			scouts.addScout(new Scout());			  							
-			             		}
-			                     scouts.getScout(3).scoutWeaponUpgrade(au.getUnitWeapon());/*then add as many scouts as specified by the user, 
-			                     then -1 to compensate for the scout sergeant*/
-			                     //scouts.getScout(3).scoutWeaponUpgrade(WeaponList.getScoutWeapon("Sniper Rifle"));
+			                     scouts.addScoutSquad(au.getUnitSize()-1);	/*then add as many scouts as specified by the user, then -1 to compensate for the scout sergeant*/	  										
+			                     scouts.weaponUpgrade(au.getUnitWeapon(), au.getUnitAmountSelected());
 			                     dp.setDisplayInput(scouts.getScoutSquad()); //display the results of the newly created scout squad to the display pane
 			                     
 
