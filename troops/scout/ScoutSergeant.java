@@ -1,5 +1,6 @@
 package troops.scout;
 
+import gui.model.Unit;
 import wargear.weapon.Weapon;
 
 public class ScoutSergeant extends Scout 
@@ -10,18 +11,19 @@ public class ScoutSergeant extends Scout
 	public ScoutSergeant()
 	{
 		super();
+		unitName = "Scout Sergeant ";
 	}
 	
-	@Override
-	public void scoutWeaponUpgrade(Weapon weapon) 
+	/*@Override
+	public void ScoutSergeantWeaponUpgrade(Weapon weapon) 
 	{		
 		 this.weapon = weapon; 
 	     points = points + weapon.getWeaponPoints();
-    }  
+    }*/ 
 		
 	@Override
 	public String toString() 
 	{
-		return "Sergeant " + super.getScoutDetails();
+		return unitName;		
 	}
 }

@@ -8,13 +8,13 @@ import wargear.weapon.WeaponList;
 
 public class Tactical extends Unit
 {	
-	//DEFAULT Tactical
 	public Tactical() 
 	{  
-		//super();
+		super();
 		unitName = "Tactical Squad";
 		COMBOMAXSIZE = 7;
         weapon = WeaponList.getRanged("Boltgun");
+        points = 14 + weapon.getWeaponPoints();
         weaponSkill = 4;
         ballisticSkill = 4;
         strength = 4;
@@ -24,8 +24,6 @@ public class Tactical extends Unit
         attacks = 1;
         leadership = 8;
         save = "3+";
-        points = 14; 
-        points = points + weapon.getWeaponPoints();
         
         unitWeaponsList.add(WeaponList.getSpecial("Flamer"));
         unitWeaponsList.add(WeaponList.getSpecial("Meltagun"));
@@ -40,10 +38,9 @@ public class Tactical extends Unit
         unitWeaponsList.add(WeaponList.getHeavy("Lascannon"));
         unitWeaponsList.add(WeaponList.getHeavy("Grav-Cannon"));
         unitWeaponsList.add(WeaponList.getHeavy("Grav-Amp"));
-
 	}
 		
-	public void weaponUpgrade(Weapon weapon) 
+	/*public void weaponUpgrade(Weapon weapon) 
 	{		
 		switch(weapon.toString())
 		{
@@ -94,7 +91,7 @@ public class Tactical extends Unit
 	public int getMaxSize()
 	{
 		return COMBOMAXSIZE;
-	}
+	}*/
 
 
 }

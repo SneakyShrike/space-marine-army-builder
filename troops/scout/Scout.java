@@ -1,14 +1,10 @@
 package troops.scout;
 
-import java.util.List;
-
 import gui.model.Unit;
-import wargear.weapon.Weapon;
 import wargear.weapon.WeaponList;
 
 public class Scout extends Unit
-{
-				
+{				
 	/**
 	 * A default constructor that creates a scout with a default weapon of a boltgun,
 	 * it also ensures that there can be no more than 9 members in a scout squad. A 
@@ -20,10 +16,11 @@ public class Scout extends Unit
 	
 	public Scout() 
 	{   
-		//super();
+		super();
 		unitName = "Scout Squad"; //default name of a scout squad
 		COMBOMAXSIZE = 9; //max number of values in the combo box, NEEDS TO INHERIT FROM SCOUT SQUAD SQUAD MAXSIZE SOMEHOW
-        weapon = WeaponList.getRanged("Boltgun"); //default weapon of a scout
+        weapon = WeaponList.getRanged("Boltgun");
+		points = 11 + weapon.getWeaponPoints();//default weapon of a scout
         weaponSkill = 4;
         ballisticSkill = 4;
         strength = 4;
@@ -33,10 +30,7 @@ public class Scout extends Unit
         attacks = 1;
         leadership = 8;
         save = "4+";
-        points = 11; //the points value of a single scout
-        points = points + weapon.getWeaponPoints(); /*points is updated to include the
-                                                      points value of the default weapon*/
-        
+   
         unitWeaponsList.add(WeaponList.getRanged("Boltgun"));
         unitWeaponsList.add(WeaponList.getScoutWeapon("Shotgun"));
         unitWeaponsList.add(WeaponList.getScoutWeapon("Close Combat Weapon"));
@@ -46,7 +40,6 @@ public class Scout extends Unit
         unitWeaponsList.add(WeaponList.getHeavy("Missle Launcher (Frag)"));
         unitWeaponsList.add(WeaponList.getHeavy("Missle Launcher (Krak)"));
         unitWeaponsList.add(WeaponList.getHeavy("Missle Launcher (Flakk)"));
-
 	}
 		
 	
@@ -61,16 +54,16 @@ public class Scout extends Unit
 	 * @param weapon the weapon supplied to upgrade to.
 	 */
 	
-	public void scoutWeaponUpgrade(Weapon weapon) 
+	/*public void scoutWeaponUpgrade(Weapon weapon) 
 	{
 		this.weapon = weapon; 
 	    points = points + weapon.getWeaponPoints();
-    }
+    }*/
 		
-	public List<Weapon> getScoutWeapons ()
+	/*public List<Weapon> getScoutWeapons ()
 	{
-		return unitWeaponsList;
-	}
+		return unitWeaponsList; //NOT NEEDED
+	}*/
 	
 	/**
 	 * Updates the existing points variable with the methods supplied parameter 
@@ -79,10 +72,11 @@ public class Scout extends Unit
 	 * in the classes constructor
 	 */
 	
-	public void setPoints (int points)
+	/*public void setPoints (int points)
 	{
 		this.points = points;
-	}
+	}*/
+	
 	
 	/**
 	 * Returns the current weapon of a scout
@@ -91,10 +85,10 @@ public class Scout extends Unit
 	 */
 	
 							
-	public Weapon getWeaponUpgrade()
+	/*public Weapon getWeaponUpgrade()
 	{
 		return weapon;
-	}
+	}*/
 	
 	/**
 	 * Returns the scouts characteristics values in a nice format. 
@@ -102,12 +96,12 @@ public class Scout extends Unit
 	 * @return the characteristics values of a scout
 	 */
 	
-	public String getCharacteristics()
+	/*public String getCharacteristics()
 	{		
 		return "Scout Characteristics: " + "WS:" + weaponSkill + "  " + "BS:" + ballisticSkill + "  " + "S:" + strength
 				+ "  " + "T:" + toughness + "  " + "W" + wounds + "  " + "I:" + initiative + "  " + "A:" + attacks
 				+ "  " + "LD:" + leadership + "  " + "SV:" + save;
-	}
+	}*/
 	
 	/**
 	 * Returns a scouts details including the weapon, equipment and points value of a single 
@@ -116,10 +110,10 @@ public class Scout extends Unit
 	 * @return a single scouts details
 	 */
 	
-	public String getScoutDetails()
+	/*public String getScoutDetails()
 	{
 		return "|| " + "Weapon: " + weapon + " || " + "Points: " + points;
-	}
+	}*/
 	
 	/**
 	 * Returns the maximum amount of scouts allowed in a scout squad
@@ -127,9 +121,9 @@ public class Scout extends Unit
 	 * @return an int specifying the maximum amount of scouts allowed in a scout squad
 	 */
 	
-	public int getMaxSize()
+	/*public int getMaxSize()
 	{
 		return COMBOMAXSIZE;
-	}
-	
+	}*/
+		
 }

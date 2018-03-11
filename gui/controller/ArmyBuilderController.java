@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 
 import gui.model.ArmyBuilderProfile;
+import gui.model.Unit;
+import gui.model.UnitSquad;
 import gui.view.AddUnitPane;
 import gui.view.ArmyBuilderMenuBar;
 import gui.view.ArmyBuilderRootPane;
@@ -119,27 +121,25 @@ public class ArmyBuilderController
 	{
 		public void handle(ActionEvent e) 
 		{
-			ScoutSquad scouts;
-			TacticalSquad tactical;
+			UnitSquad squad;
 			
 			switch(au.getUnit().toString()) //gets the selected unit from the unitCombo (second ComboBox)
 			{
-			case "Scout Squad" : scouts = new ScoutSquad(au.getUnitName()); //create a new scoutSquad with the inputed name
-			                     scouts.addScout(new ScoutSergeant()); //add a scout sergeant to the scout squad
-			                     scouts.addScoutSquad(au.getUnitSize()-1);	/*then add as many scouts as specified by the user, then -1 to compensate for the scout sergeant*/	  										
-			                     scouts.weaponUpgrade(au.getUnitWeapon(), au.getUnitAmountSelected());
-			                     dp.setDisplayInput(scouts.getScoutSquad()); //display the results of the newly created scout squad to the display pane
+			   case "Scout Squad" : squad = new ScoutSquad(au.getUnitName()); //create a new scoutSquad with the inputed name
+		                            squad.addUnit(new ScoutSergeant()); //add a scout sergeant to the scout squad
+		                            squad.addUnitSquad(au.getUnitSize()-1);	/*then add as many scouts as specified by the user, then -1 to compensate for the scout sergeant*/	  										
+		                            squad.weaponUpgrade(au.getUnitWeapon(), au.getUnitAmountSelected());
+			                        dp.setDisplayInput(squad.getUnitSquad()); //display the results of the newly created scout squad to the display pane
 			                     
 
-			break;
-			case "Tactical Squad" : tactical = new TacticalSquad(au.getUnitName());
-			                        tactical.addTacticalSquad(new Tactical(), au.getUnitSize());
-			                        dp.setDisplayInput(tactical.getTacticalSquad());
-
+			//break;
+			   case "Tactical Squad" : squad = new TacticalSquad(au.getUnitName());
+			                           //squad.addUnit(new TacticalSergeant());
+			                           squad.addUnitSquad(au.getUnitSize()-1);	/*then add as many scouts as specified by the user, then -1 to compensate for the scout sergeant*/	  										
+		                               squad.weaponUpgrade(au.getUnitWeapon(), au.getUnitAmountSelected());
+			                           dp.setDisplayInput(squad.getUnitSquad());
 			}
-			
-			
-		
+					
 			au.setDefaultValues();			
 			//view.nextTab(2);
 						

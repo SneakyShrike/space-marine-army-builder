@@ -4,22 +4,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import troops.scout.Scout;
 import troops.scout.ScoutSergeant;
 import wargear.weapon.Weapon;
-import wargear.weapon.WeaponList;
 
 public abstract class UnitSquad implements Iterable<Unit>
 {
-	private String squadName; 
-	private List<Unit> unitList; 
+	protected String squadName, unitName; 
+	protected List<Unit> unitList; 
 	private int number;
-	private final int MAX = 0;
+	protected int MAX;
 	
 	public UnitSquad(String squadName) //creates a new array list of scouts with a name
 	{
 		this.squadName = squadName;
-		unitList = new ArrayList<>();				
+		unitList = new ArrayList<>();
 	}
 	
 	public Iterator<Unit> iterator() 
@@ -40,10 +38,7 @@ public abstract class UnitSquad implements Iterable<Unit>
 	public void addUnit (Unit u) //adds scouts until it reaches max
 	{
 		if (unitList.size() < MAX)
-			unitList.add(u);
-				
-		else 
-			System.out.println("You can only have 9 or less scouts");							
+			unitList.add(u);						
 	}
 	
 	public void addUnitSquad (int number)//adds scouts to the specified number instead of max
@@ -58,19 +53,7 @@ public abstract class UnitSquad implements Iterable<Unit>
 	public void weaponUpgrade(Weapon weapon, int amount)
 	{
 		for (int i = 1; i <= amount; i++)
-		{
-			switch(weapon.toString())
-			{
-			   case "Heavy Bolter" :
-			   case "Heavy Bolter (Hellfire Shell)" :			 
-			   case "Missle Launcher (Frag)" :
-			   case "Missle Launcher (Krak)" :
-			   case "Missle Launcher (Flakk)" :
-				   amount = 1;
-			   default:
-				   getScout(i).scoutWeaponUpgrade(weapon);				   				
-			}
-		}
+			getUnit(i).unitWeaponUpgrade(weapon);				   				
 	}
 	
 	public int getSquadSize ()
@@ -100,7 +83,7 @@ public abstract class UnitSquad implements Iterable<Unit>
         return u;
 	}
 		
-	public ScoutSergeant getScoutSergeant(int index)
+	/*public ScoutSergeant getScoutSergeant(int index)
 	{
 		ScoutSergeant s = null;
         if (0 <= index && index < unitList.size())
@@ -110,16 +93,21 @@ public abstract class UnitSquad implements Iterable<Unit>
            s = null;
         
         return s;
-	}
+	}*/
 	
 	public String getUnitSquad()
 	{
-		String s = "\nScout Squad: " + this.squadName + "\n\n";		
+		String s = "\n" + unitName + "Squad: " + this.squadName + "\n\n";		
 		
 		for (int i = 0; i < unitList.size(); i++)
-			s = s + "(" + (i+1)+ ")" + " " + "Scout" + " " + unitList.get(i).getScoutDetails() + "\n";
+			s = s + "(" + (i+1)+ ")" + " " + unitName + " " + unitList.get(i).getUnitDetails() + "\n";
 		
 		return s;
+	}
+	
+	public void setMaxSize (int size) //changes the name of a squad
+	{
+		this.MAX = size;
 	}
 	
 	public int getMaxSize()

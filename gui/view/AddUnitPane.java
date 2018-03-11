@@ -109,8 +109,8 @@ public class AddUnitPane extends GridPane
 		unitTypeLbl = new Label("Select The Unit Type: "); //Initialise all of the labels
 		unitLbl = new Label("Select The Unit: ");
 		unitSizeLbl = new Label("Select The Unit Size: ");
-		unitAmountSelectedLbl = new Label("Select The Amount Of Members To Upgrade: ")
-;		unitWeaponLbl = new Label("Select The Unit Members Weapon Upgrade: ");
+		unitAmountSelectedLbl = new Label("Select The Amount Of Members To Upgrade: ");
+		unitWeaponLbl = new Label("Select The Unit Members Weapon Upgrade: ");
 		unitNameLbl = new Label("Type The Unit Name: ");
 		
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
