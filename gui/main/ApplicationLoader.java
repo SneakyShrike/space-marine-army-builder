@@ -1,17 +1,11 @@
 package gui.main;
 
-import java.util.Scanner;
-
-
 import gui.controller.ArmyBuilderController;
-import gui.model.ArmyBuilderProfile;
+import gui.model.Army;
 import gui.view.ArmyBuilderRootPane;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import troops.scout.Scout;
-import troops.scout.ScoutSergeant;
-import troops.scout.ScoutSquad;
 
 public class ApplicationLoader extends Application 
 {
@@ -20,7 +14,7 @@ public class ApplicationLoader extends Application
 	@Override
 	public void init() throws Exception
 	{
-		ArmyBuilderProfile model = new ArmyBuilderProfile();
+		Army model = new Army();
 		view =  new ArmyBuilderRootPane(); 
 		new ArmyBuilderController(view, model);		
 	}

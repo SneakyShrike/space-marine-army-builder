@@ -26,7 +26,7 @@ public class ArmyBuilderDemo
 		
 		//System.out.println(details.getCharacteristics());
 						
-		squad1.addScout(new ScoutSergeant()); //a scout sergeant is first added to the squad
+		squad1.addUnit(new ScoutSergeant()); //a scout sergeant is first added to the squad
 		//squad1.addScoutSquad(new Scout(), size );
 
 		//for (int i = 1; i < 5; i++) //then the rest of the scouts are added to the squad
@@ -35,7 +35,7 @@ public class ArmyBuilderDemo
 		//}
 			             
         //apply weapon upgrades to certain scouts in the squad       
-        squad1.getScout(3).scoutWeaponUpgrade(WeaponList.getScoutWeapon("Sniper Rifle"));
+        squad1.getUnit(3).unitWeaponUpgrade(WeaponList.getScoutWeapon("Sniper Rifle"));
         //scouts.getScout(1).scoutWeaponUpgrade(WeaponList.getRanged("Plasma Pistol"));  
         //squad1.getScout(4).scoutWeaponUpgrade(WeaponList.getHeavy("Heavy Bolter"));
         //squad1.getScout(5).scoutWeaponUpgrade(WeaponList.getHeavy("Heavy Bolter"));
@@ -44,7 +44,7 @@ public class ArmyBuilderDemo
         //squad1.SquadWeaponsCheck();
         
         //print out the updated squad        
-        System.out.println(squad1.getScoutSquad());        
+        System.out.println(squad1.getUnitSquad());        
         
 
                

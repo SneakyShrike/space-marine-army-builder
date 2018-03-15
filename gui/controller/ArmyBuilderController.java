@@ -1,9 +1,14 @@
 package gui.controller;
 
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-
+import gui.model.Army;
 import gui.model.ArmyBuilderProfile;
 import gui.model.Unit;
 import gui.model.UnitSquad;
@@ -16,6 +21,8 @@ import gui.view.UpdateUnitPane;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import troops.scout.ScoutSergeant;
 import troops.scout.ScoutSquad;
 import troops.tactical.Tactical;
@@ -30,9 +37,9 @@ public class ArmyBuilderController
 	private UpdateUnitPane uu;
 	private ArmyDisplayPane dp;
 	
-	private ArmyBuilderProfile model;
+	private Army model;
 	
-	public ArmyBuilderController(ArmyBuilderRootPane view, ArmyBuilderProfile model)
+	public ArmyBuilderController(ArmyBuilderRootPane view, Army model)
 	{
 		this.view = view;
 		this.model = model;
@@ -45,7 +52,8 @@ public class ArmyBuilderController
 		
 		cp.populateMaxPointsComboBox(setupAndGetMaxPoints());
 		
-		this.attachEventHandlers();				
+		this.attachEventHandlers();	
+		this.attachBindings();
 	}
 	
 	private void attachEventHandlers()
@@ -58,6 +66,19 @@ public class ArmyBuilderController
 		au.AddUnitHandler(new AddUnitHandler());
 		uu.UpgradeUnitHandler(new UpgradeUnitHandler());
 		dp.SaveArmyHandler(new SaveArmyHandler());
+		dp.removeSquadHandler(new removeSquadHandler());
+		dp.clearArmyHandler(new clearArmyHandler());
+
+	}
+	
+	private void attachBindings() {
+		//attaches a binding such that the add button in the view will be disabled whenever either of the text fields in the NamePane are empty
+		//bp.addBtnDisableBind(np.isEitherFieldEmpty());
+
+		//Binds model's register collection and view's listview display bidirectionally.
+		//If either is updated then the other will automatically mirror these updates.
+		//In this case it means we can remove the submit button and all associated functionality.
+		model.bindContentBidirectional(dp.getContents());
 	}
 	
 	private ArrayList<Integer> setupAndGetMaxPoints()
@@ -76,8 +97,22 @@ public class ArmyBuilderController
 	{
 		public void handle(ActionEvent e) 
 		{
-			
-									
+			try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("armyObj.dat"));) {
+
+				//write name objects individually as cannot serialize the observable list in register
+				for (String n : model) {
+					oos.writeObject(n);
+				}
+
+				oos.writeObject(null);
+
+				oos.flush();
+
+				alertDialogBuilder(AlertType.INFORMATION, "Information Dialog", "Save success", "Register saved to"+ cp.getProfileName()+".dat");
+			}
+			catch (IOException ioExcep){
+				System.out.println("Error saving");
+			}												
 		}		
 	}
 	
@@ -85,6 +120,27 @@ public class ArmyBuilderController
 	{
 		public void handle(ActionEvent e) 
 		{
+			try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("armyObj.dat"));) {
+
+				dp.clearArmyList(); //clear any existing names in view
+				
+				//read back in names objects individually
+				String n = null;
+
+				while ((n = (String) ois.readObject()) != null) {
+					model.addUnitSquad(n);
+				}	
+
+				ois.close(); 
+			}
+			catch (IOException ioExcep){
+				System.out.println("Error loading");
+			}
+			catch (ClassNotFoundException c) {
+				System.out.println("Class Not found");
+			}
+
+			alertDialogBuilder(AlertType.INFORMATION, "Information Dialog", "Load success", "Register loaded from armyObj.dat");
 									
 		}		
 	}
@@ -109,10 +165,10 @@ public class ArmyBuilderController
 	{
 		public void handle(ActionEvent e) 
 		{
-			model.setProfileName(cp.getProfileName());
-			model.setMaxPoints(cp.getSelectedMaxPoints());  
-			model.setDate(cp.getprofileDate());
-		
+			model.setTotalPoints(cp.getSelectedMaxPoints());
+			view.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
+			
+					
 			view.nextTab(1);			
 		}		
 	}
@@ -121,26 +177,25 @@ public class ArmyBuilderController
 	{
 		public void handle(ActionEvent e) 
 		{
-			UnitSquad squad;
+			UnitSquad squad = new UnitSquad("");
 			
 			switch(au.getUnit().toString()) //gets the selected unit from the unitCombo (second ComboBox)
 			{
 			   case "Scout Squad" : squad = new ScoutSquad(au.getUnitName()); //create a new scoutSquad with the inputed name
 		                            squad.addUnit(new ScoutSergeant()); //add a scout sergeant to the scout squad
-		                            squad.addUnitSquad(au.getUnitSize()-1);	/*then add as many scouts as specified by the user, then -1 to compensate for the scout sergeant*/	  										
-		                            squad.weaponUpgrade(au.getUnitWeapon(), au.getUnitAmountSelected());
-			                        dp.setDisplayInput(squad.getUnitSquad()); //display the results of the newly created scout squad to the display pane
-			                     
-
-			//break;
+			break;
 			   case "Tactical Squad" : squad = new TacticalSquad(au.getUnitName());
-			                           //squad.addUnit(new TacticalSergeant());
-			                           squad.addUnitSquad(au.getUnitSize()-1);	/*then add as many scouts as specified by the user, then -1 to compensate for the scout sergeant*/	  										
-		                               squad.weaponUpgrade(au.getUnitWeapon(), au.getUnitAmountSelected());
-			                           dp.setDisplayInput(squad.getUnitSquad());
+				
 			}
+			
+			squad.addUnitSquad(au.getUnitSize()-1);
+			squad.weaponUpgrade(au.getUnitWeapon(), au.getUnitAmountSelected());
+			model.addUnitSquad(squad.getUnitSquad());
+			model.setCurrentPoints(squad.getSquadPoints());
+            view.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
 					
-			au.setDefaultValues();			
+			au.setDefaultValues();
+
 			//view.nextTab(2);
 						
 		}		
@@ -162,5 +217,29 @@ public class ArmyBuilderController
 		{
 									
 		}		
+	}
+	
+	private class removeSquadHandler implements EventHandler<ActionEvent>
+	{
+		public void handle(ActionEvent e) 
+		{
+			dp.removeSelectedUnitSquad();									
+		}		
+	}
+	
+	private class clearArmyHandler implements EventHandler<ActionEvent>
+	{
+		public void handle(ActionEvent e) 
+		{
+			dp.clearArmyList();									
+		}		
+	}
+	
+	private void alertDialogBuilder(AlertType type, String title, String header, String content) {
+		Alert alert = new Alert(type);
+		alert.setTitle(title);
+		alert.setHeaderText(header);
+		alert.setContentText(content);
+		alert.showAndWait();
 	}
 }

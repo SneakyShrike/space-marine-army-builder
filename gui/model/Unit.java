@@ -44,6 +44,11 @@ public class Unit
 		return weapon;
 	}*/
 	
+	public int getUnitPoints ()
+	{
+		return this.points;
+	}
+	
 	public String getCharacteristics()
 	{		
 		return "Scout Characteristics: " + "WS:" + weaponSkill + "  " + "BS:" + ballisticSkill + "  " + "S:" + strength

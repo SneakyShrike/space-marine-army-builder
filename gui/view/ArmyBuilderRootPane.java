@@ -1,16 +1,20 @@
 package gui.view;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TabPane.TabClosingPolicy;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 public class ArmyBuilderRootPane extends BorderPane
 {
 	private ArmyBuilderMenuBar mb;
 	private TabPane tp;
 	private Tab tab1, tab2, tab3, tab4;
+	private Label totalPoints;
 	private CreateProfilePane cp;
 	private AddUnitPane au;
 	private UpdateUnitPane uu;
@@ -33,7 +37,11 @@ public class ArmyBuilderRootPane extends BorderPane
 		tp.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE); //ensures user can't close tabs
 		tp.getTabs().addAll(tab1, tab2, tab3, tab4);
 		
-		this.setTop(mb);
+		totalPoints = new Label("test");
+		
+		VBox globalSection = new VBox(mb, totalPoints);
+		
+		this.setTop(globalSection);
 		this.setCenter(tp);
 	}
 	
@@ -66,4 +74,11 @@ public class ArmyBuilderRootPane extends BorderPane
 	{
 		return ad;
 	}
+	
+	public void setMaxpoints(int currentPoints, int totalPoints)
+	{
+		this.totalPoints.textProperty().bind(new SimpleIntegerProperty(currentPoints).asString()
+		.concat("/")
+		.concat(new SimpleIntegerProperty(totalPoints).asString()));
+	}	
 }

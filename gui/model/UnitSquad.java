@@ -7,11 +7,11 @@ import java.util.List;
 import troops.scout.ScoutSergeant;
 import wargear.weapon.Weapon;
 
-public abstract class UnitSquad implements Iterable<Unit>
+public class UnitSquad implements Iterable<Unit>
 {
 	protected String squadName, unitName; 
 	protected List<Unit> unitList; 
-	private int number;
+	private int number, squadPoints;
 	protected int MAX;
 	
 	public UnitSquad(String squadName) //creates a new array list of scouts with a name
@@ -97,7 +97,9 @@ public abstract class UnitSquad implements Iterable<Unit>
 	
 	public String getUnitSquad()
 	{
-		String s = "\n" + unitName + "Squad: " + this.squadName + "\n\n";		
+		String s = "\n" + unitName + "Squad: " + this.squadName 
+		+ "\n" + 
+		"Total Squad Points: " + getSquadPoints() + "\n\n";		
 		
 		for (int i = 0; i < unitList.size(); i++)
 			s = s + "(" + (i+1)+ ")" + " " + unitName + " " + unitList.get(i).getUnitDetails() + "\n";
@@ -118,6 +120,16 @@ public abstract class UnitSquad implements Iterable<Unit>
 	public void setScoutSquadWeapons(int index, Weapon weapon)
 	{
 		unitList.get(index);		
-	}		
+	}
+	
+	public int getSquadPoints ()
+	{
+		int total = 0;
+		
+		for (int i = 0; i < unitList.size(); i++)
+			total = total + unitList.get(i).getUnitPoints();
+		
+		return total; 
+	}
 }
 	
