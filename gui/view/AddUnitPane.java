@@ -23,6 +23,7 @@ import fast_attack.scout_bike.Scout_Bike;
 import fast_attack.stormhawk_interceptor.Stormhawk_Interceptor;
 import fast_attack.stormtalon_gunship.Stormtalon_Gunship;
 import gui.model.Unit;
+import gui.model.UnitSquad;
 import gui.model.Unit_Type;
 import heavy_support.centurion_devastator.Centurion_Devastator;
 import heavy_support.devastator.Devastator;
@@ -221,6 +222,12 @@ public class AddUnitPane extends GridPane
 	public void AddUnitHandler(EventHandler<ActionEvent> handler) //when the add button is pressed, control is allocated to an event handler in controller
 	{
 		addUnitBtn.setOnAction(handler);		
+	}
+	
+	public UnitSquad getUnitSquad()
+	{
+		return new UnitSquad(unitNameTf.getText());
+		
 	}
 	
 	/*public void setunitAmountSelected()

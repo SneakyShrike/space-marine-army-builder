@@ -100,7 +100,7 @@ public class ArmyBuilderController
 			try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("armyObj.dat"));) {
 
 				//write name objects individually as cannot serialize the observable list in register
-				for (String n : model) {
+				for (UnitSquad n : model) {
 					oos.writeObject(n);
 				}
 
@@ -108,7 +108,7 @@ public class ArmyBuilderController
 
 				oos.flush();
 
-				alertDialogBuilder(AlertType.INFORMATION, "Information Dialog", "Save success", "Register saved to"+ cp.getProfileName()+".dat");
+				alertDialogBuilder(AlertType.INFORMATION, "Information Dialog", "Save success", "Register saved to armyObj.dat");
 			}
 			catch (IOException ioExcep){
 				System.out.println("Error saving");
@@ -125,10 +125,10 @@ public class ArmyBuilderController
 				dp.clearArmyList(); //clear any existing names in view
 				
 				//read back in names objects individually
-				String n = null;
+				UnitSquad n = null;
 
-				while ((n = (String) ois.readObject()) != null) {
-					model.addUnitSquad(n);
+				while ((n = (UnitSquad) ois.readObject()) != null) {
+					//model.addUnitSquad(n);
 				}	
 
 				ois.close(); 
@@ -177,26 +177,27 @@ public class ArmyBuilderController
 	{
 		public void handle(ActionEvent e) 
 		{
-			UnitSquad squad = new UnitSquad("");
+			//UnitSquad squad = new UnitSquad("");
+			UnitSquad squad = au.getUnitSquad();
 			
 			switch(au.getUnit().toString()) //gets the selected unit from the unitCombo (second ComboBox)
 			{
 			   case "Scout Squad" : squad = new ScoutSquad(au.getUnitName()); //create a new scoutSquad with the inputed name
-		                            squad.addUnit(new ScoutSergeant()); //add a scout sergeant to the scout squad
-			break;
+		                            //squad.addUnit(new ScoutSergeant()); //add a scout sergeant to the scout squad
+			   break;
 			   case "Tactical Squad" : squad = new TacticalSquad(au.getUnitName());
 				
 			}
 			
-			squad.addUnitSquad(au.getUnitSize()-1);
+			squad.addUnitSquad(au.getUnitSize());
 			squad.weaponUpgrade(au.getUnitWeapon(), au.getUnitAmountSelected());
-			model.addUnitSquad(squad.getUnitSquad());
+			model.addUnitSquad(squad);
 			model.setCurrentPoints(squad.getSquadPoints());
             view.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
 					
 			au.setDefaultValues();
 
-			//view.nextTab(2);
+			view.nextTab(3);
 						
 		}		
 	}
@@ -221,9 +222,14 @@ public class ArmyBuilderController
 	
 	private class removeSquadHandler implements EventHandler<ActionEvent>
 	{
+		//UnitSquad squad = new UnitSquad("");
+		
 		public void handle(ActionEvent e) 
 		{
-			dp.removeSelectedUnitSquad();									
+			int value = model.getCurrentPoints() - dp.getSelectedUnitSquad().getSquadPoints();
+			dp.removeSelectedUnitSquad();
+			model.setCurrentPoints(value);
+			view.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
 		}		
 	}
 	
@@ -231,7 +237,9 @@ public class ArmyBuilderController
 	{
 		public void handle(ActionEvent e) 
 		{
-			dp.clearArmyList();									
+			dp.clearArmyList();
+			model.setCurrentPoints(0);
+			view.setMaxpoints(0, model.getTotalPoints());
 		}		
 	}
 	

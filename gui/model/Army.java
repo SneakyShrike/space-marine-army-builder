@@ -1,17 +1,19 @@
 package gui.model;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Army implements Iterable<String>
+public class Army implements Iterable<UnitSquad>
 {
 	private int currentPoints, totalPoints;
-	private ObservableList<String> armyList;
-	private ListProperty<String> lp;
+	private ObservableList<UnitSquad> armyList;
+	private ListProperty<UnitSquad> lp;
 	
 	public Army()
 	{
@@ -21,19 +23,24 @@ public class Army implements Iterable<String>
 	}
 	
 	@Override
-	public Iterator<String> iterator() 
+	public Iterator<UnitSquad> iterator() 
 	{
 		return armyList.iterator();
 	}
 			
 	public void setCurrentPoints (int currentPoints)
-	{
-		this.currentPoints = currentPoints;		
+	{		
+		this.currentPoints = currentPoints;
 	}
 	
 	public int getCurrentPoints ()
 	{
-		return currentPoints;
+        int currentTotal = 0; 
+		
+		for (int i = 0; i < armyList.size(); i++)
+			currentTotal = currentTotal + armyList.get(i).getSquadPoints();
+							
+		return currentTotal;
 	}
 	
 	public void setTotalPoints (int currentPoints)
@@ -46,12 +53,12 @@ public class Army implements Iterable<String>
 		return totalPoints;
 	}
 	
-	public void bindContentBidirectional(ObservableList<String> otherList) 
+	public void bindContentBidirectional(ObservableList<UnitSquad> otherList) 
 	{
 		lp.bindContentBidirectional(otherList);
 	}
 	
-	public void addUnitSquad (String u)
+	public void addUnitSquad (UnitSquad u)
 	{
 		armyList.add(u);
 	}
@@ -66,7 +73,7 @@ public class Army implements Iterable<String>
 		return armyList.remove(u);
 	}
 	
-	public String getUnitSquad(int index)
+	public UnitSquad getUnitSquad(int index)
 	{
 		return armyList.get(index);		
 	}
@@ -95,9 +102,4 @@ public class Army implements Iterable<String>
 	public String toString() {
 		return "Army:[armyList=" + armyList + "]";
 	}
-	
-	
-	
-	
-
 }

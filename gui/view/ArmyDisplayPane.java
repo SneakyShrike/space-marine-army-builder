@@ -1,5 +1,6 @@
 package gui.view;
 
+import gui.model.UnitSquad;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,8 +16,8 @@ import javafx.scene.layout.HBox;
 
 public class ArmyDisplayPane extends BorderPane 
 {
-	private ListView<String> lv;
-	private ObservableList<String> armyList;
+	private ListView<UnitSquad> lv;
+	private ObservableList<UnitSquad> armyList;
 	private Button saveDisplayBtn, removeSquadBtn, clearArmyBtn;
 	private HBox buttonHAlign; //allows the button to be horizontally centred
 	
@@ -61,7 +62,7 @@ public class ArmyDisplayPane extends BorderPane
 		armyList.add(s);
 	}*/
 		
-	public ObservableList<String> getContents()
+	public ObservableList<UnitSquad> getContents()
 	{
 		return armyList;		
 	}
@@ -71,12 +72,12 @@ public class ArmyDisplayPane extends BorderPane
 		armyList.clear();
 	}
 	
-	public String getSelectedUnitSquad()
+	public UnitSquad getSelectedUnitSquad()
 	{
 		return lv.getSelectionModel().getSelectedItem();
 	}
-	
-	public ObservableList<String> getSelectedUnitSquads() 
+		
+	public ObservableList<UnitSquad> getSelectedUnitSquads() 
 	{
 		return lv.getSelectionModel().getSelectedItems();
 	}

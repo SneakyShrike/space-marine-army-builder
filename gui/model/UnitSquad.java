@@ -1,5 +1,6 @@
 package gui.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 import troops.scout.ScoutSergeant;
 import wargear.weapon.Weapon;
 
-public class UnitSquad implements Iterable<Unit>
+public class UnitSquad implements Serializable, Iterable<Unit>
 {
 	protected String squadName, unitName; 
 	protected List<Unit> unitList; 
@@ -105,6 +106,12 @@ public class UnitSquad implements Iterable<Unit>
 			s = s + "(" + (i+1)+ ")" + " " + unitName + " " + unitList.get(i).getUnitDetails() + "\n";
 		
 		return s;
+	}
+	
+	@Override 
+	public String toString()
+	{
+		return this.getUnitSquad();
 	}
 	
 	public void setMaxSize (int size) //changes the name of a squad
