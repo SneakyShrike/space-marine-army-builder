@@ -9,9 +9,9 @@ import wargear.weapon.Weapon;
 
 public class Unit
 {
-	protected ArrayList<Integer> unitSizeList, weaponUpgradeAmount; //a unit has a size
-	protected ArrayList<Weapon> unitWeaponsList;
-	protected Weapon weapon;
+	protected ArrayList<Integer> unitSizeList, weaponUpgradeAmount; 
+	protected ArrayList<Weapon> unitWeaponsList, unitSecondWeaponsList;
+	protected Weapon weapon, weaponTwo;
 	protected String unitName, save;
 	protected int COMBOMAXSIZE, points, weaponSkill, ballisticSkill, strength, toughness, 
     wounds, initiative, attacks, leadership;
@@ -20,6 +20,7 @@ public class Unit
 	{
 		unitSizeList = new ArrayList<>();
 		unitWeaponsList = new ArrayList<>();
+		unitSecondWeaponsList = new ArrayList<>();
 		weaponUpgradeAmount = new ArrayList<>();
 	}
 	
@@ -28,6 +29,13 @@ public class Unit
 		this.weapon = weapon; 
 	    points = points + weapon.getWeaponPoints();
     }
+	
+	public void unitSecondWeaponUpgrade(Weapon weaponTwo) 
+	{
+		this.weaponTwo = weaponTwo; 
+	    points = points + weaponTwo.getWeaponPoints();
+    }
+	
 		
 	/*public List<Weapon> getUnitWeapon ()
 	{
@@ -80,6 +88,12 @@ public class Unit
 	{		
 		ObservableList<Weapon> unitWeaponsOList = FXCollections.observableArrayList(unitWeaponsList);
 		return unitWeaponsOList;
+	}
+	
+	public ObservableList<Weapon> getUnitSecondWeapons()
+	{		
+		ObservableList<Weapon> unitSecondWeaponsOList = FXCollections.observableArrayList(unitSecondWeaponsList);
+		return unitSecondWeaponsOList;
 	}
 	
 	public ObservableList<Integer> getWeaponUpgradeAmount(int amount)

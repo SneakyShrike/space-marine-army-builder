@@ -21,7 +21,7 @@ public class TacticalSquad extends UnitSquad
 		{
 			super(squadName);
 			unitName = "Tactical ";
-			super.setMaxSize(7);
+			super.setMaxSize(9);
 			
 			//this.squadName = squadName;
 			//scoutList = new ArrayList<>();
@@ -71,9 +71,9 @@ public class TacticalSquad extends UnitSquad
 				   case "Grav-Gun" :
 				   case "Heavy Bolter" :
 				   case "Multi-Melta" :
-				   case "Missle Launcher (Frag)" :
-				   case "Missle Launcher (Krak)" :
-				   case "Missle Launcher (Flakk)":
+				   case "Missile Launcher (Frag)" :
+				   case "Missile Launcher (Krak)" :
+				   case "Missile Launcher (Flakk)":
 				   case "Plasma Cannon" :
 				   case "Lascannon" :
 				   case "Grav-Cannon" :

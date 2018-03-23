@@ -8,6 +8,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import elites.centurion_assault.Centurion_AssaultSquad;
+import elites.command.CommandSquad;
+import elites.deadnought.DreadnoughtSquad;
+import elites.terminator.TerminatorSquad;
+import elites.terminator_assault.Terminator_AssaultSquad;
 import gui.model.Army;
 import gui.model.ArmyBuilderProfile;
 import gui.model.Unit;
@@ -182,8 +187,17 @@ public class ArmyBuilderController
 			
 			switch(au.getUnit().toString()) //gets the selected unit from the unitCombo (second ComboBox)
 			{
-			   case "Scout Squad" : squad = new ScoutSquad(au.getUnitName()); //create a new scoutSquad with the inputed name
-		                            //squad.addUnit(new ScoutSergeant()); //add a scout sergeant to the scout squad
+			   case "Centurion Assault Squad" : squad = new Centurion_AssaultSquad(au.getUnitName());
+			   break;
+			   case "Command Squad" : squad = new CommandSquad(au.getUnitName());
+			   break;			   
+			   case "Dreadnought Squad" : squad = new DreadnoughtSquad(au.getUnitName());
+			   break;
+			   case "Terminator Squad" : squad = new TerminatorSquad(au.getUnitName());
+			   break;
+			   case "Terminator Assault Squad" : squad = new Terminator_AssaultSquad(au.getUnitName());
+			   break;	
+			   case "Scout Squad" : squad = new ScoutSquad(au.getUnitName()); //create a new scoutSquad with the inputed name		                            //squad.addUnit(new ScoutSergeant()); //add a scout sergeant to the scout squad
 			   break;
 			   case "Tactical Squad" : squad = new TacticalSquad(au.getUnitName());
 				
@@ -191,6 +205,15 @@ public class ArmyBuilderController
 			
 			squad.addUnitSquad(au.getUnitSize());
 			squad.weaponUpgrade(au.getUnitWeapon(), au.getUnitAmountSelected());
+			switch(au.getUnit().toString())
+			{
+			   case "Centurion Assault Squad" : 
+			   case "Command Squad" : 		   
+			   case "Dreadnought Squad" : 
+				   squad.secondWeaponUpgrade(au.getUnitSecondWeapon(), au.getUnitAmountSelected());
+			  break;				
+			}			
+					
 			model.addUnitSquad(squad);
 			model.setCurrentPoints(squad.getSquadPoints());
             view.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());

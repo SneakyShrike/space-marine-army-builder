@@ -62,12 +62,12 @@ import wargear.weapon.Weapon;
 
 public class AddUnitPane extends GridPane
 {
-	private Label unitTypeLbl, unitLbl, unitSizeLbl, unitAmountSelectedLbl, unitWeaponLbl, unitNameLbl;
+	private Label unitTypeLbl, unitLbl, unitSizeLbl, unitAmountSelectedLbl, unitWeaponLbl, unitSecondWeaponLbl, unitNameLbl;
 	private ComboBox<Unit_Type> unitTypeCombo; 
 	private ComboBox<Unit> unitCombo;
 	private ComboBox<Integer> unitSizeCombo;
 	private ComboBox<Integer> unitAmountSelectedCombo;
-	private ComboBox<Weapon> unitWeaponCombo;
+	private ComboBox<Weapon> unitWeaponCombo, unitSecondWeaponCombo;
 	private TextField unitNameTf;
 	private Button addUnitBtn;
 	
@@ -112,6 +112,7 @@ public class AddUnitPane extends GridPane
 		unitSizeLbl = new Label("Select The Unit Size: ");
 		unitAmountSelectedLbl = new Label("Select The Amount Of Members To Upgrade: ");
 		unitWeaponLbl = new Label("Select The Unit Members Weapon Upgrade: ");
+		unitSecondWeaponLbl = new Label("Select The Unit Members Second Weapon Upgrade: ");
 		unitNameLbl = new Label("Type The Unit Name: ");
 		
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -133,7 +134,11 @@ public class AddUnitPane extends GridPane
 		});
 				    		
 		unitSizeCombo = new ComboBox<>(); //Initialise the unit unitSizeCombo (third ComboBox)
+		
+		unitAmountSelectedCombo = new ComboBox<>();
+	    unitAmountSelectedCombo.setItems(unitAmountSelectedOlist);
 		unitWeaponCombo = new ComboBox<>();
+		unitSecondWeaponCombo = new ComboBox<>();
 		
 		unitCombo.valueProperty().addListener(new ChangeListener<Unit>() //unitSizeCombo (third ComboBox) based on the Unit Chosen
 		{
@@ -143,7 +148,9 @@ public class AddUnitPane extends GridPane
 				unitSizeCombo.setItems(newValue == null ? FXCollections.emptyObservableList() : newValue.getUnitSize());
 				unitSizeCombo.getSelectionModel().selectFirst(); //Selects the first size value of the unitSizeCombo (third ComboBox)
 				unitWeaponCombo.setItems(newValue == null ? FXCollections.emptyObservableList() : newValue.getUnitWeapons());
+				unitSecondWeaponCombo.setItems(newValue == null ? FXCollections.emptyObservableList() : newValue.getUnitSecondWeapons());
 				unitWeaponCombo.getSelectionModel().selectFirst();
+				unitSecondWeaponCombo.getSelectionModel().selectFirst();
 				//unitAmountSelectedCombo.setItems(newValue == null ? FXCollections.emptyObservableList() 
 						//: newValue.getWeaponUpgradeAmount(unitSizeCombo.getSelectionModel().getSelectedItem()));
 				//unitAmountSelectedCombo.getSelectionModel().selectFirst(); //Selects the first size value of the unitSizeCombo (third ComboBox)
@@ -160,9 +167,7 @@ public class AddUnitPane extends GridPane
 			}			
 		});*/
 		
-		unitAmountSelectedCombo = new ComboBox<>();
-	    unitAmountSelectedCombo.setItems(unitAmountSelectedOlist);
-				
+					
 		unitNameTf = new TextField(); //Initialise the unit name TextField
 						
 		addUnitBtn = new Button("Add Unit");
@@ -176,17 +181,20 @@ public class AddUnitPane extends GridPane
 		this.add(unitSizeLbl, 0, 3);
 		this.add(unitSizeCombo, 1, 3);
 		
-		this.add(unitWeaponLbl, 0, 4);
-		this.add(unitWeaponCombo, 1, 4);
+		this.add(unitWeaponLbl, 0, 5);
+		this.add(unitWeaponCombo, 1, 5);
 		
-		this.add(unitAmountSelectedLbl, 0, 5);
-		this.add(unitAmountSelectedCombo, 1, 5);
+		this.add(unitSecondWeaponLbl, 0, 6);
+		this.add(unitSecondWeaponCombo, 1, 6);
 		
-		this.add(unitNameLbl, 0, 6);
-		this.add(unitNameTf, 1, 6);
+		this.add(unitAmountSelectedLbl, 0, 4);
+		this.add(unitAmountSelectedCombo, 1, 4);
+		
+		this.add(unitNameLbl, 0, 7);
+		this.add(unitNameTf, 1, 7);
 				
-		this.add(new HBox(), 0, 7);
-		this.add(addUnitBtn, 1, 7);		
+		this.add(new HBox(), 0, 8);
+		this.add(addUnitBtn, 1, 8);		
 	}
 	
 	public Unit_Type getUnitType() //returns the selected unit type from the unitTypeCombo (first ComboBox)
@@ -207,6 +215,11 @@ public class AddUnitPane extends GridPane
 	public Weapon getUnitWeapon() //returns the selected unit weapon from the unitWeaponCombo (fourth ComboBox)
 	{
 		return unitWeaponCombo.getSelectionModel().getSelectedItem();
+	}
+	
+	public Weapon getUnitSecondWeapon() //returns the selected unit weapon from the unitWeaponCombo (fourth ComboBox)
+	{
+		return unitSecondWeaponCombo.getSelectionModel().getSelectedItem();
 	}
 	
 	public Integer getUnitAmountSelected() //returns the selected unit size from the unitSizeCombo (third ComboBox)

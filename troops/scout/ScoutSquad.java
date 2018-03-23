@@ -1,15 +1,7 @@
 package troops.scout;
 
-import java.util.ArrayList;
-
-import java.util.Iterator;
-import java.util.List;
-
-import gui.model.Unit;
 import gui.model.UnitSquad;
-import wargear.weapon.Ranged;
 import wargear.weapon.Weapon;
-import wargear.weapon.WeaponList;
 
 public class ScoutSquad extends UnitSquad
 {
@@ -69,9 +61,9 @@ public class ScoutSquad extends UnitSquad
 			{
 			   case "Heavy Bolter" :
 			   case "Heavy Bolter (Hellfire Shell)" :			 
-			   case "Missle Launcher (Frag)" :
-			   case "Missle Launcher (Krak)" :
-			   case "Missle Launcher (Flakk)" :
+			   case "Missile Launcher (Frag)" :
+			   case "Missile Launcher (Krak)" :
+			   case "Missile Launcher (Flakk)" :
 				   amount = 1;
 			   default:
 				   getUnit(i).unitWeaponUpgrade(weapon);

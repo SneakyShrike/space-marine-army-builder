@@ -57,6 +57,12 @@ public class UnitSquad implements Serializable, Iterable<Unit>
 			getUnit(i).unitWeaponUpgrade(weapon);				   				
 	}
 	
+	public void secondWeaponUpgrade(Weapon weapon, int amount)
+	{
+		for (int i = 1; i <= amount; i++)
+			getUnit(i).unitSecondWeaponUpgrade(weapon);				   				
+	}
+		
 	public int getSquadSize ()
 	{
 		return number;

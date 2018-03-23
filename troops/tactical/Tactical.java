@@ -12,7 +12,7 @@ public class Tactical extends Unit
 	{  
 		super();
 		unitName = "Tactical Squad";
-		COMBOMAXSIZE = 7;
+		COMBOMAXSIZE = 9;
         weapon = WeaponList.getRanged("Boltgun");
         points = 14 + weapon.getWeaponPoints();
         weaponSkill = 4;
@@ -31,9 +31,9 @@ public class Tactical extends Unit
         unitWeaponsList.add(WeaponList.getSpecial("Plasma Gun"));
         unitWeaponsList.add(WeaponList.getHeavy("Heavy Bolter"));
         unitWeaponsList.add(WeaponList.getHeavy("Multi-Melta"));
-        unitWeaponsList.add(WeaponList.getHeavy("Missle Launcher (Frag)"));
-        unitWeaponsList.add(WeaponList.getHeavy("Missle Launcher (Krak)"));
-        unitWeaponsList.add(WeaponList.getHeavy("Missle Launcher (Flakk)"));
+        unitWeaponsList.add(WeaponList.getHeavy("Missile Launcher (Frag)"));
+        unitWeaponsList.add(WeaponList.getHeavy("Missile Launcher (Krak)"));
+        unitWeaponsList.add(WeaponList.getHeavy("Missile Launcher (Flakk)"));
         unitWeaponsList.add(WeaponList.getHeavy("Plasma Cannon"));
         unitWeaponsList.add(WeaponList.getHeavy("Lascannon"));
         unitWeaponsList.add(WeaponList.getHeavy("Grav-Cannon"));

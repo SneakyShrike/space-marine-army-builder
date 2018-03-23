@@ -37,9 +37,12 @@ public class Scout extends Unit
         unitWeaponsList.add(WeaponList.getScoutWeapon("Sniper Rifle"));
         unitWeaponsList.add(WeaponList.getHeavy("Heavy Bolter"));
         unitWeaponsList.add(WeaponList.getScoutWeapon("Heavy Bolter (Hellfire Shell)"));
-        unitWeaponsList.add(WeaponList.getHeavy("Missle Launcher (Frag)"));
-        unitWeaponsList.add(WeaponList.getHeavy("Missle Launcher (Krak)"));
-        unitWeaponsList.add(WeaponList.getHeavy("Missle Launcher (Flakk)"));
+        unitWeaponsList.add(WeaponList.getHeavy("Missile Launcher (Frag)"));
+        unitWeaponsList.add(WeaponList.getHeavy("Missile Launcher (Krak)"));
+        unitWeaponsList.add(WeaponList.getHeavy("Missile Launcher (Flakk)"));
+        
+        //unitSecondWeaponsList.add(WeaponList.getSpecial("None"));
+        
 	}
 		
 	
