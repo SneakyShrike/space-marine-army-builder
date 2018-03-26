@@ -52,6 +52,8 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -62,14 +64,15 @@ import wargear.weapon.Weapon;
 
 public class AddUnitPane extends GridPane
 {
-	private Label unitTypeLbl, unitLbl, unitSizeLbl, unitAmountSelectedLbl, unitWeaponLbl, unitSecondWeaponLbl, unitNameLbl;
+	private Label unitTypeLbl, unitLbl, unitSizeLbl, unitWeaponLbl, unitSecondWeaponLbl, unitNameLbl;
 	private ComboBox<Unit_Type> unitTypeCombo; 
 	private ComboBox<Unit> unitCombo;
-	private ComboBox<Integer> unitSizeCombo;
-	private ComboBox<Integer> unitAmountSelectedCombo;
+	private ComboBox<Integer> unitSizeCombo, unitMemberSelectedCombo;
 	private ComboBox<Weapon> unitWeaponCombo, unitSecondWeaponCombo;
 	private TextField unitNameTf;
-	private Button addUnitBtn;
+	private Button addUnitBtn, addUnitMemberBtn, removeUnitMemberBtn, upgradeUnitWeaponBtn;
+	private ListView<UnitSquad> lv;
+	private ObservableList<UnitSquad> armyList;
 	
 	private Unit_Type HQ, troops, elites, fast_attack, heavy_support;
 	
@@ -104,13 +107,12 @@ public class AddUnitPane extends GridPane
 				        new Whirlwind());
 				
 		ObservableList<Unit_Type> unitTypeOList = FXCollections.observableArrayList(HQ, troops, elites, fast_attack, heavy_support); //create an observable list of unit types
-        ObservableList<Integer> unitAmountSelectedOlist = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9);	
+        ObservableList<Integer> unitMemberSelectedOlist = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9);	
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 							
 		unitTypeLbl = new Label("Select The Unit Type: "); //Initialise all of the labels
 		unitLbl = new Label("Select The Unit: ");
 		unitSizeLbl = new Label("Select The Unit Size: ");
-		unitAmountSelectedLbl = new Label("Select The Amount Of Members To Upgrade: ");
 		unitWeaponLbl = new Label("Select The Unit Members Weapon Upgrade: ");
 		unitSecondWeaponLbl = new Label("Select The Unit Members Second Weapon Upgrade: ");
 		unitNameLbl = new Label("Type The Unit Name: ");
@@ -135,8 +137,8 @@ public class AddUnitPane extends GridPane
 				    		
 		unitSizeCombo = new ComboBox<>(); //Initialise the unit unitSizeCombo (third ComboBox)
 		
-		unitAmountSelectedCombo = new ComboBox<>();
-	    unitAmountSelectedCombo.setItems(unitAmountSelectedOlist);
+		//unitAmountSelectedCombo = new ComboBox<>();
+	    //unitAmountSelectedCombo.setItems(unitAmountSelectedOlist);
 		unitWeaponCombo = new ComboBox<>();
 		unitSecondWeaponCombo = new ComboBox<>();
 		
@@ -156,6 +158,7 @@ public class AddUnitPane extends GridPane
 				//unitAmountSelectedCombo.getSelectionModel().selectFirst(); //Selects the first size value of the unitSizeCombo (third ComboBox)
 		    }			
 		});
+		
 				
 		/*unitSizeCombo.valueProperty().addListener(new ChangeListener<Integer>() //unitSizeCombo (third ComboBox) based on the Unit Chosen
 		{
@@ -171,6 +174,18 @@ public class AddUnitPane extends GridPane
 		unitNameTf = new TextField(); //Initialise the unit name TextField
 						
 		addUnitBtn = new Button("Add Unit");
+		
+		armyList = FXCollections.observableArrayList();
+		lv = new ListView<>(armyList);
+		lv.setEditable(false); //ensures a user can't edit the TextArea
+		lv.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+		lv.setPrefSize(400, 400);
+		
+		addUnitMemberBtn = new Button("Add Unit Member (+)");
+		removeUnitMemberBtn = new Button("Remove Unit Member (-)");
+		unitMemberSelectedCombo = new ComboBox<>();
+		unitMemberSelectedCombo.setItems(unitMemberSelectedOlist);
+		upgradeUnitWeaponBtn = new Button("Upgrade Unit Weapon");
 	
 		this.add(unitTypeLbl, 0, 1);
 		this.add(unitTypeCombo, 1, 1);
@@ -180,21 +195,36 @@ public class AddUnitPane extends GridPane
 		
 		this.add(unitSizeLbl, 0, 3);
 		this.add(unitSizeCombo, 1, 3);
+			
+		//this.add(unitAmountSelectedLbl, 0, 4);
+		//this.add(unitAmountSelectedCombo, 1, 4);
 		
-		this.add(unitWeaponLbl, 0, 5);
-		this.add(unitWeaponCombo, 1, 5);
-		
-		this.add(unitSecondWeaponLbl, 0, 6);
-		this.add(unitSecondWeaponCombo, 1, 6);
-		
-		this.add(unitAmountSelectedLbl, 0, 4);
-		this.add(unitAmountSelectedCombo, 1, 4);
-		
-		this.add(unitNameLbl, 0, 7);
-		this.add(unitNameTf, 1, 7);
+		this.add(unitNameLbl, 0, 4);
+		this.add(unitNameTf, 1, 4);
 				
+		this.add(new HBox(), 0, 5);
+		this.add(addUnitBtn, 1, 5);	
+		
+		this.add(lv, 0, 7);
+		
 		this.add(new HBox(), 0, 8);
-		this.add(addUnitBtn, 1, 8);		
+		this.add(addUnitMemberBtn, 1, 8);	
+		
+		this.add(new HBox(), 0, 9);
+		this.add(removeUnitMemberBtn, 1, 9);
+		
+		//this.add(unitWeaponLbl, 0, 10);
+		this.add(unitMemberSelectedCombo, 1, 10);
+		
+		this.add(unitWeaponLbl, 0, 11);
+		this.add(unitWeaponCombo, 1, 11);
+		
+		this.add(unitSecondWeaponLbl, 0, 12);
+		this.add(unitSecondWeaponCombo, 1, 12);
+		
+		this.add(new HBox(), 1, 12);
+		this.add(upgradeUnitWeaponBtn, 2, 12);
+		
 	}
 	
 	public Unit_Type getUnitType() //returns the selected unit type from the unitTypeCombo (first ComboBox)
@@ -222,9 +252,9 @@ public class AddUnitPane extends GridPane
 		return unitSecondWeaponCombo.getSelectionModel().getSelectedItem();
 	}
 	
-	public Integer getUnitAmountSelected() //returns the selected unit size from the unitSizeCombo (third ComboBox)
+	public Integer getunitMemberSelected() //returns the selected unit size from the unitSizeCombo (third ComboBox)
 	{
-		return unitAmountSelectedCombo.getSelectionModel().getSelectedItem();
+		return unitMemberSelectedCombo.getSelectionModel().getSelectedItem();
 	}
 	
 	public String getUnitName() //returns the user specified name given to the unit or squad
@@ -234,7 +264,8 @@ public class AddUnitPane extends GridPane
 		
 	public void AddUnitHandler(EventHandler<ActionEvent> handler) //when the add button is pressed, control is allocated to an event handler in controller
 	{
-		addUnitBtn.setOnAction(handler);		
+		addUnitBtn.setOnAction(handler);
+		//unitWeaponCombo.setOnAction(handler);
 	}
 	
 	public UnitSquad getUnitSquad()
@@ -256,5 +287,36 @@ public class AddUnitPane extends GridPane
 	{
 		unitTypeCombo.getSelectionModel().clearSelection();
 		unitNameTf.clear();		
+	}
+	
+	public ObservableList<UnitSquad> getContents()
+	{
+		return armyList;		
+	}
+	
+	public UnitSquad getSelectedUnitSquad()
+	{
+		return lv.getSelectionModel().getSelectedItem();
+	}
+	
+	public int getSelectedUnitSquadIndex()
+	{
+		return lv.getSelectionModel().getSelectedIndex();
+	}
+	
+	public void addUnitMemberBtn(EventHandler<ActionEvent> handler) //when the add button is pressed, control is allocated to an event handler in controller
+	{
+		addUnitMemberBtn.setOnAction(handler);
+	}
+	
+	public void removeUnitMemberBtn(EventHandler<ActionEvent> handler) //when the add button is pressed, control is allocated to an event handler in controller
+	{
+		removeUnitMemberBtn.setOnAction(handler);
+	}
+	
+	public void upgradeUnitWeaponHandler(EventHandler<ActionEvent> handler) //when the add button is pressed, control is allocated to an event handler in controller
+	{
+		upgradeUnitWeaponBtn.setOnAction(handler);
+		//unitWeaponCombo.setOnAction(handler);
 	}
 }

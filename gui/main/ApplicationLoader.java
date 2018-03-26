@@ -22,8 +22,8 @@ public class ApplicationLoader extends Application
 	@Override
 	public void start(Stage stage) throws Exception 
 	{
-		stage.setMinWidth(600);
-		stage.setMinHeight(600);
+		stage.setMinWidth(900);
+		stage.setMinHeight(900);
 		stage.setTitle("Space Marine Army Builder");
 		stage.setScene(new Scene(view));
 		stage.show();				

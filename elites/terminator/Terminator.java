@@ -12,7 +12,8 @@ public class Terminator extends Unit
 		unitName = "Terminator Squad"; 
 		COMBOMAXSIZE = 9; 
         weapon = WeaponList.getTerminator("Power Fist");
-		points = 35 + weapon.getWeaponPoints();
+        weaponTwo = WeaponList.getTerminator("Storm Bolter"); //this needs to be removed when an assault cannon is selected
+		points = 35 + weapon.getWeaponPoints() + weaponTwo.getWeaponPoints();
         weaponSkill = 4;
         ballisticSkill = 4;
         strength = 4;
@@ -23,11 +24,19 @@ public class Terminator extends Unit
         leadership = 9;
         save = "2+";
         
-        unitWeaponsList.add(WeaponList.getTerminator("Storm Bolter"));
+        unitWeaponsList.add(WeaponList.getTerminator("Power Fist"));
         unitWeaponsList.add(WeaponList.getTerminator("Chainfist"));
-        unitWeaponsList.add(WeaponList.getTerminator("Heavy Flamer"));
-        unitWeaponsList.add(WeaponList.getTerminator("Assault Cannon"));
-        unitWeaponsList.add(WeaponList.getTerminator("Cyclone Missile Launcher"));
+                
+        unitSecondWeaponsList.add(WeaponList.getTerminator("Storm Bolter"));
+        unitSecondWeaponsList.add(WeaponList.getTerminator("Heavy Flamer"));
+        unitSecondWeaponsList.add(WeaponList.getTerminator("Assault Cannon"));
+        unitSecondWeaponsList.add(WeaponList.getTerminator("Cyclone Missile Launcher"));
+	}
+	
+	@Override
+	public String getUnitDetails()
+	{
+		return "|| " + "Weapons: " + weapon + " + " + weaponTwo + " || " + "Points: " + points;
 	}
 	
 	

@@ -98,9 +98,9 @@ public class Unit
 	
 	public ObservableList<Integer> getWeaponUpgradeAmount(int amount)
 	{	
-			   for (int i = 1; i < amount; i++)
-				   weaponUpgradeAmount.add(i);				   
-
+			   for (int i = 0; i <= amount; i++)
+				   weaponUpgradeAmount.add(i);	
+			   
 		ObservableList<Integer> weaponUpgradeAmountOList = FXCollections.observableArrayList(weaponUpgradeAmount);
 		return weaponUpgradeAmountOList;
 	}

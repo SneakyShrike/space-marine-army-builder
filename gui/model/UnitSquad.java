@@ -38,7 +38,7 @@ public class UnitSquad implements Serializable, Iterable<Unit>
 	
 	public void addUnit (Unit u) //adds scouts until it reaches max
 	{
-		if (unitList.size() < MAX)
+		//if (unitList.size() < MAX)
 			unitList.add(u);						
 	}
 	
@@ -51,23 +51,38 @@ public class UnitSquad implements Serializable, Iterable<Unit>
 		}			
 	}
 	
-	public void weaponUpgrade(Weapon weapon, int amount)
+	public void weaponUpgrade(Weapon weapon, int member)
 	{
-		for (int i = 1; i <= amount; i++)
-			getUnit(i).unitWeaponUpgrade(weapon);				   				
+		//for (int i = 0; i <= unitList.size(); i++)
+			getUnit(member).unitWeaponUpgrade(weapon);				   				
 	}
 	
-	public void secondWeaponUpgrade(Weapon weapon, int amount)
+	public void secondWeaponUpgrade(Weapon weapon)
 	{
-		for (int i = 1; i <= amount; i++)
+		for (int i = 0; i <= unitList.size(); i++)
 			getUnit(i).unitSecondWeaponUpgrade(weapon);				   				
+	}
+	
+	public void updateUnitSize(int number)
+	{
+		for (int i = 0; i < number; i++)
+		{
+			if (unitList.size() < MAX)
+				unitList.add(new Unit());		
+		}	
+		
+	}
+	
+	public void setSquadSize(int number)
+	{
+		this.number = number; 
 	}
 		
 	public int getSquadSize ()
 	{
 		return number;
 	}
-				
+					
 	public void removeUnit (int number) //remove a single scout from a squad, specified by the squad member number
 	{
 		unitList.remove(number);
@@ -76,6 +91,16 @@ public class UnitSquad implements Serializable, Iterable<Unit>
 	public void clearUnitList() //clears an entire scout squad
 	{
 		unitList.clear();
+	}
+	
+	public int unitListSize()
+	{
+		return unitList.size();
+	}
+	
+	public int getLastIndex()
+	{
+		return unitList.size() -1;
 	}
 	
 	public Unit getUnit(int index)

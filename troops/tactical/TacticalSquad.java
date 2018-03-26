@@ -62,7 +62,7 @@ public class TacticalSquad extends UnitSquad
 		@Override
 		public void weaponUpgrade(Weapon weapon, int amount)
 		{
-			for (int i = 1; i <= amount; i++)
+			for (int i = 0; i <= amount; i++)
 			{
 				switch(weapon.toString())
 				{
@@ -73,7 +73,7 @@ public class TacticalSquad extends UnitSquad
 				   case "Multi-Melta" :
 				   case "Missile Launcher (Frag)" :
 				   case "Missile Launcher (Krak)" :
-				   case "Missile Launcher (Flakk)":
+				   case "Missile Launcher (Flakk)": //THIS NEEDS REVISTING
 				   case "Plasma Cannon" :
 				   case "Lascannon" :
 				   case "Grav-Cannon" :

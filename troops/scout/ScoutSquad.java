@@ -52,10 +52,10 @@ public class ScoutSquad extends UnitSquad
 		}
 	}
 	
-	@Override
+	/*@Override
 	public void weaponUpgrade(Weapon weapon, int amount)
 	{
-		for (int i = 1; i <= amount; i++)
+		for (int i = 0; i <= amount; i++)
 		{
 			switch(weapon.toString())
 			{
@@ -70,7 +70,7 @@ public class ScoutSquad extends UnitSquad
 				   //super.weaponUpgrade(weapon, amount);
 			}
 		}
-	}
+	}*/
 	
 	/*public int getSquadSize ()
 	{

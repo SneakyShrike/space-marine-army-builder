@@ -2,6 +2,7 @@ package wargear.weapon;
 
 import java.util.HashMap;
 
+
 import java.util.Map;
 
 public class WeaponList
@@ -25,6 +26,7 @@ public class WeaponList
 		put("Power Axe", new Melee("Power Axe", 15));
 		put("Power Maul", new Melee("Power Maul", 15));
 		put("Power Sword", new Melee("Power Sword", 15));
+		put("Power Lance", new Melee("Power Lance", 15));
 		put("Power Fist", new Melee("Power Fist", 25));
 		put("Thunder Hammer", new Melee("Thunder Hammer", 30));
 	}};
@@ -49,7 +51,6 @@ public class WeaponList
 		put("Meltagun", new Special("Meltagun", 10));
 		put("Grav-Gun", new Special("Grav-Gun", 15));
 		put("Plasma Gun", new Special("Plasma Gun", 15));	
-		put("None", new Special("None", 0));
 	}};
 	
 	static Map<String, CenturionWeapon> centurionWeapons = new HashMap<String, CenturionWeapon>()
@@ -88,7 +89,24 @@ public class WeaponList
 		put("Duel Lightning Claws", new TerminatorWeapon("Duel Lightning Claws", 0));
 		put("Thunder Hammer and Storm Shield", new TerminatorWeapon("Thunder Hammer and Storm Shield", 10));
 	}};
+	
+	static Map<String, Honour_GuardWeapon> honourGuardWeapons = new HashMap<String, Honour_GuardWeapon>()
+	{{		
+		put("Relic Blade", new Honour_GuardWeapon("Relic Blade", 10));
+	}};
+	
+	static Map<String, Ironclad_DreadnoughtWeapon> ironcladDreadnoughtdWeapons = new HashMap<String, Ironclad_DreadnoughtWeapon>()
+	{{		
+		put("Power Fist With Built-in Storm Bolter", new Ironclad_DreadnoughtWeapon("Power Fist With Built-in Storm Bolter", 0));
+		put("Power Fist With Built-in Heavy Flamer", new Ironclad_DreadnoughtWeapon("Power Fist With Built-in Heavy Flamer", 10));
 		
+		put("Seismic Hammer With Built-in Meltagun", new Ironclad_DreadnoughtWeapon("Seismic Hammer With Built-in Meltagun", 0));
+		put("Seismic Hammer With Built-in Heavy Flamer", new Ironclad_DreadnoughtWeapon("Seismic Hammer With Built-in Heavy Flamer", 0));
+		put("Chainfist With Built-in Meltagun", new Ironclad_DreadnoughtWeapon("Chainfist With Built-in Meltagun", 0));
+		put("Chainfist With Built-in Heavy Flamer", new Ironclad_DreadnoughtWeapon("Chainfist With Built-in Heavy Flamer", 0));
+
+	}};
+			
 	static Map<String, ScoutWeapon> scoutWeapons = new HashMap<String, ScoutWeapon>()
 	{{			
 		put("Shotgun", new ScoutWeapon("Shotgun", 0));
@@ -126,6 +144,16 @@ public class WeaponList
 	public static DreadnoughtWeapon getDreadnoughtWeapon(String key)
 	{		
         return dreadnoughtWeapons.get(key);   
+	}
+	
+	public static Honour_GuardWeapon getHonour_GuardWeapon(String key)
+	{		
+        return honourGuardWeapons.get(key);   
+	}
+	
+	public static Ironclad_DreadnoughtWeapon getIronclad_DreadnoughtWeapon(String key)
+	{		
+        return ironcladDreadnoughtdWeapons.get(key);   
 	}
 	
 	public static TerminatorWeapon getTerminator(String key)

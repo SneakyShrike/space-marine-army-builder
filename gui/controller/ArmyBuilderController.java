@@ -11,10 +11,13 @@ import java.util.ArrayList;
 import elites.centurion_assault.Centurion_AssaultSquad;
 import elites.command.CommandSquad;
 import elites.deadnought.DreadnoughtSquad;
+import elites.honour_guard.Honour_GuardSquad;
+import elites.ironclad_dreadnought.Ironclad_DreadnoughtSquad;
+import elites.sternguard_veteran.Sternguard_VeteranSquad;
 import elites.terminator.TerminatorSquad;
 import elites.terminator_assault.Terminator_AssaultSquad;
+import elites.venerable_dreadnought.Venerable_DreadnoughtSquad;
 import gui.model.Army;
-import gui.model.ArmyBuilderProfile;
 import gui.model.Unit;
 import gui.model.UnitSquad;
 import gui.view.AddUnitPane;
@@ -28,9 +31,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import troops.scout.ScoutSergeant;
+import troops.scout.Scout;
 import troops.scout.ScoutSquad;
-import troops.tactical.Tactical;
 import troops.tactical.TacticalSquad;
 
 public class ArmyBuilderController 
@@ -39,7 +41,6 @@ public class ArmyBuilderController
 	private ArmyBuilderMenuBar mb;
 	private CreateProfilePane cp;
 	private AddUnitPane au;
-	private UpdateUnitPane uu;
 	private ArmyDisplayPane dp;
 	
 	private Army model;
@@ -52,7 +53,6 @@ public class ArmyBuilderController
 		mb = view.getArmyBuilderMenuBar();
 		cp = view.getCreateProfilePane();
 		au = view.getAddUnitPane();
-		uu = view.getUpdateUnitPane();
 		dp = view.getArmyDisplayPane();
 		
 		cp.populateMaxPointsComboBox(setupAndGetMaxPoints());
@@ -69,11 +69,13 @@ public class ArmyBuilderController
 		mb.InfoHandler(new InfoHandler());
 		cp.CreateProfileHandler(new CreateProfileHandler());
 		au.AddUnitHandler(new AddUnitHandler());
-		uu.UpgradeUnitHandler(new UpgradeUnitHandler());
 		dp.SaveArmyHandler(new SaveArmyHandler());
 		dp.removeSquadHandler(new removeSquadHandler());
 		dp.clearArmyHandler(new clearArmyHandler());
-
+		au.addUnitMemberBtn(new addUnitMemberBtn());
+		au.removeUnitMemberBtn(new removeUnitMemberBtn());
+		au.upgradeUnitWeaponHandler(new upgradeUnitWeaponHandler());
+		
 	}
 	
 	private void attachBindings() {
@@ -83,7 +85,7 @@ public class ArmyBuilderController
 		//Binds model's register collection and view's listview display bidirectionally.
 		//If either is updated then the other will automatically mirror these updates.
 		//In this case it means we can remove the submit button and all associated functionality.
-		model.bindContentBidirectional(dp.getContents());
+		model.bindContentBidirectional(au.getContents());
 	}
 	
 	private ArrayList<Integer> setupAndGetMaxPoints()
@@ -193,45 +195,43 @@ public class ArmyBuilderController
 			   break;			   
 			   case "Dreadnought Squad" : squad = new DreadnoughtSquad(au.getUnitName());
 			   break;
+			   case "Honour Guard Squad" : squad = new Honour_GuardSquad(au.getUnitName());
+			   break;
+			   case "Ironclad Dreadnought Squad" : squad = new Ironclad_DreadnoughtSquad(au.getUnitName());
+			   break;
+			   case "Sternguard Veteran Squad" : squad = new Sternguard_VeteranSquad(au.getUnitName());
+			   break;
 			   case "Terminator Squad" : squad = new TerminatorSquad(au.getUnitName());
 			   break;
 			   case "Terminator Assault Squad" : squad = new Terminator_AssaultSquad(au.getUnitName());
+			   break;
+			   case "Venerable Dreadnought Squad" : squad = new Venerable_DreadnoughtSquad(au.getUnitName());
 			   break;	
 			   case "Scout Squad" : squad = new ScoutSquad(au.getUnitName()); //create a new scoutSquad with the inputed name		                            //squad.addUnit(new ScoutSergeant()); //add a scout sergeant to the scout squad
 			   break;
-			   case "Tactical Squad" : squad = new TacticalSquad(au.getUnitName());
-				
+			   case "Tactical Squad" : squad = new TacticalSquad(au.getUnitName());				
 			}
 			
 			squad.addUnitSquad(au.getUnitSize());
-			squad.weaponUpgrade(au.getUnitWeapon(), au.getUnitAmountSelected());
+			//squad.weaponUpgrade(au.getUnitWeapon(), au.getUnitAmountSelected());
 			switch(au.getUnit().toString())
 			{
 			   case "Centurion Assault Squad" : 
 			   case "Command Squad" : 		   
-			   case "Dreadnought Squad" : 
-				   squad.secondWeaponUpgrade(au.getUnitSecondWeapon(), au.getUnitAmountSelected());
+			   case "Dreadnought Squad" :
+			   case "Ironclad Dreadnought Squad" :
+			   case "Terminator Squad" :
+			   case "Venerable Dreadnought Squad" :
+			
+				   //squad.secondWeaponUpgrade(au.getUnitSecondWeapon(), au.getUnitAmountSelected());
 			  break;				
 			}			
 					
 			model.addUnitSquad(squad);
 			model.setCurrentPoints(squad.getSquadPoints());
-            view.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
+            view.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());					
+			//au.setDefaultValues();
 					
-			au.setDefaultValues();
-
-			view.nextTab(3);
-						
-		}		
-	}
-	
-	private class UpgradeUnitHandler implements EventHandler<ActionEvent>
-	{
-		public void handle(ActionEvent e) 
-		{
-			
-			
-									
 		}		
 	}
 	
@@ -265,7 +265,54 @@ public class ArmyBuilderController
 			view.setMaxpoints(0, model.getTotalPoints());
 		}		
 	}
+		
+	private class addUnitMemberBtn implements EventHandler<ActionEvent>
+	{
+		public void handle(ActionEvent e) 
+		{
+			UnitSquad squad = au.getSelectedUnitSquad();
+			squad.addUnit(new Scout());
+			model.updatUnitSquad(au.getSelectedUnitSquadIndex(), squad);	
+		}		
+	}
 	
+	private class removeUnitMemberBtn implements EventHandler<ActionEvent>
+	{
+		public void handle(ActionEvent e) 
+		{
+			UnitSquad squad = au.getSelectedUnitSquad();
+			squad.removeUnit(squad.getLastIndex());
+			model.updatUnitSquad(au.getSelectedUnitSquadIndex(), squad);	
+		}		
+	}
+	
+	private class upgradeUnitWeaponHandler implements EventHandler<ActionEvent>
+	{
+		public void handle(ActionEvent e) 
+		{
+			
+			UnitSquad selectedSquad = au.getSelectedUnitSquad();
+	        selectedSquad.weaponUpgrade(au.getUnitWeapon(), au.getunitMemberSelected());
+	        
+	        switch(au.getUnit().toString())
+			{
+			   case "Centurion Assault Squad" : 
+			   case "Command Squad" : 		   
+			   case "Dreadnought Squad" :
+			   case "Ironclad Dreadnought Squad" :
+			   case "Terminator Squad" :
+			   case "Venerable Dreadnought Squad" :
+			
+				   selectedSquad.secondWeaponUpgrade(au.getUnitSecondWeapon());
+			  break;				
+			}
+	        
+	        System.out.println(selectedSquad);
+	        
+	        model.updatUnitSquad(au.getSelectedUnitSquadIndex(), selectedSquad);	
+		}		
+	}
+		
 	private void alertDialogBuilder(AlertType type, String title, String header, String content) {
 		Alert alert = new Alert(type);
 		alert.setTitle(title);

@@ -10,8 +10,9 @@ public class Centurion_Assault extends Unit
 		super();
 		unitName = "Centurion Assault Squad"; //default name of a scout squad
 		COMBOMAXSIZE = 6; //max number of values in the combo box, NEEDS TO INHERIT FROM SCOUT SQUAD SQUAD MAXSIZE SOMEHOW
-        weapon = WeaponList.getCenturionWeapon("Ironclad Assault Launcher");
-		points = 55 + weapon.getWeaponPoints();//default weapon of a scout
+        weapon = WeaponList.getCenturionWeapon("Twin-Linked Flamer");
+        weaponTwo = WeaponList.getCenturionWeapon("Ironclad Assault Launcher");
+		points = 55 + weapon.getWeaponPoints() + weaponTwo.getWeaponPoints();//default weapon of a scout
         weaponSkill = 4;
         ballisticSkill = 4;
         strength = 5;
@@ -22,9 +23,16 @@ public class Centurion_Assault extends Unit
         leadership = 8;
         save = "2+";
    
-        unitWeaponsList.add(WeaponList.getCenturionWeapon("Ironclad Assault Launcher"));
-        unitWeaponsList.add(WeaponList.getCenturionWeapon("Hurricane Bolter"));
         unitWeaponsList.add(WeaponList.getCenturionWeapon("Twin-Linked Flamer"));
         unitWeaponsList.add(WeaponList.getCenturionWeapon("Twin-Linked Meltagun"));
+        
+        unitSecondWeaponsList.add(WeaponList.getCenturionWeapon("Ironclad Assault Launcher"));
+        unitSecondWeaponsList.add(WeaponList.getCenturionWeapon("Hurricane Bolter"));
+	}
+	
+	@Override
+	public String getUnitDetails()
+	{
+		return "|| " + "Weapons: " + weapon + " + " + weaponTwo + " || " + "Points: " + points;
 	}
 }

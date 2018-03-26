@@ -63,11 +63,16 @@ public class Army implements Iterable<UnitSquad>
 		armyList.add(u);
 	}
 	
+	public void updatUnitSquad (int index, UnitSquad u)
+	{
+		armyList.set(index, u);		
+	}
+	
 	public void removeUnitSquad(int index)
 	{
 		armyList.remove(index);
 	}
-	
+		
 	public boolean removeUnitSquad(UnitSquad u)
 	{
 		return armyList.remove(u);
