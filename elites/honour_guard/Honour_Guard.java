@@ -9,7 +9,6 @@ public class Honour_Guard extends Unit
 	{
 		super();
 		unitName = "Honour Guard Squad"; 
-		COMBOMAXSIZE = 9; 
         weapon = WeaponList.getMelee("Power Sword");
         weaponTwo = WeaponList.getRanged("Boltgun");
         weapon.setWeaponPoints(0);

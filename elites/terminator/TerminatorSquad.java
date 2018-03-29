@@ -1,5 +1,6 @@
 package elites.terminator;
 
+import gui.model.Unit;
 import gui.model.UnitSquad;
 import wargear.weapon.Weapon;
 
@@ -9,33 +10,44 @@ public class TerminatorSquad extends UnitSquad
 	{
 		super(squadName);
 		unitName = "Terminator ";
-		super.setMaxSize(9);
+		super.setMaxSize(10);
+		super.setMinSize(5);		
 	}
 		
 	@Override
-	public void addUnitSquad (int number)//adds scouts to the specified number instead of max
+	public void addUnitSquad ()
 	{
-		for (int i = 0; i < number; i++)
+		for (int i = 0; i < min; i++)
 		{
-			if (unitList.size() < MAX)
+			if (unitList.size() < max)
 				unitList.add(new Terminator());	
 		}
 	}
 	
 	@Override
-	public void weaponUpgrade(Weapon weapon, int amount)
+	public String SquadWeaponsCheck()
 	{
-		for (int i = 0; i <= amount; i++)
+		int weaponCount = 0;
+		String message = "";
+		
+		for (Unit unit : unitList)
 		{
-			switch(weapon.toString())
+			switch(unit.getWeaponUpgrade().toString())
 			{
-			   case "Heavy Flamer" :
-			   case "Assault Cannon" :			 
-			   case "Cyclone Missile Launcher" :
-				   amount = 1;
-			   default:
-				   getUnit(i).unitWeaponUpgrade(weapon);
+			   case "Heavy Bolter" :
+			   case "Heavy Bolter (Hellfire Shell)" :			 
+			   case "Missile Launcher (Frag)" :
+			   case "Missile Launcher (Krak)" :
+			   case "Missile Launcher (Flakk)" :
+				   weaponCount++;
+			}			
+		}			
+			if (weaponCount > 1)
+			{
+				message = "A Scout Squad is permitted to only 1: Heavy Bolter / Heavy Bolter (Hellfire Shell) / "
+						+ "Missile Launcher (Frag) / Missile Launcher (Krak) / Missile Launcher (Flakk)";
 			}
-		}
+			
+		return message;	
 	}
 }

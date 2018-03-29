@@ -1,6 +1,5 @@
 package elites.ironclad_dreadnought;
 
-import elites.deadnought.Dreadnought;
 import gui.model.UnitSquad;
 
 public class Ironclad_DreadnoughtSquad extends UnitSquad 
@@ -11,14 +10,15 @@ public class Ironclad_DreadnoughtSquad extends UnitSquad
 		super(squadName);
 		unitName = "Ironclad Dreadnought ";
 		super.setMaxSize(3);
+		super.setMinSize(1);
 	}
 	
 	@Override
-	public void addUnitSquad (int number)
+	public void addUnitSquad()
 	{
-		for (int i = 0; i < number; i++)
+		for (int i = 0; i < min; i++)
 		{
-			if (unitList.size() < MAX)
+			if (unitList.size() < max)
 				unitList.add(new Ironclad_Dreadnought());	
 		}
 	}

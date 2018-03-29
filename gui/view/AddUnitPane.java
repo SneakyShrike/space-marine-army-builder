@@ -41,6 +41,7 @@ import hq.captain.Captain;
 import hq.chaplain.Chaplain;
 import hq.librarian.Librarian;
 import hq.techmarine.Techmarine;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -48,6 +49,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -55,38 +57,47 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import troops.scout.Scout;
 import troops.tactical.Tactical;
 import wargear.weapon.Weapon;
 
-public class AddUnitPane extends GridPane
+public class AddUnitPane extends BorderPane
 {
-	private Label unitTypeLbl, unitLbl, unitSizeLbl, unitWeaponLbl, unitSecondWeaponLbl, unitNameLbl;
+	private Label totalPoints, unitTypeLbl, unitLbl, unitNameLbl, unitMemberSelectedLbl, unitWeaponLbl, unitSecondWeaponLbl, weaponsCheckMessage, sizeCheckMessage;
 	private ComboBox<Unit_Type> unitTypeCombo; 
 	private ComboBox<Unit> unitCombo;
-	private ComboBox<Integer> unitSizeCombo, unitMemberSelectedCombo;
-	private ComboBox<Weapon> unitWeaponCombo, unitSecondWeaponCombo;
-	private TextField unitNameTf;
-	private Button addUnitBtn, addUnitMemberBtn, removeUnitMemberBtn, upgradeUnitWeaponBtn;
+	private ComboBox<Integer> unitMemberSelectedCombo;
 	private ListView<UnitSquad> lv;
 	private ObservableList<UnitSquad> armyList;
+	private ComboBox<Weapon> unitWeaponCombo, unitSecondWeaponCombo;
+	private TextField unitNameTf;
+	private Button addUnitBtn, addUnitMemberBtn, removeUnitMemberBtn, upgradeUnitWeaponBtn, removeSquadBtn, clearArmyBtn;
+
 	
 	private Unit_Type HQ, troops, elites, fast_attack, heavy_support;
 	
 	public AddUnitPane()
 	{
-		this.setVgap(15);
-		this.setHgap(20);
-		this.setAlignment(Pos.CENTER);
+		setStyle("-fx-text-fill: #FFFFFF;");
 		
-		ColumnConstraints col1 = new ColumnConstraints();
-		col1.setHalignment(HPos.RIGHT);
+		HBox topSection = new HBox();
 		
-		this.getColumnConstraints().add(col1);
+		GridPane leftSection = new GridPane();
+		leftSection.setVgap(25);
+
+		HBox centreSection = new HBox();
 		
+		GridPane rightSection = new GridPane();
+		rightSection.setVgap(25);
+		
+		VBox bottomSection = new VBox();
+				
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
         
 		HQ = new Unit_Type("HQ", new Captain(), new Chaplain(), new Librarian(), new Techmarine());
@@ -109,13 +120,28 @@ public class AddUnitPane extends GridPane
 		ObservableList<Unit_Type> unitTypeOList = FXCollections.observableArrayList(HQ, troops, elites, fast_attack, heavy_support); //create an observable list of unit types
         ObservableList<Integer> unitMemberSelectedOlist = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9);	
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-							
-		unitTypeLbl = new Label("Select The Unit Type: "); //Initialise all of the labels
-		unitLbl = new Label("Select The Unit: ");
-		unitSizeLbl = new Label("Select The Unit Size: ");
-		unitWeaponLbl = new Label("Select The Unit Members Weapon Upgrade: ");
-		unitSecondWeaponLbl = new Label("Select The Unit Members Second Weapon Upgrade: ");
+			
+        totalPoints = new Label();
+		unitTypeLbl = new Label("Select The Unit Type:  "); 
+		unitLbl = new Label("Select The Unit:  ");
 		unitNameLbl = new Label("Type The Unit Name: ");
+		unitMemberSelectedLbl = new Label("Select A Unit Member:  ");
+		unitWeaponLbl = new Label("Select The Unit Members Weapon Upgrade:  ");
+		unitSecondWeaponLbl = new Label("Select The Unit Members Second Weapon Upgrade:  ");
+		weaponsCheckMessage = new Label();
+		sizeCheckMessage = new Label();
+		
+		
+		totalPoints.setStyle("-fx-text-fill: #FFFFFF;");
+		unitTypeLbl.setStyle("-fx-text-fill: #FFFFFF;");
+		unitLbl.setStyle("-fx-text-fill: #FFFFFF;");
+		unitNameLbl.setStyle("-fx-text-fill: #FFFFFF;");
+		unitMemberSelectedLbl.setStyle("-fx-text-fill: #FFFFFF;");
+		unitWeaponLbl.setStyle("-fx-text-fill: #FFFFFF;");
+		unitSecondWeaponLbl.setStyle("-fx-text-fill: #FFFFFF;");
+		weaponsCheckMessage.setStyle("-fx-text-fill: #FFFFFF;");
+		sizeCheckMessage.setStyle("-fx-text-fill: #FFFFFF;");
+		
 		
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 				        
@@ -134,11 +160,7 @@ public class AddUnitPane extends GridPane
 		        unitCombo.getSelectionModel().selectFirst(); //Selects the first unit in the unitCombo (second ComboBox)
 		    }
 		});
-				    		
-		unitSizeCombo = new ComboBox<>(); //Initialise the unit unitSizeCombo (third ComboBox)
-		
-		//unitAmountSelectedCombo = new ComboBox<>();
-	    //unitAmountSelectedCombo.setItems(unitAmountSelectedOlist);
+				    				
 		unitWeaponCombo = new ComboBox<>();
 		unitSecondWeaponCombo = new ComboBox<>();
 		
@@ -147,30 +169,13 @@ public class AddUnitPane extends GridPane
 			@Override
 			public void changed(ObservableValue<? extends Unit> observable, Unit oldValue, Unit newValue) 
 			{												
-				unitSizeCombo.setItems(newValue == null ? FXCollections.emptyObservableList() : newValue.getUnitSize());
-				unitSizeCombo.getSelectionModel().selectFirst(); //Selects the first size value of the unitSizeCombo (third ComboBox)
 				unitWeaponCombo.setItems(newValue == null ? FXCollections.emptyObservableList() : newValue.getUnitWeapons());
 				unitSecondWeaponCombo.setItems(newValue == null ? FXCollections.emptyObservableList() : newValue.getUnitSecondWeapons());
 				unitWeaponCombo.getSelectionModel().selectFirst();
 				unitSecondWeaponCombo.getSelectionModel().selectFirst();
-				//unitAmountSelectedCombo.setItems(newValue == null ? FXCollections.emptyObservableList() 
-						//: newValue.getWeaponUpgradeAmount(unitSizeCombo.getSelectionModel().getSelectedItem()));
-				//unitAmountSelectedCombo.getSelectionModel().selectFirst(); //Selects the first size value of the unitSizeCombo (third ComboBox)
 		    }			
 		});
-		
-				
-		/*unitSizeCombo.valueProperty().addListener(new ChangeListener<Integer>() //unitSizeCombo (third ComboBox) based on the Unit Chosen
-		{
-			@Override
-			public void changed(ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) 
-			{												
-				unitAmountSelectedCombo.setItems(unitAmountSelectedOlist);
-				unitAmountSelectedCombo.getSelectionModel().selectFirst(); //Selects the first size value of the unitSizeCombo (third ComboBox)
-			}			
-		});*/
-		
-					
+							
 		unitNameTf = new TextField(); //Initialise the unit name TextField
 						
 		addUnitBtn = new Button("Add Unit");
@@ -179,51 +184,86 @@ public class AddUnitPane extends GridPane
 		lv = new ListView<>(armyList);
 		lv.setEditable(false); //ensures a user can't edit the TextArea
 		lv.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-		lv.setPrefSize(400, 400);
+		lv.setPrefSize(500, 750);
+		//lv.setStyle("-fx-background-color: ;");
 		
 		addUnitMemberBtn = new Button("Add Unit Member (+)");
 		removeUnitMemberBtn = new Button("Remove Unit Member (-)");
 		unitMemberSelectedCombo = new ComboBox<>();
 		unitMemberSelectedCombo.setItems(unitMemberSelectedOlist);
 		upgradeUnitWeaponBtn = new Button("Upgrade Unit Weapon");
+		removeSquadBtn = new Button ("Remove A Selected Squad");
+	    clearArmyBtn = new Button ("Clear The Entire Army");
+		
+		topSection.getChildren().add(totalPoints);
+		topSection.setAlignment(Pos.CENTER);
+		topSection.setPadding(new Insets(10,10,10,10));
+		topSection.setStyle("-fx-background-color: #565656;");
+		
+		/*-----------------------------------------------------------------------*/
 	
-		this.add(unitTypeLbl, 0, 1);
-		this.add(unitTypeCombo, 1, 1);
+		leftSection.add(unitTypeLbl, 0, 0);
+		leftSection.add(unitTypeCombo, 1, 0);
 		
-		this.add(unitLbl, 0, 2);
-		this.add(unitCombo, 1, 2);
+		leftSection.add(unitLbl, 0, 1);
+		leftSection.add(unitCombo, 1, 1);
+
 		
-		this.add(unitSizeLbl, 0, 3);
-		this.add(unitSizeCombo, 1, 3);
-			
-		//this.add(unitAmountSelectedLbl, 0, 4);
-		//this.add(unitAmountSelectedCombo, 1, 4);
-		
-		this.add(unitNameLbl, 0, 4);
-		this.add(unitNameTf, 1, 4);
+		leftSection.add(unitNameLbl, 0, 2);
+		leftSection.add(unitNameTf, 1, 2);
 				
-		this.add(new HBox(), 0, 5);
-		this.add(addUnitBtn, 1, 5);	
+		leftSection.add(new HBox(), 0, 3);
+		leftSection.add(addUnitBtn, 1, 3);	
 		
-		this.add(lv, 0, 7);
+		VBox leftBox = new VBox(leftSection);
+		leftBox.setStyle("-fx-background-color: #313131;");
+		leftBox.setPadding(new Insets(20,20,20,20));
 		
-		this.add(new HBox(), 0, 8);
-		this.add(addUnitMemberBtn, 1, 8);	
+		/*--------------------------------------------------------------------------------*/
 		
-		this.add(new HBox(), 0, 9);
-		this.add(removeUnitMemberBtn, 1, 9);
+		centreSection.getChildren().add(lv);
+		centreSection.setAlignment(Pos.CENTER);
+		HBox.setHgrow(lv, Priority.ALWAYS);
 		
-		//this.add(unitWeaponLbl, 0, 10);
-		this.add(unitMemberSelectedCombo, 1, 10);
+		HBox innerCentreBox = new HBox(removeSquadBtn, clearArmyBtn);
+		innerCentreBox.setPadding(new Insets(20,20,20,20));
+		innerCentreBox.setSpacing(25);
+		innerCentreBox.setAlignment(Pos.CENTER);
 		
-		this.add(unitWeaponLbl, 0, 11);
-		this.add(unitWeaponCombo, 1, 11);
+		VBox centreBox = new VBox(centreSection, innerCentreBox);	
+		centreBox.setStyle("-fx-background-color: #313131;");
 		
-		this.add(unitSecondWeaponLbl, 0, 12);
-		this.add(unitSecondWeaponCombo, 1, 12);
+		/*--------------------------------------------------------------------------------*/
 		
-		this.add(new HBox(), 1, 12);
-		this.add(upgradeUnitWeaponBtn, 2, 12);
+		rightSection.add(unitMemberSelectedLbl, 0, 0);
+		rightSection.add(unitMemberSelectedCombo, 1, 0);
+		
+		rightSection.add(unitWeaponLbl, 0, 1);
+		rightSection.add(unitWeaponCombo, 1, 1);
+		
+		rightSection.add(unitSecondWeaponLbl, 0, 2);
+		rightSection.add(unitSecondWeaponCombo, 1, 2);
+		
+		rightSection.add(upgradeUnitWeaponBtn, 1, 3);
+		
+        rightSection.add(addUnitMemberBtn, 1, 4);	
+		
+		rightSection.add(removeUnitMemberBtn, 1, 5);
+				
+		VBox rightBox = new VBox(rightSection);	
+		rightBox.setStyle("-fx-background-color: #313131;");
+		rightBox.setPadding(new Insets(20,20,20,20));
+		
+		bottomSection.getChildren().addAll(weaponsCheckMessage, sizeCheckMessage);
+		bottomSection.setStyle("-fx-background-color: #565656;");
+		bottomSection.setAlignment(Pos.CENTER);
+		bottomSection.setPadding(new Insets(10,10,10,10));
+		
+		this.setTop(topSection);
+		this.setLeft(leftBox);
+		this.setCenter(centreBox);
+		this.setRight(rightBox);
+		this.setBottom(bottomSection);
 		
 	}
 	
@@ -239,7 +279,7 @@ public class AddUnitPane extends GridPane
 		
 	public Integer getUnitSize() //returns the selected unit size from the unitSizeCombo (third ComboBox)
 	{
-		return unitSizeCombo.getSelectionModel().getSelectedItem();
+		return null;
 	}
 	
 	public Weapon getUnitWeapon() //returns the selected unit weapon from the unitWeaponCombo (fourth ComboBox)
@@ -265,7 +305,6 @@ public class AddUnitPane extends GridPane
 	public void AddUnitHandler(EventHandler<ActionEvent> handler) //when the add button is pressed, control is allocated to an event handler in controller
 	{
 		addUnitBtn.setOnAction(handler);
-		//unitWeaponCombo.setOnAction(handler);
 	}
 	
 	public UnitSquad getUnitSquad()
@@ -274,21 +313,31 @@ public class AddUnitPane extends GridPane
 		
 	}
 	
-	/*public void setunitAmountSelected()
-	{
-		for (int i = 1; i < unitSizeCombo.getSelectionModel().getSelectedItem(); i++)
+	public void removeSelectedUnitSquad()
 		{
-			unitAmountSelectedCombo.setI
-			
+			int index = lv.getSelectionModel().getSelectedIndex();
+			if (index != -1) 
+			{
+				armyList.removeAll(this.getSelectedUnitSquads());
+				//this.clearSelection();
+			}		
 		}
-		
-	}*/
 	public void setDefaultValues() //clears the combo boxes when the add button is pressed
 	{
 		unitTypeCombo.getSelectionModel().clearSelection();
 		unitNameTf.clear();		
 	}
 	
+	public void setweaponsCheckMessage(String message)
+	{
+		weaponsCheckMessage.setText(message);		
+	}
+	
+	public void setSizeCheckMessage(String message)
+	{
+		sizeCheckMessage.setText(message);		
+	}
+		
 	public ObservableList<UnitSquad> getContents()
 	{
 		return armyList;		
@@ -304,6 +353,11 @@ public class AddUnitPane extends GridPane
 		return lv.getSelectionModel().getSelectedIndex();
 	}
 	
+	public ObservableList<UnitSquad> getSelectedUnitSquads() 
+		{
+			return lv.getSelectionModel().getSelectedItems();
+		}
+	
 	public void addUnitMemberBtn(EventHandler<ActionEvent> handler) //when the add button is pressed, control is allocated to an event handler in controller
 	{
 		addUnitMemberBtn.setOnAction(handler);
@@ -317,6 +371,27 @@ public class AddUnitPane extends GridPane
 	public void upgradeUnitWeaponHandler(EventHandler<ActionEvent> handler) //when the add button is pressed, control is allocated to an event handler in controller
 	{
 		upgradeUnitWeaponBtn.setOnAction(handler);
-		//unitWeaponCombo.setOnAction(handler);
 	}
+	
+	public void setMaxpoints(int currentPoints, int totalPoints)
+	{
+		this.totalPoints.textProperty().bind(new SimpleIntegerProperty(currentPoints).asString()
+		.concat("/")
+		.concat(new SimpleIntegerProperty(totalPoints).asString()));
+	}
+	
+	public void removeSquadHandler(EventHandler<ActionEvent> handler)
+	{
+		removeSquadBtn.setOnAction(handler);
+	 }	
+		
+	public void clearArmyHandler(EventHandler<ActionEvent> handler)
+	{
+		clearArmyBtn.setOnAction(handler);
+	}
+	
+	public void clearArmyList()
+		{
+			armyList.clear();
+		}
 }

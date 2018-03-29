@@ -8,10 +8,9 @@ public class Terminator_Assault extends Unit
 	public Terminator_Assault()
 	{
 		super();
-		unitName = "Terminator Assault Squad"; //default name of a scout squad
-		COMBOMAXSIZE = 9; //max number of values in the combo box, NEEDS TO INHERIT FROM SCOUT SQUAD SQUAD MAXSIZE SOMEHOW
+		unitName = "Terminator Assault Squad"; 
         weapon = WeaponList.getTerminator("Duel Lightning Claws");
-		points = 35 + weapon.getWeaponPoints();//default weapon of a scout
+		points = 35 + weapon.getWeaponPoints();
         weaponSkill = 4;
         ballisticSkill = 4;
         strength = 4;

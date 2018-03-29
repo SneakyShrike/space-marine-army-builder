@@ -5,15 +5,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import gui.view.AddUnitPane;
 import troops.scout.ScoutSergeant;
 import wargear.weapon.Weapon;
+import wargear.weapon.WeaponList;
 
 public class UnitSquad implements Serializable, Iterable<Unit>
 {
 	protected String squadName, unitName; 
 	protected List<Unit> unitList; 
 	private int number, squadPoints;
-	protected int MAX;
+	protected int max, min;
 	
 	public UnitSquad(String squadName) //creates a new array list of scouts with a name
 	{
@@ -36,42 +38,55 @@ public class UnitSquad implements Serializable, Iterable<Unit>
 		return squadName;		
 	}
 	
-	public void addUnit (Unit u) //adds scouts until it reaches max
+	public void addUnit (Unit u) 
 	{
-		//if (unitList.size() < MAX)
-			unitList.add(u);						
+		unitList.add(u);						
 	}
 	
-	public void addUnitSquad (int number)//adds scouts to the specified number instead of max
+	public void addUnitSquad ()//adds scouts to the specified number instead of max
 	{
-		for (int i = 0; i < number; i++)
+		for (int i = 0; i < min; i++)
 		{
-			if (unitList.size() < MAX)
+			if (unitList.size() < max)
 				unitList.add(new Unit());		
 		}			
 	}
 	
 	public void weaponUpgrade(Weapon weapon, int member)
 	{
-		//for (int i = 0; i <= unitList.size(); i++)
 			getUnit(member).unitWeaponUpgrade(weapon);				   				
 	}
 	
-	public void secondWeaponUpgrade(Weapon weapon)
+	public void secondWeaponUpgrade(Weapon weapon, int member)
 	{
-		for (int i = 0; i <= unitList.size(); i++)
-			getUnit(i).unitSecondWeaponUpgrade(weapon);				   				
+			getUnit(member).unitSecondWeaponUpgrade(weapon);				   				
 	}
 	
 	public void updateUnitSize(int number)
 	{
 		for (int i = 0; i < number; i++)
 		{
-			if (unitList.size() < MAX)
+			if (unitList.size() < max)
 				unitList.add(new Unit());		
-		}	
-		
+		}		
 	}
+	
+	public String SquadWeaponsCheck()
+	{
+		int weaponCount = 0;
+		String message = "";		
+		return message;
+	}
+	
+	public String SquadSizeCheck()
+    {
+    	String message = "";
+    	
+    	if (unitList.size() > max)
+    	message =  "A " + unitName + "Squad must not exceed " + max + " members";
+    	   	
+    	return message;   		   	
+    }
 	
 	public void setSquadSize(int number)
 	{
@@ -147,14 +162,24 @@ public class UnitSquad implements Serializable, Iterable<Unit>
 	
 	public void setMaxSize (int size) //changes the name of a squad
 	{
-		this.MAX = size;
+		this.max = size;
 	}
 	
 	public int getMaxSize()
 	{
-		return MAX;
+		return max;
 	}
 	
+	public void setMinSize (int size) //changes the name of a squad
+	{
+		this.min = size;
+	}
+	
+	public int getMinSize()
+	{
+		return min;
+	}
+		
 	public void setScoutSquadWeapons(int index, Weapon weapon)
 	{
 		unitList.get(index);		

@@ -10,7 +10,6 @@ public class Terminator extends Unit
 	{
 		super();
 		unitName = "Terminator Squad"; 
-		COMBOMAXSIZE = 9; 
         weapon = WeaponList.getTerminator("Power Fist");
         weaponTwo = WeaponList.getTerminator("Storm Bolter"); //this needs to be removed when an assault cannon is selected
 		points = 35 + weapon.getWeaponPoints() + weaponTwo.getWeaponPoints();
@@ -37,23 +36,5 @@ public class Terminator extends Unit
 	public String getUnitDetails()
 	{
 		return "|| " + "Weapons: " + weapon + " + " + weaponTwo + " || " + "Points: " + points;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 }

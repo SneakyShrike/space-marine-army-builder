@@ -12,7 +12,6 @@ public class Tactical extends Unit
 	{  
 		super();
 		unitName = "Tactical Squad";
-		COMBOMAXSIZE = 9;
         weapon = WeaponList.getRanged("Boltgun");
         points = 14 + weapon.getWeaponPoints();
         weaponSkill = 4;
@@ -39,59 +38,4 @@ public class Tactical extends Unit
         unitWeaponsList.add(WeaponList.getHeavy("Grav-Cannon"));
         unitWeaponsList.add(WeaponList.getHeavy("Grav-Amp"));
 	}
-		
-	/*public void weaponUpgrade(Weapon weapon) 
-	{		
-		switch(weapon.toString())
-		{
-		   case "Boltgun" : 
-		   case "Shotgun" :
-		   case "Close Combat Weapon" :
-		   case "Sniper Rifle" :
-			   this.weapon = weapon; 
-	           points = points + weapon.getWeaponPoints();
-	       break;
-		   case "Heavy Bolter" :
-			   weapon.setWeaponPoints(8);
-		   case "Heavy Bolter (Hellfire Shell)" :			 
-		   case "Missle Launcher (Frag)" :
-		   case "Missle Launcher (Krak)" :
-		   case "Missle Launcher (Flakk)" :
-		       this.weapon = weapon; 
-	           points = points + weapon.getWeaponPoints();
-	        break;        
-	        default :
-	        	System.out.println("A Scout can't have a " + weapon);	       	        	
-		}
-    }
-
-	public void setPoints (int points)
-	{
-		this.points = points;
-	}
-	
-							
-	public Weapon getWeaponUpgrade()
-	{
-		return weapon;
-	}
-	
-	public String getCharacteristics()
-	{		
-		return "Tactical Characteristics: " + "WS:" + weaponSkill + "  " + "BS:" + ballisticSkill + "  " + "S:" + strength
-				+ "  " + "T:" + toughness + "  " + "W" + wounds + "  " + "I:" + initiative + "  " + "A:" + attacks
-				+ "  " + "LD:" + leadership + "  " + "SV:" + save;
-	}
-	
-	public String getTacticalDetails()
-	{
-		return "|| " + "Weapon: " + weapon + " || " + "Points: " + points;
-	}
-	
-	public int getMaxSize()
-	{
-		return COMBOMAXSIZE;
-	}*/
-
-
 }

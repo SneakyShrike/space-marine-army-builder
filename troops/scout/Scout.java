@@ -18,7 +18,6 @@ public class Scout extends Unit
 	{   
 		super();
 		unitName = "Scout Squad"; //default name of a scout squad
-		COMBOMAXSIZE = 9; //max number of values in the combo box, NEEDS TO INHERIT FROM SCOUT SQUAD SQUAD MAXSIZE SOMEHOW
         weapon = WeaponList.getRanged("Boltgun");
 		points = 11 + weapon.getWeaponPoints();//default weapon of a scout
         weaponSkill = 4;
@@ -39,94 +38,6 @@ public class Scout extends Unit
         unitWeaponsList.add(WeaponList.getScoutWeapon("Heavy Bolter (Hellfire Shell)"));
         unitWeaponsList.add(WeaponList.getHeavy("Missile Launcher (Frag)"));
         unitWeaponsList.add(WeaponList.getHeavy("Missile Launcher (Krak)"));
-        unitWeaponsList.add(WeaponList.getHeavy("Missile Launcher (Flakk)"));
-        
-        //unitSecondWeaponsList.add(WeaponList.getSpecial("None"));
-        
+        unitWeaponsList.add(WeaponList.getHeavy("Missile Launcher (Flakk)"));       
 	}
-		
-	
-	/**
-	 * Allows a scout to upgrade it's weapon. It does this by checking if
-	 * the weapon to upgrade to is permitted for the unit. If the weapon is contained
-	 * within the switch statement then it is permitted and the weapon variable is 
-	 * updated with the new weapon. The new weapons points value is then added onto 
-	 * the existing points value. If the weapon supplied is not permitted then a prompt 
-	 * is displayed telling the user which weapon they supplied was invalid.
-	 * 
-	 * @param weapon the weapon supplied to upgrade to.
-	 */
-	
-	/*public void scoutWeaponUpgrade(Weapon weapon) 
-	{
-		this.weapon = weapon; 
-	    points = points + weapon.getWeaponPoints();
-    }*/
-		
-	/*public List<Weapon> getScoutWeapons ()
-	{
-		return unitWeaponsList; //NOT NEEDED
-	}*/
-	
-	/**
-	 * Updates the existing points variable with the methods supplied parameter 
-	 * 
-	 * @param points the new points value to be added onto the existing points field declared
-	 * in the classes constructor
-	 */
-	
-	/*public void setPoints (int points)
-	{
-		this.points = points;
-	}*/
-	
-	
-	/**
-	 * Returns the current weapon of a scout
-	 * 
-	 * @return the current weapon of a scout
-	 */
-	
-							
-	/*public Weapon getWeaponUpgrade()
-	{
-		return weapon;
-	}*/
-	
-	/**
-	 * Returns the scouts characteristics values in a nice format. 
-	 * 
-	 * @return the characteristics values of a scout
-	 */
-	
-	/*public String getCharacteristics()
-	{		
-		return "Scout Characteristics: " + "WS:" + weaponSkill + "  " + "BS:" + ballisticSkill + "  " + "S:" + strength
-				+ "  " + "T:" + toughness + "  " + "W" + wounds + "  " + "I:" + initiative + "  " + "A:" + attacks
-				+ "  " + "LD:" + leadership + "  " + "SV:" + save;
-	}*/
-	
-	/**
-	 * Returns a scouts details including the weapon, equipment and points value of a single 
-	 * scout, in a nice format.
-	 * 
-	 * @return a single scouts details
-	 */
-	
-	/*public String getScoutDetails()
-	{
-		return "|| " + "Weapon: " + weapon + " || " + "Points: " + points;
-	}*/
-	
-	/**
-	 * Returns the maximum amount of scouts allowed in a scout squad
-	 * 
-	 * @return an int specifying the maximum amount of scouts allowed in a scout squad
-	 */
-	
-	/*public int getMaxSize()
-	{
-		return COMBOMAXSIZE;
-	}*/
-		
 }

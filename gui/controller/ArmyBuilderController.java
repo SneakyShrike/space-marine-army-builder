@@ -2,20 +2,31 @@ package gui.controller;
 
 
 import java.io.FileInputStream;
+
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import elites.centurion_assault.Centurion_Assault;
 import elites.centurion_assault.Centurion_AssaultSquad;
+import elites.command.Command;
 import elites.command.CommandSquad;
+import elites.deadnought.Dreadnought;
 import elites.deadnought.DreadnoughtSquad;
+import elites.honour_guard.Honour_Guard;
 import elites.honour_guard.Honour_GuardSquad;
+import elites.ironclad_dreadnought.Ironclad_Dreadnought;
 import elites.ironclad_dreadnought.Ironclad_DreadnoughtSquad;
+import elites.sternguard_veteran.Sternguard_Veteran;
 import elites.sternguard_veteran.Sternguard_VeteranSquad;
+import elites.terminator.Terminator;
 import elites.terminator.TerminatorSquad;
+import elites.terminator_assault.Terminator_Assault;
 import elites.terminator_assault.Terminator_AssaultSquad;
+import elites.venerable_dreadnought.Venerable_Dreadnought;
 import elites.venerable_dreadnought.Venerable_DreadnoughtSquad;
 import gui.model.Army;
 import gui.model.Unit;
@@ -23,16 +34,14 @@ import gui.model.UnitSquad;
 import gui.view.AddUnitPane;
 import gui.view.ArmyBuilderMenuBar;
 import gui.view.ArmyBuilderRootPane;
-import gui.view.ArmyDisplayPane;
 import gui.view.CreateProfilePane;
-import gui.view.UpdateUnitPane;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import troops.scout.Scout;
 import troops.scout.ScoutSquad;
+import troops.tactical.Tactical;
 import troops.tactical.TacticalSquad;
 
 public class ArmyBuilderController 
@@ -41,7 +50,6 @@ public class ArmyBuilderController
 	private ArmyBuilderMenuBar mb;
 	private CreateProfilePane cp;
 	private AddUnitPane au;
-	private ArmyDisplayPane dp;
 	
 	private Army model;
 	
@@ -53,7 +61,6 @@ public class ArmyBuilderController
 		mb = view.getArmyBuilderMenuBar();
 		cp = view.getCreateProfilePane();
 		au = view.getAddUnitPane();
-		dp = view.getArmyDisplayPane();
 		
 		cp.populateMaxPointsComboBox(setupAndGetMaxPoints());
 		
@@ -65,13 +72,11 @@ public class ArmyBuilderController
 	{
 		mb.SaveHandler(new SaveHandler());
 		mb.LoadHandler(new LoadHandler());
-		mb.ExitHandler(new ExitHandler());
 		mb.InfoHandler(new InfoHandler());
 		cp.CreateProfileHandler(new CreateProfileHandler());
 		au.AddUnitHandler(new AddUnitHandler());
-		dp.SaveArmyHandler(new SaveArmyHandler());
-		dp.removeSquadHandler(new removeSquadHandler());
-		dp.clearArmyHandler(new clearArmyHandler());
+		au.removeSquadHandler(new removeSquadHandler());
+		au.clearArmyHandler(new clearArmyHandler());
 		au.addUnitMemberBtn(new addUnitMemberBtn());
 		au.removeUnitMemberBtn(new removeUnitMemberBtn());
 		au.upgradeUnitWeaponHandler(new upgradeUnitWeaponHandler());
@@ -107,9 +112,10 @@ public class ArmyBuilderController
 			try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("armyObj.dat"));) {
 
 				//write name objects individually as cannot serialize the observable list in register
-				for (UnitSquad n : model) {
-					oos.writeObject(n);
-				}
+				//for (UnitSquad n : model) {
+					///oos.writeObject(n);
+				oos.writeObject(model);
+				//}
 
 				oos.writeObject(null);
 
@@ -129,7 +135,7 @@ public class ArmyBuilderController
 		{
 			try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("armyObj.dat"));) {
 
-				dp.clearArmyList(); //clear any existing names in view
+				//dp.clearArmyList(); //THIS CAUSES ISSUES WITH LOADING
 				
 				//read back in names objects individually
 				UnitSquad n = null;
@@ -151,15 +157,7 @@ public class ArmyBuilderController
 									
 		}		
 	}
-	
-	private class ExitHandler implements EventHandler<ActionEvent>
-	{
-		public void handle(ActionEvent e) 
-		{
-									
-		}		
-	}
-	
+		
 	private class InfoHandler implements EventHandler<ActionEvent>
 	{
 		public void handle(ActionEvent e) 
@@ -173,7 +171,7 @@ public class ArmyBuilderController
 		public void handle(ActionEvent e) 
 		{
 			model.setTotalPoints(cp.getSelectedMaxPoints());
-			view.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
+			au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
 			
 					
 			view.nextTab(1);			
@@ -184,7 +182,6 @@ public class ArmyBuilderController
 	{
 		public void handle(ActionEvent e) 
 		{
-			//UnitSquad squad = new UnitSquad("");
 			UnitSquad squad = au.getUnitSquad();
 			
 			switch(au.getUnit().toString()) //gets the selected unit from the unitCombo (second ComboBox)
@@ -212,24 +209,11 @@ public class ArmyBuilderController
 			   case "Tactical Squad" : squad = new TacticalSquad(au.getUnitName());				
 			}
 			
-			squad.addUnitSquad(au.getUnitSize());
-			//squad.weaponUpgrade(au.getUnitWeapon(), au.getUnitAmountSelected());
-			switch(au.getUnit().toString())
-			{
-			   case "Centurion Assault Squad" : 
-			   case "Command Squad" : 		   
-			   case "Dreadnought Squad" :
-			   case "Ironclad Dreadnought Squad" :
-			   case "Terminator Squad" :
-			   case "Venerable Dreadnought Squad" :
-			
-				   //squad.secondWeaponUpgrade(au.getUnitSecondWeapon(), au.getUnitAmountSelected());
-			  break;				
-			}			
+			squad.addUnitSquad();			
 					
 			model.addUnitSquad(squad);
 			model.setCurrentPoints(squad.getSquadPoints());
-            view.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());					
+            au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());					
 			//au.setDefaultValues();
 					
 		}		
@@ -249,10 +233,10 @@ public class ArmyBuilderController
 		
 		public void handle(ActionEvent e) 
 		{
-			int value = model.getCurrentPoints() - dp.getSelectedUnitSquad().getSquadPoints();
-			dp.removeSelectedUnitSquad();
+			int value = model.getCurrentPoints() - au.getSelectedUnitSquad().getSquadPoints();
+			au.removeSelectedUnitSquad();
 			model.setCurrentPoints(value);
-			view.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
+			au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
 		}		
 	}
 	
@@ -260,9 +244,9 @@ public class ArmyBuilderController
 	{
 		public void handle(ActionEvent e) 
 		{
-			dp.clearArmyList();
+			au.clearArmyList();
 			model.setCurrentPoints(0);
-			view.setMaxpoints(0, model.getTotalPoints());
+			au.setMaxpoints(0, model.getTotalPoints());
 		}		
 	}
 		
@@ -271,8 +255,36 @@ public class ArmyBuilderController
 		public void handle(ActionEvent e) 
 		{
 			UnitSquad squad = au.getSelectedUnitSquad();
-			squad.addUnit(new Scout());
-			model.updatUnitSquad(au.getSelectedUnitSquadIndex(), squad);	
+			Unit member = new Unit();
+			switch(au.getUnit().toString()) //gets the selected unit from the unitCombo (second ComboBox)
+			{
+			   case "Centurion Assault Squad" : member = new Centurion_Assault();
+			   break;
+			   case "Command Squad" : member = new Command();
+			   break;			   
+			   case "Dreadnought Squad" : member = new Dreadnought();
+			   break;
+			   case "Honour Guard Squad" : member = new Honour_Guard();
+			   break;
+			   case "Ironclad Dreadnought Squad" : member = new Ironclad_Dreadnought();
+			   break;
+			   case "Sternguard Veteran Squad" : member = new Sternguard_Veteran();
+			   break;
+			   case "Terminator Squad" : member = new Terminator();
+			   break;
+			   case "Terminator Assault Squad" : member = new Terminator_Assault();
+			   break;
+			   case "Venerable Dreadnought Squad" : member = new Venerable_Dreadnought();
+			   break;	
+			   case "Scout Squad" : member = new Scout(); //create a new scoutSquad with the inputed name		                            //squad.addUnit(new ScoutSergeant()); //add a scout sergeant to the scout squad
+			   break;
+			   case "Tactical Squad" : member = new Tactical();				
+			}
+			squad.addUnit(member);
+			au.setSizeCheckMessage(squad.SquadSizeCheck());
+			model.updatUnitSquad(au.getSelectedUnitSquadIndex(), squad);
+			model.setCurrentPoints(squad.getSquadPoints());
+            au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
 		}		
 	}
 	
@@ -282,7 +294,11 @@ public class ArmyBuilderController
 		{
 			UnitSquad squad = au.getSelectedUnitSquad();
 			squad.removeUnit(squad.getLastIndex());
-			model.updatUnitSquad(au.getSelectedUnitSquadIndex(), squad);	
+			au.setSizeCheckMessage(squad.SquadSizeCheck());
+			model.updatUnitSquad(au.getSelectedUnitSquadIndex(), squad);
+			int value = model.getCurrentPoints() - squad.getUnit(squad.getLastIndex()).getUnitPoints();
+			model.setCurrentPoints(value);
+			au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
 		}		
 	}
 	
@@ -292,7 +308,7 @@ public class ArmyBuilderController
 		{
 			
 			UnitSquad selectedSquad = au.getSelectedUnitSquad();
-	        selectedSquad.weaponUpgrade(au.getUnitWeapon(), au.getunitMemberSelected());
+	        selectedSquad.weaponUpgrade(au.getUnitWeapon(), au.getunitMemberSelected()-1);
 	        
 	        switch(au.getUnit().toString())
 			{
@@ -303,13 +319,16 @@ public class ArmyBuilderController
 			   case "Terminator Squad" :
 			   case "Venerable Dreadnought Squad" :
 			
-				   selectedSquad.secondWeaponUpgrade(au.getUnitSecondWeapon());
+				   selectedSquad.secondWeaponUpgrade(au.getUnitSecondWeapon(), au.getunitMemberSelected()-1);
 			  break;				
 			}
-	        
-	        System.out.println(selectedSquad);
-	        
-	        model.updatUnitSquad(au.getSelectedUnitSquadIndex(), selectedSquad);	
+
+	        model.updatUnitSquad(au.getSelectedUnitSquadIndex(), selectedSquad);
+	        au.setweaponsCheckMessage(selectedSquad.SquadWeaponsCheck());        
+	        model.setCurrentPoints(selectedSquad.getSquadPoints());
+            au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());	
+            selectedSquad.getUnit(au.getSelectedUnitSquadIndex()).resetUnitPoints();
+
 		}		
 	}
 		

@@ -8,11 +8,10 @@ public class Centurion_Assault extends Unit
 	public Centurion_Assault() 
 	{   
 		super();
-		unitName = "Centurion Assault Squad"; //default name of a scout squad
-		COMBOMAXSIZE = 6; //max number of values in the combo box, NEEDS TO INHERIT FROM SCOUT SQUAD SQUAD MAXSIZE SOMEHOW
+		unitName = "Centurion Assault Squad"; 
         weapon = WeaponList.getCenturionWeapon("Twin-Linked Flamer");
         weaponTwo = WeaponList.getCenturionWeapon("Ironclad Assault Launcher");
-		points = 55 + weapon.getWeaponPoints() + weaponTwo.getWeaponPoints();//default weapon of a scout
+		points = 55 + weapon.getWeaponPoints() + weaponTwo.getWeaponPoints();
         weaponSkill = 4;
         ballisticSkill = 4;
         strength = 5;

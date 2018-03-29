@@ -9,8 +9,7 @@ public class Command extends Unit
 	{
 		super();
 		unitName = "Command Squad"; 
-		COMBOMAXSIZE = 5; 
-        weapon = WeaponList.getMelee("Chainsword"); //NEED TO FIGURE THIS OUT
+        weapon = WeaponList.getMelee("Chainsword");
 		points = 18 + weapon.getWeaponPoints();
         weaponSkill = 4;
         ballisticSkill = 4;

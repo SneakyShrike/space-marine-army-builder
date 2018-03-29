@@ -9,15 +9,16 @@ public class Honour_GuardSquad extends UnitSquad
 	{
 		super(squadName);
 		unitName = "Honour Guard ";
-		super.setMaxSize(9);
+		super.setMaxSize(10);
+		super.setMinSize(3);
 	}
 	
 	@Override
-	public void addUnitSquad (int number)
+	public void addUnitSquad ()
 	{
-		for (int i = 0; i < number; i++)
+		for (int i = 0; i < min; i++)
 		{
-			if (unitList.size() < MAX)
+			if (unitList.size() < max)
 				unitList.add(new Honour_Guard());	
 		}
 	}

@@ -9,7 +9,7 @@ import javafx.scene.input.KeyCombination;
 
 public class ArmyBuilderMenuBar extends MenuBar 
 {
-	private MenuItem save, load, exit, info;
+	private MenuItem save, load, info;
 	
 	public ArmyBuilderMenuBar()
 	{
@@ -24,11 +24,7 @@ public class ArmyBuilderMenuBar extends MenuBar
 		load = new MenuItem("Load");
 		load.setAccelerator(KeyCombination.keyCombination("SHORTCUT+L"));
 		menu.getItems().add(load);
-		
-		exit = new MenuItem("Exit");
-		exit.setAccelerator(KeyCombination.keyCombination("SHORTCUT+E"));
-		menu.getItems().add(exit);
-		
+				
 		this.getMenus().add(menu);
 		
 		menu = new Menu("Help");
@@ -48,11 +44,6 @@ public class ArmyBuilderMenuBar extends MenuBar
 	public void LoadHandler(EventHandler<ActionEvent> handler)
 	{
 		load.setOnAction(handler);
-	}
-	
-	public void ExitHandler(EventHandler<ActionEvent> handler)
-	{
-		exit.setOnAction(handler);
 	}
 	
 	public void InfoHandler(EventHandler<ActionEvent> handler)

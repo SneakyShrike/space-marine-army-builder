@@ -9,14 +9,15 @@ public class Centurion_AssaultSquad extends UnitSquad
 		super(squadName);
 		unitName = "Centurion Assault ";
 		super.setMaxSize(6);
+		super.setMinSize(3);
 	}
 	
 	@Override
-	public void addUnitSquad (int number)//adds scouts to the specified number instead of max
+	public void addUnitSquad ()
 	{
-		for (int i = 0; i < number; i++)
+		for (int i = 0; i < min; i++)
 		{
-			if (unitList.size() < MAX)
+			if (unitList.size() < max)
 				unitList.add(new Centurion_Assault());	
 		}
 	}

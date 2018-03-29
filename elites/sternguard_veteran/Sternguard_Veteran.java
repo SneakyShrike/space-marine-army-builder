@@ -8,8 +8,7 @@ public class Sternguard_Veteran extends Unit
 	public Sternguard_Veteran()
 	{
 		super();
-		unitName = "Sternguard Veteran Squad"; //default name of a scout squad
-		COMBOMAXSIZE = 9; //max number of values in the combo box, NEEDS TO INHERIT FROM SCOUT SQUAD SQUAD MAXSIZE SOMEHOW
+		unitName = "Sternguard Veteran Squad"; //default name of a scout squad //max number of values in the combo box, NEEDS TO INHERIT FROM SCOUT SQUAD SQUAD MAXSIZE SOMEHOW
         weapon = WeaponList.getRanged("Boltgun");
 		points = 22 + weapon.getWeaponPoints();//default weapon of a scout
         weaponSkill = 4;

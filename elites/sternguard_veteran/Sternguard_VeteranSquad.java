@@ -1,5 +1,6 @@
 package elites.sternguard_veteran;
 
+import gui.model.Unit;
 import gui.model.UnitSquad;
 import wargear.weapon.Weapon;
 import wargear.weapon.WeaponList;
@@ -12,42 +13,44 @@ public class Sternguard_VeteranSquad extends UnitSquad
 		super(squadName);
 		unitName = "Sternguard Veteran ";
 		super.setMaxSize(9);
+		super.setMinSize(5);
 	}
 	
 	@Override
-	public void addUnitSquad (int number)
+	public void addUnitSquad ()
 	{
-		for (int i = 0; i < number; i++)
+		for (int i = 0; i < min; i++)
 		{
-			if (unitList.size() < MAX)
+			if (unitList.size() < max)
 				unitList.add(new Sternguard_Veteran());	
 		}
 	}
 	
 	@Override
-	public void weaponUpgrade(Weapon weapon, int amount)
+	public String SquadWeaponsCheck()
 	{
-		for (int i = 0; i <= amount; i++)
+		int weaponCount = 0;
+		String message = "";
+		
+		for (Unit unit : unitList)
 		{
-			switch(weapon.toString())
+			switch(unit.getWeaponUpgrade().toString())
 			{
-			   case "Flamer":
-			   case "Meltagun":
-			   case "Grav-Gun":
-			   case "Plasma Gun":
-			   case "Heavy Bolter":
-			   case "Multi-Melta":
-			   case "Missile Launcher (Frag)":
-			   case "Missile Launcher (Krak)":
-			   case "Missile Launcher (Flakk)":
-			   case "Plasma Cannon":
-			   case "Lascannon":
-			   case "Grav-Cannon":
-			   case "Grav-Amp":
-				   amount = 2;
-			   default:
-				   getUnit(i).unitWeaponUpgrade(weapon);
+			   case "Heavy Bolter" :
+			   case "Heavy Bolter (Hellfire Shell)" :			 
+			   case "Missile Launcher (Frag)" :
+			   case "Missile Launcher (Krak)" :
+			   case "Missile Launcher (Flakk)" :
+				   weaponCount++;
+			}			
+		}			
+			if (weaponCount > 1)
+			{
+				message = "A Scout Squad is permitted to only 1: Heavy Bolter / Heavy Bolter (Hellfire Shell) / "
+						+ "Missile Launcher (Frag) / Missile Launcher (Krak) / Missile Launcher (Flakk)";
 			}
-		}
+			
+		return message;	
 	}
+	
 }

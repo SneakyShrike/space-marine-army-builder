@@ -11,7 +11,6 @@ public class Ironclad_Dreadnought extends Unit
 	{
 		super();
 		unitName = "Ironclad Dreadnought Squad"; 
-		COMBOMAXSIZE = 3;
         weapon = WeaponList.getIronclad_DreadnoughtWeapon("Power Fist With Built-in Storm Bolter");
         weaponTwo = WeaponList.getIronclad_DreadnoughtWeapon("Seismic Hammer With Built-in Meltagun");
 		points = 135 + weapon.getWeaponPoints() + weaponTwo.getWeaponPoints();

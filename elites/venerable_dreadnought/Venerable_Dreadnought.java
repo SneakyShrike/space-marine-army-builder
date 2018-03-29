@@ -11,7 +11,6 @@ public class Venerable_Dreadnought extends Unit
 	{
 		super();
 		unitName = "Venerable Dreadnought Squad"; 
-		COMBOMAXSIZE = 3;
         weapon = WeaponList.getDreadnoughtWeapon("Multi-Melta");
         weaponTwo = WeaponList.getDreadnoughtWeapon("Power Fist With Built-In Storm Bolter");
 		points = 125 + weapon.getWeaponPoints() + weaponTwo.getWeaponPoints();

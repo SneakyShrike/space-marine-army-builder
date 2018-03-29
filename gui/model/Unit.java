@@ -13,7 +13,7 @@ public class Unit
 	protected ArrayList<Weapon> unitWeaponsList, unitSecondWeaponsList;
 	protected Weapon weapon, weaponTwo;
 	protected String unitName, save;
-	protected int COMBOMAXSIZE, points, weaponSkill, ballisticSkill, strength, toughness, 
+	protected int points, weaponSkill, ballisticSkill, strength, toughness, 
     wounds, initiative, attacks, leadership;
 	
 	public Unit()
@@ -35,26 +35,20 @@ public class Unit
 		this.weaponTwo = weaponTwo; 
 	    points = points + weaponTwo.getWeaponPoints();
     }
-	
-		
-	/*public List<Weapon> getUnitWeapon ()
-	{
-		return unitWeaponsList;
-	}*/
-	
-	/*public void setPoints (int points)
-	{
-		this.points = points;
-	}*/
-						
-	/*public Weapon getWeaponUpgrade()
+							
+	public Weapon getWeaponUpgrade()
 	{
 		return weapon;
-	}*/
+	}
 	
 	public int getUnitPoints ()
 	{
 		return this.points;
+	}
+	
+	public void resetUnitPoints()
+	{
+		this.points = 11;
 	}
 	
 	public String getCharacteristics()
@@ -68,22 +62,7 @@ public class Unit
 	{
 		return "|| " + "Weapon: " + weapon + " || " + "Points: " + points;
 	}
-		
-	public int getMaxSize()
-	{
-		return COMBOMAXSIZE;
-	}
-	
-			
-	public ObservableList<Integer> getUnitSize() //used in the ChangeListner in the addUnitPane to populate the size ComboBox (third ComboBox)  
-	{
-		for (int i = 1; i <= COMBOMAXSIZE; i++)
-			unitSizeList.add(i);
-		
-		ObservableList<Integer> unitSizeOList = FXCollections.observableArrayList(unitSizeList);
-		return unitSizeOList;
-	}
-	
+						
 	public ObservableList<Weapon> getUnitWeapons()
 	{		
 		ObservableList<Weapon> unitWeaponsOList = FXCollections.observableArrayList(unitWeaponsList);
@@ -95,16 +74,7 @@ public class Unit
 		ObservableList<Weapon> unitSecondWeaponsOList = FXCollections.observableArrayList(unitSecondWeaponsList);
 		return unitSecondWeaponsOList;
 	}
-	
-	public ObservableList<Integer> getWeaponUpgradeAmount(int amount)
-	{	
-			   for (int i = 0; i <= amount; i++)
-				   weaponUpgradeAmount.add(i);	
-			   
-		ObservableList<Integer> weaponUpgradeAmountOList = FXCollections.observableArrayList(weaponUpgradeAmount);
-		return weaponUpgradeAmountOList;
-	}
-			
+				
 	@Override
 	public String toString() 
 	{
