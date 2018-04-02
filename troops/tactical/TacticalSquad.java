@@ -2,6 +2,7 @@ package troops.tactical;
 
 import gui.model.Unit;
 import gui.model.UnitSquad;
+import wargear.weapon.WeaponList;
 
 public class TacticalSquad extends UnitSquad
 {		
@@ -9,7 +10,7 @@ public class TacticalSquad extends UnitSquad
 		{
 			super(squadName);
 			unitName = "Tactical ";
-			super.setMaxSize(9);
+			super.setMaxSize(10);
 			super.setMinSize(5);
 		}
 		
@@ -29,24 +30,69 @@ public class TacticalSquad extends UnitSquad
 			int weaponCount = 0;
 			String message = "";
 			
-			for (Unit unit : unitList)
+			if (unitListSize() < 10)
 			{
-				switch(unit.getWeaponUpgrade().toString())
+				for (Unit unit : unitList)
 				{
-				   case "Heavy Bolter" :
-				   case "Heavy Bolter (Hellfire Shell)" :			 
-				   case "Missile Launcher (Frag)" :
-				   case "Missile Launcher (Krak)" :
-				   case "Missile Launcher (Flakk)" :
-					   weaponCount++;
-				}			
-			}			
-				if (weaponCount > 1)
-				{
-					message = "A Scout Squad is permitted to only 1: Heavy Bolter / Heavy Bolter (Hellfire Shell) / "
-							+ "Missile Launcher (Frag) / Missile Launcher (Krak) / Missile Launcher (Flakk)";
+					switch(unit.getWeaponUpgrade().toString())
+					{
+					    case "Flamer":
+					    case "Meltagun":
+					    case "Grav-Gun":
+					    case "Plasma Gun":
+					    case "Heavy Bolter":
+					    case "Multi-Melta":
+					    case "Missile Launcher (Frag)":
+					    case "Missile Launcher (Krak)":
+					    case "Missile Launcher (Flakk)":
+					    case "Plasma Cannon":
+					    case "Lascannon":
+					    case "Grav-Cannon":
+					    case "Grav-Amp":	   
+							 weaponCount++;					   					   
+					}					
 				}
 				
-				return message;	
-		}	
+				if (weaponCount > 1)
+				{
+					message = "A Tactical Squad with less than " + max + " members can upgrade to 1 "
+							+ "weapon from the Special Weapons or Heavy Weapons list only";
+				}
+			}
+			
+			else if (unitListSize() == 10)
+			{
+				for (Unit unit : unitList)
+				{
+					switch(unit.getWeaponUpgrade().toString())
+					{
+					    case "Flamer":
+					    case "Meltagun":
+					    case "Grav-Gun":
+					    case "Plasma Gun":
+					    	weaponCount++;
+					    break;					    	
+					    case "Heavy Bolter":
+					    case "Multi-Melta":
+					    case "Missile Launcher (Frag)":
+					    case "Missile Launcher (Krak)":
+					    case "Missile Launcher (Flakk)":
+					    case "Plasma Cannon":
+					    case "Lascannon":
+					    case "Grav-Cannon":
+					    case "Grav-Amp":	   
+							 weaponCount++;					   					   
+					}					
+				}
+				
+				if (weaponCount > 2)
+				{
+					message = "A Tactical Squad with " + max + " members can upgrade to 1 "
+							+ "weapon from the Special Weapons and 1 weapon from the Heavy Weapons list only";
+				}
+			}
+								
+		return message;	
+			
+		}
 }

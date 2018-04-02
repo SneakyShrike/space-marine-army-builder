@@ -30,24 +30,47 @@ public class TerminatorSquad extends UnitSquad
 		int weaponCount = 0;
 		String message = "";
 		
-		for (Unit unit : unitList)
+		if (unitListSize() == 5)
 		{
-			switch(unit.getWeaponUpgrade().toString())
+			for (Unit unit : unitList)
 			{
-			   case "Heavy Bolter" :
-			   case "Heavy Bolter (Hellfire Shell)" :			 
-			   case "Missile Launcher (Frag)" :
-			   case "Missile Launcher (Krak)" :
-			   case "Missile Launcher (Flakk)" :
-				   weaponCount++;
-			}			
-		}			
-			if (weaponCount > 1)
-			{
-				message = "A Scout Squad is permitted to only 1: Heavy Bolter / Heavy Bolter (Hellfire Shell) / "
-						+ "Missile Launcher (Frag) / Missile Launcher (Krak) / Missile Launcher (Flakk)";
+				switch(unit.getWeaponUpgrade().toString())
+				{
+				    case "Assault Cannon":
+				    case "Heavy Flamer":
+				    case "Cyclone Missile Launcher":	   
+						weaponCount++;					   					   
+				}					
 			}
 			
-		return message;	
+			if (weaponCount > 1)
+			{
+				message = "A Terminator Squad with " + min + " members can upgrade to 1 of the following: "
+						+ "Assault Cannon / Heavy Flamer / Cyclone Missile Launcher only";
+			}
+		}
+		
+		else if (unitListSize() == 10)
+		{
+			for (Unit unit : unitList)
+			{
+				switch(unit.getWeaponUpgrade().toString())
+				{
+				    case "Assault Cannon":
+			        case "Heavy Flamer":
+			        case "Cyclone Missile Launcher":	 	   
+						 weaponCount++;					   					   
+				}					
+			}
+			
+			if (weaponCount > 2)
+			{
+				message = "A Terminator Squad with " + max + " members can upgrade to 2 of the following: "
+						+ "Assault Cannon / Heavy Flamer / Cyclone Missile Launcher only";
+			}
+		}
+							
+	return message;	
+		
 	}
 }

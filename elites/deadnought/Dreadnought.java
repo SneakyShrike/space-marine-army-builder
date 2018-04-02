@@ -1,11 +1,6 @@
 package elites.deadnought;
 
-import java.util.ArrayList;
-
 import gui.model.Unit;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import wargear.weapon.Weapon;
 import wargear.weapon.WeaponList;
 
 public class Dreadnought extends Unit

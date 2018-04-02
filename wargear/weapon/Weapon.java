@@ -9,7 +9,6 @@ public abstract class Weapon
 {
 	private String name;
 	private int points;
-	private ArrayList<Integer> weaponUpgradeAmount;
 
 	public Weapon(String name, int points)
 	{

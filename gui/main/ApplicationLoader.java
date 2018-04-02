@@ -12,7 +12,7 @@ public class ApplicationLoader extends Application
 	private ArmyBuilderRootPane view;
 	
 	@Override
-	public void init() throws Exception
+	public void init()
 	{
 		Army model = new Army();
 		view =  new ArmyBuilderRootPane(); 

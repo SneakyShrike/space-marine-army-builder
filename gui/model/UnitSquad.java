@@ -6,6 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import gui.view.AddUnitPane;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import troops.scout.ScoutSergeant;
 import wargear.weapon.Weapon;
 import wargear.weapon.WeaponList;
@@ -14,7 +16,7 @@ public class UnitSquad implements Serializable, Iterable<Unit>
 {
 	protected String squadName, unitName; 
 	protected List<Unit> unitList; 
-	private int number, squadPoints;
+	private int number;
 	protected int max, min;
 	
 	public UnitSquad(String squadName) //creates a new array list of scouts with a name
@@ -112,7 +114,7 @@ public class UnitSquad implements Serializable, Iterable<Unit>
 	{
 		return unitList.size();
 	}
-	
+		
 	public int getLastIndex()
 	{
 		return unitList.size() -1;
@@ -129,19 +131,7 @@ public class UnitSquad implements Serializable, Iterable<Unit>
         
         return u;
 	}
-		
-	/*public ScoutSergeant getScoutSergeant(int index)
-	{
-		ScoutSergeant s = null;
-        if (0 <= index && index < unitList.size())
-        	unitList.get(index);
-        
-         else 
-           s = null;
-        
-        return s;
-	}*/
-	
+			
 	public String getUnitSquad()
 	{
 		String s = "\n" + unitName + "Squad: " + this.squadName 
@@ -160,7 +150,7 @@ public class UnitSquad implements Serializable, Iterable<Unit>
 		return this.getUnitSquad();
 	}
 	
-	public void setMaxSize (int size) //changes the name of a squad
+	public void setMaxSize (int size) 
 	{
 		this.max = size;
 	}
@@ -170,7 +160,7 @@ public class UnitSquad implements Serializable, Iterable<Unit>
 		return max;
 	}
 	
-	public void setMinSize (int size) //changes the name of a squad
+	public void setMinSize (int size) 
 	{
 		this.min = size;
 	}

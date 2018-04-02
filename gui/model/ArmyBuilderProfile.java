@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public class ArmyBuilderProfile implements Serializable 
 {
-	private String profileName;
+	/*private String profileName;
 	private Integer maxPoints;
 	private LocalDate date;
 		
@@ -44,5 +44,5 @@ public class ArmyBuilderProfile implements Serializable
 	public void setDate(LocalDate date)
 	{
 		this.date = date;
-	}
+	}*/
 }

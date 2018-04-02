@@ -48,7 +48,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -58,7 +57,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -79,7 +77,6 @@ public class AddUnitPane extends BorderPane
 	private TextField unitNameTf;
 	private Button addUnitBtn, addUnitMemberBtn, removeUnitMemberBtn, upgradeUnitWeaponBtn, removeSquadBtn, clearArmyBtn;
 
-	
 	private Unit_Type HQ, troops, elites, fast_attack, heavy_support;
 	
 	public AddUnitPane()
@@ -116,9 +113,13 @@ public class AddUnitPane extends BorderPane
 				        new Land_Raider(), new Land_Raider_Crusader(), new Land_Raider_Redeemer(), new Predator(), 
 				        new Stalker(), new Stormraven_Gunship(), new Thunderfire_Cannon(), new Vindicator(),
 				        new Whirlwind());
+		
+	
+			
 				
 		ObservableList<Unit_Type> unitTypeOList = FXCollections.observableArrayList(HQ, troops, elites, fast_attack, heavy_support); //create an observable list of unit types
-        ObservableList<Integer> unitMemberSelectedOlist = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9);	
+		ObservableList<Integer> unitMemberSelectedOlist = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9,10);
+        
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 			
         totalPoints = new Label();
@@ -164,7 +165,7 @@ public class AddUnitPane extends BorderPane
 		unitWeaponCombo = new ComboBox<>();
 		unitSecondWeaponCombo = new ComboBox<>();
 		
-		unitCombo.valueProperty().addListener(new ChangeListener<Unit>() //unitSizeCombo (third ComboBox) based on the Unit Chosen
+		unitCombo.valueProperty().addListener(new ChangeListener<Unit>() 
 		{
 			@Override
 			public void changed(ObservableValue<? extends Unit> observable, Unit oldValue, Unit newValue) 
@@ -175,6 +176,18 @@ public class AddUnitPane extends BorderPane
 				unitSecondWeaponCombo.getSelectionModel().selectFirst();
 		    }			
 		});
+		
+		/*lv.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<UnitSquad>() 
+		{
+			@Override
+			public void changed(ObservableValue<? extends UnitSquad> observable, UnitSquad oldValue, UnitSquad newValue) 
+			{												
+				unitWeaponCombo.setItems(newValue == null ? FXCollections.emptyObservableList() : newValue.getUnit(1).getUnitWeapons());
+				unitSecondWeaponCombo.setItems(newValue == null ? FXCollections.emptyObservableList() : newValue.getUnit(1).getUnitSecondWeapons());
+				unitWeaponCombo.getSelectionModel().selectFirst();
+				unitSecondWeaponCombo.getSelectionModel().selectFirst();
+		    }			
+		});*/
 							
 		unitNameTf = new TextField(); //Initialise the unit name TextField
 						
@@ -391,7 +404,7 @@ public class AddUnitPane extends BorderPane
 	}
 	
 	public void clearArmyList()
-		{
-			armyList.clear();
-		}
+	{
+		armyList.clear();
+	}
 }

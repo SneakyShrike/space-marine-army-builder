@@ -1,13 +1,13 @@
-package elites.deadnought;
+package fast_attack.land_speeder;
 
 import gui.model.UnitSquad;
 
-public class DreadnoughtSquad extends UnitSquad
+public class Land_SpeederSquad extends UnitSquad 
 {
-	public DreadnoughtSquad(String squadName) 
+	public Land_SpeederSquad(String squadName) 
 	{
 		super(squadName);
-		unitName = "Dreadnought ";
+		unitName = "Land Speeder ";
 		super.setMaxSize(3);
 		super.setMinSize(1);
 	}
@@ -18,7 +18,7 @@ public class DreadnoughtSquad extends UnitSquad
 		for (int i = 0; i < min; i++)
 		{
 			if (unitList.size() < max)
-				unitList.add(new Dreadnought());	
+				unitList.add(new Land_Speeder());	
 		}
 	}
 }

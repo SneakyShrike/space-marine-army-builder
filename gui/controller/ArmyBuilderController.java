@@ -28,6 +28,26 @@ import elites.terminator_assault.Terminator_Assault;
 import elites.terminator_assault.Terminator_AssaultSquad;
 import elites.venerable_dreadnought.Venerable_Dreadnought;
 import elites.venerable_dreadnought.Venerable_DreadnoughtSquad;
+import fast_attack.attack_bike.Attack_Bike;
+import fast_attack.attack_bike.Attack_BikeSquad;
+import fast_attack.bike.Bike;
+import fast_attack.bike.BikeSquad;
+import fast_attack.drop_pod.Drop_Pod;
+import fast_attack.drop_pod.Drop_PodSquad;
+import fast_attack.land_speeder.Land_Speeder;
+import fast_attack.land_speeder.Land_SpeederSquad;
+import fast_attack.land_speeder_storm.Land_Speeder_Storm;
+import fast_attack.land_speeder_storm.Land_Speeder_StormSquad;
+import fast_attack.razorback.Razorback;
+import fast_attack.razorback.RazorbackSquad;
+import fast_attack.rhino.Rhino;
+import fast_attack.rhino.RhinoSquad;
+import fast_attack.scout_bike.Scout_Bike;
+import fast_attack.scout_bike.Scout_BikeSquad;
+import fast_attack.stormhawk_interceptor.Stormhawk_Interceptor;
+import fast_attack.stormhawk_interceptor.Stormhawk_InterceptorSquad;
+import fast_attack.stormtalon_gunship.Stormtalon_Gunship;
+import fast_attack.stormtalon_gunship.Stormtalon_GunshipSquad;
 import gui.model.Army;
 import gui.model.Unit;
 import gui.model.UnitSquad;
@@ -112,12 +132,12 @@ public class ArmyBuilderController
 			try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("armyObj.dat"));) {
 
 				//write name objects individually as cannot serialize the observable list in register
-				//for (UnitSquad n : model) {
-					///oos.writeObject(n);
-				oos.writeObject(model);
+				//for (UnitSquad n : model) 
+				//{ 
+					oos.writeObject(model);
 				//}
 
-				oos.writeObject(null);
+				//oos.writeObject(null);
 
 				oos.flush();
 
@@ -203,19 +223,37 @@ public class ArmyBuilderController
 			   case "Terminator Assault Squad" : squad = new Terminator_AssaultSquad(au.getUnitName());
 			   break;
 			   case "Venerable Dreadnought Squad" : squad = new Venerable_DreadnoughtSquad(au.getUnitName());
+			   break;
+			   case "Attack Bike Squad" : squad = new Attack_BikeSquad(au.getUnitName());
 			   break;	
+			   case "Bike Squad" : squad = new BikeSquad(au.getUnitName());
+			   break;
+			   case "Drop Pod" : squad = new Drop_PodSquad(au.getUnitName());
+			   break;
+			   case "Land Speeder Squad" : squad = new Land_SpeederSquad(au.getUnitName());
+			   break;
+			   case "Land Speeder Storm" : squad = new Land_Speeder_StormSquad(au.getUnitName());
+			   break;
+			   case "Razorback" : squad = new RazorbackSquad(au.getUnitName());
+			   break;
+			   case "Rhino" : squad = new RhinoSquad(au.getUnitName());
+			   break;
+			   case "Scout Bike Squad" : squad = new Scout_BikeSquad(au.getUnitName());
+			   break;
+			   case "Stormhawk Interceptor" : squad = new Stormhawk_InterceptorSquad(au.getUnitName());
+			   break;
+			   case "Stormtalon Gunship" : squad = new Stormtalon_GunshipSquad(au.getUnitName());
+			   break;
 			   case "Scout Squad" : squad = new ScoutSquad(au.getUnitName()); //create a new scoutSquad with the inputed name		                            //squad.addUnit(new ScoutSergeant()); //add a scout sergeant to the scout squad
 			   break;
 			   case "Tactical Squad" : squad = new TacticalSquad(au.getUnitName());				
 			}
 			
 			squad.addUnitSquad();			
-					
 			model.addUnitSquad(squad);
 			model.setCurrentPoints(squad.getSquadPoints());
-            au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());					
-			//au.setDefaultValues();
-					
+            au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());	
+			//au.setDefaultValues();					
 		}		
 	}
 	
@@ -275,8 +313,28 @@ public class ArmyBuilderController
 			   case "Terminator Assault Squad" : member = new Terminator_Assault();
 			   break;
 			   case "Venerable Dreadnought Squad" : member = new Venerable_Dreadnought();
-			   break;	
+			   break;
+			   case "Attack Bike Squad" : member = new Attack_Bike();
+			   break;
+			   case "Bike Squad" : member = new Bike();
+			   break;
+			   case "Drop Pod" : member = new Drop_Pod();
+			   break;
+			   case "Land Speeder Squad" : member = new Land_Speeder();
+			   break;
+			   case "Land Speeder Storm" : member = new Land_Speeder_Storm();
+			   break;
+			   case "Razorback" : member = new Razorback();
+			   break;
+			   case "Rhino" : member = new Rhino();
+			   break;
+			   case "Scout Bike Squad" : member = new Scout_Bike();
+			   break;
 			   case "Scout Squad" : member = new Scout(); //create a new scoutSquad with the inputed name		                            //squad.addUnit(new ScoutSergeant()); //add a scout sergeant to the scout squad
+			   break;
+			   case "Stormhawk Interceptor" : member = new Stormhawk_Interceptor();
+			   break;
+			   case "Stormtalon Gunship" : member = new Stormtalon_Gunship();
 			   break;
 			   case "Tactical Squad" : member = new Tactical();				
 			}
@@ -312,13 +370,18 @@ public class ArmyBuilderController
 	        
 	        switch(au.getUnit().toString())
 			{
-			   case "Centurion Assault Squad" : 
-			   case "Command Squad" : 		   
+			   case "Centurion Assault Squad" : 	   
 			   case "Dreadnought Squad" :
 			   case "Ironclad Dreadnought Squad" :
 			   case "Terminator Squad" :
 			   case "Venerable Dreadnought Squad" :
-			
+			   case "Attack Bike Squad" :
+			   case "Bike Squad" :
+			   case "Land Speeder Squad" :
+			   case "Land Speeder Storm" :
+			   case "Scout Bike Squad" :
+			   case "Stormhawk Interceptor" : 
+			   case "Stormtalon Gunship" :			
 				   selectedSquad.secondWeaponUpgrade(au.getUnitSecondWeapon(), au.getunitMemberSelected()-1);
 			  break;				
 			}
@@ -328,7 +391,6 @@ public class ArmyBuilderController
 	        model.setCurrentPoints(selectedSquad.getSquadPoints());
             au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());	
             selectedSquad.getUnit(au.getSelectedUnitSquadIndex()).resetUnitPoints();
-
 		}		
 	}
 		

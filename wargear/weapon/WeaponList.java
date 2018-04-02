@@ -16,7 +16,9 @@ public class WeaponList
 		put("Combi-Melta", new Ranged("Combi-Melta", 10));
 		put("Combi-Plasma", new Ranged("Combi-Plasma", 10));
 		put("Grav Pistol", new Ranged("Grav Pistol", 15));
-		put("Plasma Pistol", new Ranged("Plasma Pistol", 15));		
+		put("Plasma Pistol", new Ranged("Plasma Pistol", 15));
+		put("Bolt Pistol", new Ranged("Bolt Pistol", 0));	
+		put("None", new Ranged("None", 0));
 	}};
 	
 	static Map<String, Melee> meleeWeapons = new HashMap<String, Melee>()
@@ -104,9 +106,59 @@ public class WeaponList
 		put("Seismic Hammer With Built-in Heavy Flamer", new Ironclad_DreadnoughtWeapon("Seismic Hammer With Built-in Heavy Flamer", 0));
 		put("Chainfist With Built-in Meltagun", new Ironclad_DreadnoughtWeapon("Chainfist With Built-in Meltagun", 0));
 		put("Chainfist With Built-in Heavy Flamer", new Ironclad_DreadnoughtWeapon("Chainfist With Built-in Heavy Flamer", 0));
-
 	}};
-			
+	
+	static Map<String, BikeWeapon> bikeWeapons = new HashMap<String, BikeWeapon>()
+	{{	
+		put("Twin-Linked Bolter (Integrated)", new BikeWeapon("Twin-Linked Bolter (Integrated)", 0));
+		put("Grenade Launcher (Integrated)", new BikeWeapon("Grenade Launcher (Integrated)", 5));
+		
+		put("Heavy Bolter (Mounted)", new BikeWeapon("Heavy Bolter (Mounted)", 0));
+		put("Multi-Melta (Mounted)", new BikeWeapon("Multi-Melta (Mounted)", 10));		
+	}};
+	
+	static Map<String, Drop_PodWeapon> dropPodWeapons = new HashMap<String, Drop_PodWeapon>()
+	{{		
+		put("Deathwind Launcher", new Drop_PodWeapon("Deathwind Launcher", 15));
+	}};
+		
+	static Map<String, Land_SpeederWeapon> landSpeederWeapons = new HashMap<String, Land_SpeederWeapon>()
+	{{	
+		put("Assault Cannon (Hull)", new Land_SpeederWeapon("Assault Cannon (Hull)", 20));
+		put("Heavy Bolter (Hull)", new Land_SpeederWeapon("Heavy Bolter (Hull)", 5));
+		put("Heavy Flamer (Hull)", new Land_SpeederWeapon("Heavy Flamer (Hull)", 5));
+		put("Multi-Melta (Hull)", new Land_SpeederWeapon("Multi-Melta (Hull)", 15));		
+		put("Typhoon Missile Launcher (Hull)", new Land_SpeederWeapon("Typhoon Missile Launcher (Hull)", 25));
+		put("Cerberus Launcher (Hull)", new Land_SpeederWeapon("Cerberus Launcher (Hull)", 0));
+		
+		put("Assault Cannon (Rail)", new Land_SpeederWeapon("Assault Cannon (Rail)", 15));
+		put("Heavy Bolter (Rail)", new Land_SpeederWeapon("Heavy Bolter (Rail)", 0));
+		put("Heavy Flamer (Rail)", new Land_SpeederWeapon("Heavy Flamer (Rail)", 0));
+		put("Multi-Melta (Rail)", new Land_SpeederWeapon("Multi-Melta (Rail)", 10));
+	}};
+	
+	static Map<String, RazorbackWeapon> razorbackWeapons = new HashMap<String, RazorbackWeapon>()
+	{{	
+		put("Lascannon And Twin-Linked Plasma Gun (Turret)", new RazorbackWeapon("Lascannon And Twin-Linked Plasma Gun (Turret)", 20));
+		put("Twin-Linked Assault Cannon (Turret)", new RazorbackWeapon("Twin-Linked Assault Cannon (Turret)", 20));
+		put("Twin-Linked Heavy Bolter (Turret)", new RazorbackWeapon("Twin-Linked Heavy Bolter (Turret)", 0));
+		put("Twin-Linked Heavy Flamer (Turret)", new RazorbackWeapon("Twin-Linked Heavy Flamer (Turret)", 0));
+		put("Twin-Linked Lascannon (Turret)", new RazorbackWeapon("Twin-Linked Lascannon (Turret)", 20));
+	}};
+	
+	static Map<String, GunshipWeapon> gunshipWeapons = new HashMap<String, GunshipWeapon>()
+	{{	
+		put("Icarus Stormcannon (Primary)", new GunshipWeapon("Icarus Stormcannon (Primary)", 0));
+		put("Las-Talon (Primary)", new GunshipWeapon("Las-Talon (Primary)", 0));
+		put("Twin-Linked Assault Cannon (Primary)", new GunshipWeapon("Twin-Linked Assault Cannon (Primary)", 0));
+		
+		put("Skyhammer Missile Launcher (Side Hull)", new GunshipWeapon("Skyhammer Missile Launcher (Side Hull)", 5));
+		put("Twin-Linked Heavy Bolter (Side Hull)", new GunshipWeapon("Twin-Linked Heavy Bolter (Side Hull)", 0));
+		put("Typhoon Missile Launcher (Side Hull)", new GunshipWeapon("Typhoon Missile Launcher (Side Hull)", 20));
+		put("Twin-Linked Lascannon (Side Hull)", new GunshipWeapon("Twin-Linked Lascannon (Side Hull)", 15));
+	
+	}};
+				
 	static Map<String, ScoutWeapon> scoutWeapons = new HashMap<String, ScoutWeapon>()
 	{{			
 		put("Shotgun", new ScoutWeapon("Shotgun", 0));
@@ -161,6 +213,31 @@ public class WeaponList
         return terminatorWeapons.get(key);   
 	}
 	
+	public static BikeWeapon getBikeWeapon(String key)
+	{		
+        return bikeWeapons.get(key);   
+	}
+	
+	public static Drop_PodWeapon getDrop_PodWeapon(String key)
+	{		
+        return dropPodWeapons.get(key);   
+	}
+	
+	public static Land_SpeederWeapon getLand_SpeederWeapon(String key)
+	{		
+        return landSpeederWeapons.get(key);   
+	}
+	
+	public static RazorbackWeapon getRazorbackWeapon(String key)
+	{		
+        return razorbackWeapons.get(key);   
+	}
+	
+	public static GunshipWeapon getGunshipWeapon(String key)
+	{		
+        return gunshipWeapons.get(key);   
+	}
+		
 	public static ScoutWeapon getScoutWeapon(String key)
 	{		
         return scoutWeapons.get(key);   

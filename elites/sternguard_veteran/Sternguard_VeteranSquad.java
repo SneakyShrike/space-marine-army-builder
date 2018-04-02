@@ -36,18 +36,25 @@ public class Sternguard_VeteranSquad extends UnitSquad
 		{
 			switch(unit.getWeaponUpgrade().toString())
 			{
-			   case "Heavy Bolter" :
-			   case "Heavy Bolter (Hellfire Shell)" :			 
-			   case "Missile Launcher (Frag)" :
-			   case "Missile Launcher (Krak)" :
-			   case "Missile Launcher (Flakk)" :
-				   weaponCount++;
+			   case "Flamer":
+		       case "Meltagun":
+		       case "Grav-Gun":
+		       case "Plasma Gun":
+		       case "Heavy Bolter":
+		       case "Multi-Melta":
+		       case "Missile Launcher (Frag)":
+		       case "Missile Launcher (Krak)":
+		       case "Missile Launcher (Flakk)":
+		       case "Plasma Cannon":
+		       case "Lascannon":
+		       case "Grav-Cannon":
+		       case "Grav-Amp":
+				     weaponCount++;
 			}			
 		}			
-			if (weaponCount > 1)
+			if (weaponCount > 2)
 			{
-				message = "A Scout Squad is permitted to only 1: Heavy Bolter / Heavy Bolter (Hellfire Shell) / "
-						+ "Missile Launcher (Frag) / Missile Launcher (Krak) / Missile Launcher (Flakk)";
+				message = "A Sternguard Veteran Squad is permitted to only 2 weapons from the Heavy Weapons list or Special weapons list only";
 			}
 			
 		return message;	
