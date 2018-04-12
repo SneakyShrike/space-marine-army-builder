@@ -2,10 +2,9 @@ package main_test;
 
 import java.util.Scanner;
 
-
-import troops.scout.ScoutSergeant;
-import troops.scout.ScoutSquad;
-import wargear.weapon.WeaponList;
+import model.troops.scout.ScoutSergeant;
+import model.troops.scout.ScoutSquad;
+import model.wargear.weapon.WeaponList;
 
 public class ArmyBuilderDemo
 {
