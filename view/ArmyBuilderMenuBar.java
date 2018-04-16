@@ -44,9 +44,11 @@ public class ArmyBuilderMenuBar extends MenuBar
 		this.getMenus().add(menu);		
 	}
 	
-	public void disableSaveToTextFile(Boolean value)
+	public void disableMenuItems(Boolean value)
 	{
-		saveToText.setDisable(value);		
+		save.setDisable(value);
+		saveToText.setDisable(value);	
+		print.setDisable(value);
 	}
 	
 	public void SaveHandler(EventHandler<ActionEvent> handler)

@@ -5,12 +5,13 @@ import model.wargear.weapon.WeaponList;
 
 public class Assault extends Unit
 {
-	/*public Assault()
+	public Assault()
 	{
 		super();
-		unitName = "Assault Squad"; //default name of a scout squad
-        weapon = WeaponList.getRanged("Chainsword");
-		points = 14 + weapon.getWeaponPoints();//default weapon of a scout
+		unitName = "Assault Squad"; 
+		weapon = WeaponList.getRanged("Bolt Pistol");
+        weaponTwo = WeaponList.getMelee("Chainsword");
+		points = 14 + weapon.getWeaponPoints() + weaponTwo.getWeaponPoints();
         weaponSkill = 4;
         ballisticSkill = 4;
         strength = 4;
@@ -21,7 +22,17 @@ public class Assault extends Unit
         leadership = 8;
         save = "3+";
    
-        unitWeaponsList.add(WeaponList.getMelee("Chainsword"));
-        unitWeaponsList.add(WeaponList.getRanged("Plasma Pistol"));		
-	}*/
+        unitWeaponsList.add(WeaponList.getRanged("Bolt Pistol"));	
+        unitWeaponsList.add(WeaponList.getRanged("Plasma Pistol"));	
+        unitWeaponsList.add(WeaponList.getSpecial("Flamer"));	
+               
+        unitSecondWeaponsList.add(WeaponList.getMelee("Chainsword"));	
+        unitSecondWeaponsList.add(WeaponList.getMelee("Eviscerator"));	
+	}
+	
+	@Override
+	public String getUnitDetails()
+	{
+		return "|| " + "Weapons: " + weapon + " + " + weaponTwo + " || " + "Points: " + points;
+	}
 }

@@ -30,9 +30,9 @@ public class CreateProfilePane extends GridPane
 	private Button createBtn;
 		
 	public CreateProfilePane()
-	{		
-		setStyle("-fx-text-fill: #FFFFFF;");
-		setStyle("-fx-background-color: #313131;");
+	{			
+		setStyle("-fx-background-color: #313131;");		
+		
 		this.setPadding(new Insets(40, 40, 40, 40));
 		this.setVgap(15);
 		this.setHgap(20);
@@ -41,9 +41,13 @@ public class CreateProfilePane extends GridPane
 		col1.setHalignment(HPos.RIGHT);
 		this.getColumnConstraints().add(col1);
 		
-		profileNameLbl = new Label("Profile Name: ");
-		maxPointsLbl = new Label("Max Points: ");
-		dateLbl = new Label("Input Date: ");
+		profileNameLbl = new Label("Name Of The Army Roster: ");
+		maxPointsLbl = new Label("Choose The Max Points Limit: ");
+		dateLbl = new Label("Date Of Creation: ");
+		
+		profileNameLbl.setStyle("-fx-text-fill: #FFFFFF;");
+		maxPointsLbl.setStyle("-fx-text-fill: #FFFFFF;");
+		dateLbl.setStyle("-fx-text-fill: #FFFFFF;");
 		
 		profileName = new TextField();
 		
@@ -74,7 +78,7 @@ public class CreateProfilePane extends GridPane
 	public void populateMaxPointsComboBox(ArrayList<Integer> points)
 	{
 		maxPoints.getItems().addAll(points);
-		maxPoints.getSelectionModel().select(0); //default selection
+		maxPoints.getSelectionModel().select(0); 
 	}
 	
 	public Integer getSelectedMaxPoints()

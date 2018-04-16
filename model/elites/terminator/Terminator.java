@@ -4,8 +4,7 @@ import model.Unit;
 import model.wargear.weapon.WeaponList;
 
 public class Terminator extends Unit
-{
-	
+{	
 	public Terminator() //creates a new array list of scouts with a name
 	{
 		super();

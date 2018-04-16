@@ -8,8 +8,7 @@ public class Land_Raider_Crusader extends Unit
 	protected int frontArmour, sideArmour, rearArmour, hitPoints;
 	
 	public Land_Raider_Crusader()
-	 {
-		
+	 {		
 		super();
 		unitName = "Land Raider Crusader"; 
 		weapon = WeaponList.getTankWeapon("Twin-Linked Assault Cannon (Front)");
@@ -31,7 +30,7 @@ public class Land_Raider_Crusader extends Unit
 	@Override
 	public String getCharacteristics()
 	{		
-		return "Characteristics: " + "BS: " + ballisticSkill  + " Armour:  F: " + frontArmour + "  " + "S: " + sideArmour
-				+ "  " + "R: " + rearArmour + "  " + "HP: " + hitPoints;
-	}	
+		return "Characteristics:   BS: " + ballisticSkill  +  "   HP: " + hitPoints +
+				"   Armour:   FA: " + frontArmour + "   SA: " + sideArmour + "   RA: " + rearArmour;
+	}		
 }

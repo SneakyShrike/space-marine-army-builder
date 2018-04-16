@@ -1,16 +1,14 @@
 package model;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.troops.scout.ScoutSergeant;
 import model.wargear.weapon.Weapon;
-import model.wargear.weapon.WeaponList;
-import view.AddUnitPane;
 
 public class UnitSquad implements Serializable, Iterable<Unit>
 {
@@ -184,6 +182,18 @@ public class UnitSquad implements Serializable, Iterable<Unit>
 		return total; 
 	}
 	
+	/*public ObservableList<Weapon> getUnitWeapons()
+	{
+		Unit u = new Unit();
+		ObservableList<Weapon> unitWeaponsOList = FXCollections.observableArrayList(u.unitWeaponsList);
+		return unitWeaponsOList;
+	}
 	
+	public ObservableList<Weapon> getUnitSecondWeapons()
+	{
+		Unit u = new Unit();
+		ObservableList<Weapon> unitSecondWeaponsOList = FXCollections.observableArrayList(u.unitSecondWeaponsList);
+		return unitSecondWeaponsOList;
+	}*/	
 }
 	

@@ -35,8 +35,12 @@ import model.elites.terminator.Terminator;
 import model.elites.terminator.TerminatorSquad;
 import model.elites.terminator_assault.Terminator_Assault;
 import model.elites.terminator_assault.Terminator_AssaultSquad;
+import model.elites.vanguard_veteran.Vanguard_Veteran;
+import model.elites.vanguard_veteran.Vanguard_VeteranSquad;
 import model.elites.venerable_dreadnought.Venerable_Dreadnought;
 import model.elites.venerable_dreadnought.Venerable_DreadnoughtSquad;
+import model.fast_attack.assault.Assault;
+import model.fast_attack.assault.AssaultSquad;
 import model.fast_attack.attack_bike.Attack_Bike;
 import model.fast_attack.attack_bike.Attack_BikeSquad;
 import model.fast_attack.bike.Bike;
@@ -81,6 +85,14 @@ import model.heavy_support.vindicator.Vindicator;
 import model.heavy_support.vindicator.VindicatorSquad;
 import model.heavy_support.whirlwind.Whirlwind;
 import model.heavy_support.whirlwind.WhirlwindSquad;
+import model.hq.captain.Captain;
+import model.hq.captain.CaptainSquad;
+import model.hq.chaplain.Chaplain;
+import model.hq.chaplain.ChaplainSquad;
+import model.hq.librarian.Librarian;
+import model.hq.librarian.LibrarianSquad;
+import model.hq.techmarine.Techmarine;
+import model.hq.techmarine.TechmarineSquad;
 import model.troops.scout.Scout;
 import model.troops.scout.ScoutSquad;
 import model.troops.tactical.Tactical;
@@ -157,6 +169,16 @@ public class ArmyBuilderController
 		return points;
 	}
 	
+	private ArrayList<Integer> getUnitSize()
+	{
+		ArrayList<Integer> member = new ArrayList<>();
+		
+		for (int i = 1; i <= au.getSelectedUnitSquad().getLastIndex() + 1; i++)
+			member.add(i);
+				
+		return member;
+	}
+	
 	private void alertPrompt(AlertType type, String title, String header, String sentence) 
 	{
 		Alert alert = new Alert(type);
@@ -170,15 +192,16 @@ public class ArmyBuilderController
 	{
 		if (model.getCurrentPoints() > model.getTotalPoints())
         {
-			alertPrompt(AlertType.WARNING, "Warning Prompt", "Points Limit Exceeded", "The current points value exceeds the set maximum points limit, please reduce it");
+			alertPrompt(AlertType.WARNING, "Warning Prompt", "Points Limit Exceeded", "Saving, saving to a text file and printing have been disabled. \n\n"
+					+ "The current points value exceeds the set maximum points limit, please reduce it before proceeding.");
             au.setTotalPointsColour("-fx-text-fill: #E53935;");
-            mb.disableSaveToTextFile(true);
+            mb.disableMenuItems(true);
         }
 	    
 		else 
 		{
 			au.setTotalPointsColour("-fx-text-fill: #FFFFFF;");
-		    mb.disableSaveToTextFile(false);		    	
+		    mb.disableMenuItems(false);		    	
 		}
 	}
 			
@@ -251,6 +274,7 @@ public class ArmyBuilderController
 			String armyList = "";
 			
 			armyList += cp.getProfileName()+":" + " Space Marine Army Roster\n\n";
+			armyList += "Date Of Creation: " + cp.getprofileDate() + "\n\n";
 			armyList += "Total Army Points Cost: " + model.getCurrentPoints() + "\n\n";
 			armyList += model.getArmyUnits();
 			
@@ -261,7 +285,7 @@ public class ArmyBuilderController
 			      pw.print(armyList);
 
 			      pw.flush();
-			      alertPrompt(AlertType.INFORMATION, "Information Prompt", "Save Success", "Students profile overview saved into " + cp.getProfileName()+".txt");
+			      alertPrompt(AlertType.INFORMATION, "Information Prompt", "Text File Succesfully Saved", "A copy of your army roster has been saved into " + cp.getProfileName()+".txt");
 			  } 
 			    
 			  catch (Exception ex) 
@@ -275,7 +299,7 @@ public class ArmyBuilderController
 	{
 		public void handle(ActionEvent e) 
 		{
-									
+			alertPrompt(AlertType.INFORMATION, "Information Prompt", "7th Edition Space Marine Army Roster Builder", "This program allows you to ");								
 		}		
 	}
 	
@@ -314,7 +338,11 @@ public class ArmyBuilderController
 			   break;
 			   case "Terminator Assault Squad" : squad = new Terminator_AssaultSquad(au.getUnitName());
 			   break;
+			   case "Vanguard Veteran Squad" : squad = new Vanguard_VeteranSquad(au.getUnitName());
+			   break;
 			   case "Venerable Dreadnought Squad" : squad = new Venerable_DreadnoughtSquad(au.getUnitName());
+			   break;
+			   case "Assault Squad" : squad = new AssaultSquad(au.getUnitName());
 			   break;
 			   case "Attack Bike Squad" : squad = new Attack_BikeSquad(au.getUnitName());
 			   break;	
@@ -360,21 +388,30 @@ public class ArmyBuilderController
 			   break;
 			   case "Whirlwind Squad" : squad = new WhirlwindSquad(au.getUnitName());
 			   break;
+			   case "Captain" : squad = new CaptainSquad(au.getUnitName());
+			   break;
+			   case "Chaplain" : squad = new ChaplainSquad(au.getUnitName());
+			   break;
+			   case "Librarian" : squad = new LibrarianSquad(au.getUnitName());
+			   break;
+			   case "Techmarine" : squad = new TechmarineSquad(au.getUnitName());
+			   break;  
 			   case "Scout Squad" : squad = new ScoutSquad(au.getUnitName()); //create a new scoutSquad with the inputed name
 			   break;
 			   case "Tactical Squad" : squad = new TacticalSquad(au.getUnitName());
 			   break;
 			}
 			
-			squad.addUnitSquad();			
+			squad.addUnitSquad();
 			model.addUnitSquad(squad); //I THINK THIS CAUSES THE SAVE ISSUE
+			//au.populateUnitMemberComboBox(getUnitSize());
 			model.setCurrentPoints(squad.getSquadPoints());
             au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
             pointsValueCheck();
            
+           
 		    	
 			//au.setDefaultValues();					
-            //System.out.println(model.getArmy());
 		}		
 	}
 	
@@ -435,7 +472,11 @@ public class ArmyBuilderController
 			   break;
 			   case "Terminator Assault Squad" : member = new Terminator_Assault();
 			   break;
+			   case "Vanguard Veteran Squad" : member = new Vanguard_Veteran();
+			   break;
 			   case "Venerable Dreadnought Squad" : member = new Venerable_Dreadnought();
+			   break;
+			   case "Assault Squad" : member = new Assault();
 			   break;
 			   case "Attack Bike Squad" : member = new Attack_Bike();
 			   break;
@@ -481,6 +522,14 @@ public class ArmyBuilderController
 			   break;
 			   case "Whirlwind Squad" : member = new Whirlwind();
 			   break;
+			   case "Captain" : member = new Captain();
+			   break;
+			   case "Chaplain" : member = new Chaplain();
+			   break;
+			   case "Librarian" : member = new Librarian();
+			   break;
+			   case "Techmarine" : member = new Techmarine();
+			   break;		   
 			   case "Scout Squad" : member = new Scout(); //create a new scoutSquad with the inputed name		                             
 			   break;
 			   case "Tactical Squad" : member = new Tactical();				
@@ -492,6 +541,7 @@ public class ArmyBuilderController
 			model.setCurrentPoints(squad.getSquadPoints());
             au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
             pointsValueCheck();
+            //au.populateUnitMemberComboBox(getUnitSize());
             //System.out.println(model.getArmy());
 		}		
 	}
@@ -508,6 +558,7 @@ public class ArmyBuilderController
 			model.setCurrentPoints(value);
 			au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
 			pointsValueCheck();
+			//au.populateUnitMemberComboBox(getUnitSize());
 		}		
 	}
 	
@@ -536,6 +587,12 @@ public class ArmyBuilderController
 			   case "Centurion Devastator Squad" :
 			   case "Predator Squad" :	
 			   case "Stormraven Gunship" :
+			   case "Captain" :
+			   case "Chaplain" :
+			   case "Librarian" :	
+			   case "Techmarine" :	
+			   case "Vanguard Veteran Squad" :
+			   case "Assault Squad" :
 				   selectedSquad.secondWeaponUpgrade(au.getUnitSecondWeapon(), au.getunitMemberSelected()-1);
 			  break;				
 		}

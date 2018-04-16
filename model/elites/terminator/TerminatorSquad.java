@@ -1,8 +1,8 @@
 package model.elites.terminator;
 
 import model.Unit;
+
 import model.UnitSquad;
-import model.wargear.weapon.Weapon;
 
 public class TerminatorSquad extends UnitSquad
 {

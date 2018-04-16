@@ -10,20 +10,20 @@ public class Stalker extends Unit
 	public Stalker()
 	{
 		super();
-	     unitName = "Stalker Squad"; 
-	     weapon = WeaponList.getTankWeapon("Icarus Stormcannon Array");
-		 points = 75 + weapon.getWeaponPoints();
-		 ballisticSkill = 4;
-		 frontArmour = 14;
-		 sideArmour = 14;
-		 rearArmour = 14;
-		 hitPoints = 4;				
+	    unitName = "Stalker Squad"; 
+	    weapon = WeaponList.getTankWeapon("Icarus Stormcannon Array");
+		points = 75 + weapon.getWeaponPoints();
+		ballisticSkill = 4;
+		frontArmour = 12;
+		sideArmour = 12;
+		rearArmour = 10;
+		hitPoints = 3;				
 	}
 	
 	@Override
 	public String getCharacteristics()
 	{		
-		return "Characteristics: " + "BS: " + ballisticSkill  + " Armour:  F: " + frontArmour + "  " + "S: " + sideArmour
-				+ "  " + "R: " + rearArmour + "  " + "HP: " + hitPoints;
-	}	
+		return "Characteristics:   BS: " + ballisticSkill  +  "   HP: " + hitPoints +
+				"   Armour:   FA: " + frontArmour + "   SA: " + sideArmour + "   RA: " + rearArmour;
+	}
 }

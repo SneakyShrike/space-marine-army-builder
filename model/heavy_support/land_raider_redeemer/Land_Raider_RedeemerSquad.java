@@ -27,6 +27,8 @@ public class Land_Raider_RedeemerSquad extends UnitSquad
 	{
 		String s = "\n" + unitName + this.squadName 
 		+ "\n" + 
+		unitList.get(0).getCharacteristics() 
+		+ "\n" +
 		"Total Points: " + getSquadPoints() + "\n\n";		
 		
 		for (int i = 0; i < unitList.size(); i++)

@@ -9,7 +9,7 @@ import model.wargear.weapon.Weapon;
 
 public class Unit
 {
-	protected ArrayList<Weapon> unitWeaponsList, unitSecondWeaponsList;
+	public ArrayList<Weapon> unitWeaponsList, unitSecondWeaponsList;
 	protected Weapon weapon, weaponTwo;
 	protected String unitName, save;
 	protected int points, weaponSkill, ballisticSkill, strength, toughness, 
@@ -43,6 +43,16 @@ public class Unit
 		return this.points;
 	}
 	
+	public ArrayList<Weapon> getUnitWeaponsList()
+	{
+		return unitWeaponsList;
+	}
+	
+	public ArrayList<Weapon> getUnitSecondWeaponsList()
+	{
+		return unitSecondWeaponsList;
+	}
+	
 	public void resetUnitPoints()
 	{
 		this.points = 11;
@@ -50,9 +60,9 @@ public class Unit
 	
 	public String getCharacteristics()
 	{		
-		return "Characteristics: " + "WS: " + weaponSkill + "  " + "BS: " + ballisticSkill + "  " + "S: " + strength
-				+ "  " + "T: " + toughness + "  " + "W: " + wounds + "  " + "I: " + initiative + "  " + "A: " + attacks
-				+ "  " + "LD: " + leadership + "  " + "SV: " + save;
+		return "Characteristics:   WS: " + weaponSkill + "   BS: " + ballisticSkill + "   S: " + strength
+				+  "   T: " + toughness + "   W: " + wounds + "   I: " + initiative + "   A: " + attacks
+				+ "   LD: " + leadership + "   SV: " + save;
 	}
 	
 	public String getUnitDetails()

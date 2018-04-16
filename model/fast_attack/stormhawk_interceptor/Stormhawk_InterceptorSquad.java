@@ -22,12 +22,14 @@ public class Stormhawk_InterceptorSquad extends UnitSquad
 				unitList.add(new Stormhawk_Interceptor());	
 		}
 	}
-	
+		
 	@Override
 	public String getUnitSquad()
 	{
 		String s = "\n" + unitName + this.squadName 
 		+ "\n" + 
+		unitList.get(0).getCharacteristics() 
+		+ "\n" +
 		"Total Points: " + getSquadPoints() + "\n\n";		
 		
 		for (int i = 0; i < unitList.size(); i++)

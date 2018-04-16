@@ -17,7 +17,7 @@ public class ArmyBuilderRootPane extends BorderPane
 	
 	public ArmyBuilderRootPane()
 	{
-		this.setStyle("-fx-background-color: #415D78;");
+		this.getStylesheets().add(getClass().getResource("globalStyles.css").toExternalForm());
 		
 		mb = new ArmyBuilderMenuBar();
 		cp = new CreateProfilePane();

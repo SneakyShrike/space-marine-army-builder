@@ -29,7 +29,7 @@ public class Razorback extends Unit
 	@Override
 	public String getCharacteristics()
 	{		
-		return "Characteristics: " + "BS: " + ballisticSkill  + " Armour:  F: " + frontArmour + "  " + "S: " + sideArmour
-				+ "  " + "R: " + rearArmour + "  " + "HP: " + hitPoints;
+		return "Characteristics:   BS: " + ballisticSkill  +  "   HP: " + hitPoints +
+				"   Armour:   FA: " + frontArmour + "   SA: " + sideArmour + "   RA: " + rearArmour;
 	}
 }

@@ -1,6 +1,7 @@
 package view;
 
 import javafx.beans.binding.BooleanBinding;
+
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -32,7 +33,7 @@ import model.elites.ironclad_dreadnought.Ironclad_Dreadnought;
 import model.elites.sternguard_veteran.Sternguard_Veteran;
 import model.elites.terminator.Terminator;
 import model.elites.terminator_assault.Terminator_Assault;
-import model.elites.vanguard_veteran.Vanguard_Veterans;
+import model.elites.vanguard_veteran.Vanguard_Veteran;
 import model.elites.venerable_dreadnought.Venerable_Dreadnought;
 import model.fast_attack.assault.Assault;
 import model.fast_attack.attack_bike.Attack_Bike;
@@ -66,7 +67,7 @@ import model.troops.tactical.Tactical;
 import model.wargear.weapon.Weapon;
 
 public class AddUnitPane extends BorderPane
-{
+{	
 	private Label totalPoints, unitTypeLbl, unitLbl, unitNameLbl, unitMemberSelectedLbl, unitWeaponLbl, 
 	              unitSecondWeaponLbl, weaponsCheckMessage, sizeCheckMessage;
 	private ComboBox<Unit_Type> unitTypeCombo; 
@@ -82,9 +83,7 @@ public class AddUnitPane extends BorderPane
 	private Unit_Type HQ, troops, elites, fast_attack, heavy_support;
 	
 	public AddUnitPane()
-	{
-		setStyle("-fx-text-fill: #FFFFFF;");
-		
+	{		
 		HBox topSection = new HBox();
 		
 		GridPane leftSection = new GridPane();
@@ -105,7 +104,7 @@ public class AddUnitPane extends BorderPane
 		
 		elites = new Unit_Type("Elites", new Centurion_Assault(), new Command(), new Dreadnought(), new Honour_Guard(), 
 				 new Ironclad_Dreadnought(), new Sternguard_Veteran(), new Terminator(), new Terminator_Assault(), 
-				 new Vanguard_Veterans(), new Venerable_Dreadnought());
+				 new Vanguard_Veteran(), new Venerable_Dreadnought());
 		
 		fast_attack = new Unit_Type("Fast Attack", new Assault(), new Attack_Bike(), new Bike(), new Drop_Pod(), 
 				      new Land_Speeder(), new Land_Speeder_Storm(), new Razorback(), new Rhino(), new Scout_Bike(),  
@@ -116,9 +115,9 @@ public class AddUnitPane extends BorderPane
 				        new Stalker(), new Stormraven_Gunship(), new Thunderfire_Cannon(), new Vindicator(),
 				        new Whirlwind());
 						
-		ObservableList<Unit_Type> unitTypeOList = FXCollections.observableArrayList(HQ, troops, elites, fast_attack, heavy_support); //create an observable list of unit types
+		ObservableList<Unit_Type> unitTypeOList = FXCollections.observableArrayList(HQ, troops, elites, fast_attack, heavy_support);
 		ObservableList<Integer> unitMemberSelectedOlist = FXCollections.observableArrayList(1,2,3,4,5,6,7,8,9,10);
-        
+		        
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 			
         totalPoints = new Label();
@@ -129,8 +128,7 @@ public class AddUnitPane extends BorderPane
 		unitWeaponLbl = new Label("Select The Unit Members Weapon Upgrade:  ");
 		unitSecondWeaponLbl = new Label("Select The Unit Members Second Weapon Upgrade:  ");
 		weaponsCheckMessage = new Label();
-		sizeCheckMessage = new Label();
-		
+		sizeCheckMessage = new Label();	
 		
 		totalPoints.setStyle("-fx-text-fill: #FFFFFF;");
 		unitTypeLbl.setStyle("-fx-text-fill: #FFFFFF;");
@@ -141,8 +139,7 @@ public class AddUnitPane extends BorderPane
 		unitSecondWeaponLbl.setStyle("-fx-text-fill: #FFFFFF;");
 		weaponsCheckMessage.setStyle("-fx-text-fill: #FFFFFF;");
 		sizeCheckMessage.setStyle("-fx-text-fill: #FFFFFF;");
-		
-		
+						
 		//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 				        
 		unitTypeCombo = new ComboBox<Unit_Type>(); //Initialise the unitTypeCombo (first ComboBox)
@@ -176,6 +173,18 @@ public class AddUnitPane extends BorderPane
 				unitSecondWeaponCombo.getSelectionModel().selectFirst();
 		    }			
 		});
+				
+		/*lv.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<UnitSquad>() 
+		{
+			@Override
+			public void changed(ObservableValue<? extends UnitSquad> observable, UnitSquad oldValue, UnitSquad newValue) 
+			{												
+				unitWeaponCombo.setItems(newValue == null ? FXCollections.emptyObservableList() : newValue.getUnitWeapons());
+				unitSecondWeaponCombo.setItems(newValue == null ? FXCollections.emptyObservableList() : newValue.getUnitSecondWeapons());
+				unitWeaponCombo.getSelectionModel().selectFirst();
+				unitSecondWeaponCombo.getSelectionModel().selectFirst();
+		    }			
+		});*/
 					
 		unitNameTf = new TextField(); //Initialise the unit name TextField
 						
@@ -196,7 +205,7 @@ public class AddUnitPane extends BorderPane
 		upgradeUnitWeaponBtn.setDisable(true);
 		removeSquadBtn = new Button ("Remove A Selected Squad");
 	    clearArmyBtn = new Button ("Clear The Entire Army");
-		
+	    		
 		topSection.getChildren().add(totalPoints);
 		topSection.setAlignment(Pos.CENTER);
 		topSection.setPadding(new Insets(10,10,10,10));
@@ -269,6 +278,12 @@ public class AddUnitPane extends BorderPane
 		
 	}
 	
+	/*public void populateUnitMemberComboBox(ArrayList<Integer> members)
+	{
+		unitMemberSelectedCombo.getItems().addAll(members);
+		unitMemberSelectedCombo.getSelectionModel().select(0); //default selection
+	}*/
+	
 	public void setTotalPointsColour(String colour)
 	{
 		totalPoints.setStyle(colour);
@@ -283,12 +298,7 @@ public class AddUnitPane extends BorderPane
 	{
 		return unitCombo.getSelectionModel().getSelectedItem();
 	}
-		
-	public Integer getUnitSize() //returns the selected unit size from the unitSizeCombo (third ComboBox)
-	{
-		return null;
-	}
-	
+			
 	public Weapon getUnitWeapon() //returns the selected unit weapon from the unitWeaponCombo (fourth ComboBox)
 	{
 		return unitWeaponCombo.getSelectionModel().getSelectedItem();
@@ -316,10 +326,9 @@ public class AddUnitPane extends BorderPane
 	
 	public UnitSquad getUnitSquad()
 	{
-		return new UnitSquad(unitNameTf.getText());
-		
+		return new UnitSquad(unitNameTf.getText());		
 	}
-	
+			
 	public void removeSelectedUnitSquad()
 		{
 			int index = lv.getSelectionModel().getSelectedIndex();
@@ -331,8 +340,8 @@ public class AddUnitPane extends BorderPane
 		}
 	public void setDefaultValues() //clears the combo boxes when the add button is pressed
 	{
-		unitTypeCombo.getSelectionModel().clearSelection();
-		unitNameTf.clear();		
+		//unitMemberSelectedCombo.getSelectionModel().clearSelection();
+		//unitMemberSelectedCombo.getItems().clear();
 	}
 	
 	public void setweaponsCheckMessage(String message)
@@ -362,7 +371,7 @@ public class AddUnitPane extends BorderPane
 	
 	public ObservableList<UnitSquad> getSelectedUnitSquads() 
 	{
-			return lv.getSelectionModel().getSelectedItems();
+		return lv.getSelectionModel().getSelectedItems();
 	}
 	
 	/*--------------------------------------------------------EVENT HANDLER SECTION---------------------------------------------*/

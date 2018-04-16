@@ -1,13 +1,13 @@
-package model.fast_attack.drop_pod;
+package model.hq.techmarine;
 
 import model.UnitSquad;
 
-public class Drop_PodSquad extends UnitSquad
+public class TechmarineSquad extends UnitSquad
 {
-	public Drop_PodSquad(String squadName)
+	public TechmarineSquad(String squadName) 
 	{
 		super(squadName);
-		unitName = "Drop Pod ";
+		unitName = "Techmarine ";
 		super.setMaxSize(1);
 		super.setMinSize(1);		
 	}
@@ -18,7 +18,7 @@ public class Drop_PodSquad extends UnitSquad
 		for (int i = 0; i < min; i++)
 		{
 			if (unitList.size() < max)
-				unitList.add(new Drop_Pod());	
+				unitList.add(new Techmarine());	
 		}
 	}
 	
@@ -44,7 +44,10 @@ public class Drop_PodSquad extends UnitSquad
     	
     	if (unitList.size() > max)
     	message =  "Only " + max + " " + unitName + " is permitted";
+    	
+    	else if (unitList.size() < min)
+    		message =  "There must be at least " + min + " " + unitName;
     	   	
     	return message;   		   	
-    }
+    }	
 }

@@ -24,7 +24,7 @@ public class ApplicationLoader extends Application
 	{
 		stage.setTitle("Space Marine Army Builder");
 		stage.setScene(new Scene(view));
-		stage.show();				
+		stage.show();
 	}
 	
 	public static void main(String[] args)

@@ -31,6 +31,16 @@ public class WeaponList
 		put("Power Lance", new Melee("Power Lance", 15));
 		put("Power Fist", new Melee("Power Fist", 25));
 		put("Thunder Hammer", new Melee("Thunder Hammer", 30));
+		put("Storm Shield", new Melee("Storm Shield", 10));
+		put("Eviscerator", new Melee("Eviscerator", 25));
+		
+		put("Power Fist (Vanguard)", new Melee("Power Fist (Vanguard)", 15));
+		put("Lightning Claw (Vanguard)", new Melee("Lightning Claw (Vanguard)", 5));
+		put("Power Axe (Vanguard)", new Melee("Power Axe (Vanguard)", 5));
+		put("Power Maul (Vanguard)", new Melee("Power Maul (Vanguard)", 5));
+		put("Power Sword (Vanguard)", new Melee("Power Sword (Vanguard)", 5));
+		put("Power Lance (Vanguard)", new Melee("Power Lance (Vanguard)", 5));
+		put("Thunder Hammer (Vanguard)", new Melee("Thunder Hammer (Vanguard)", 20));
 	}};
 			
 	static Map<String, Heavy> heavyWeapons = new HashMap<String, Heavy>()
@@ -193,6 +203,17 @@ public class WeaponList
 		put("Demolisher Cannon", new TankWeapon("Demolisher Cannon", 0));
 		put("Whirlwind Multiple Missile Launcher", new TankWeapon("Whirlwind Multiple Missile Launcher", 0));
 	}};
+	
+	static Map<String, HQWeapon> hqWeapons = new HashMap<String, HQWeapon>()
+	{{			
+		put("Relic Blade (Captain)", new HQWeapon("Relic Blade (Captain)", 25));
+		put("Storm Shield (Captain)", new HQWeapon("Storm Shield (Captain)", 15));
+		put("Crozius Arcanum", new HQWeapon("Crozius Arcanum", 0));
+		put("Force Axe", new HQWeapon("Force Axe", 0));
+		put("Force Stave", new HQWeapon("Force Stave", 0));
+		put("Force Sword", new HQWeapon("Force Sword", 0));
+		put("Power Axe", new HQWeapon("Power Axe", 0));
+	}};
 				
 	static Map<String, ScoutWeapon> scoutWeapons = new HashMap<String, ScoutWeapon>()
 	{{			
@@ -276,6 +297,11 @@ public class WeaponList
 	public static TankWeapon getTankWeapon(String key)
 	{		
         return tankWeapons.get(key);   
+	}
+	
+	public static HQWeapon getHQWeapon(String key)
+	{		
+        return hqWeapons.get(key);   
 	}
 		
 	public static ScoutWeapon getScoutWeapon(String key)

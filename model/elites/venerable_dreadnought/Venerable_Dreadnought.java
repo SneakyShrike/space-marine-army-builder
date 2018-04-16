@@ -43,4 +43,12 @@ public class Venerable_Dreadnought extends Unit
 	{
 		return "|| " + "Weapons: " + weapon + " + " + weaponTwo + " || " + "Points: " + points;
 	}
+	
+	@Override
+	public String getCharacteristics()
+	{		
+		return "Characteristics:   WS: " + weaponSkill + "   BS: " + ballisticSkill  + "   S: " + strength +
+				"   I: " + initiative + "   A: " + attacks + "   HP: " + hitPoints +
+				"   Armour:   FA: " + frontArmour + "   SA: " + sideArmour + "   RA: " + rearArmour;
+	}
 }

@@ -13,7 +13,7 @@ public class WhirlwindSquad extends UnitSquad
 	}
 	
 	@Override
-	public void addUnitSquad ()//adds scouts to the specified number instead of max
+	public void addUnitSquad ()
 	{
 		for (int i = 0; i < min; i++)
 		{
