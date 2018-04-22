@@ -194,7 +194,7 @@ public class AddUnitPane extends BorderPane
 		armyList = FXCollections.observableArrayList();
 		lv = new ListView<>(armyList);
 		lv.setEditable(false); //ensures a user can't edit the TextArea
-		lv.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+		lv.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE); 
 		lv.setPrefSize(500, 750);
 		
 		addUnitMemberBtn = new Button("Add Unit Member (+)");
@@ -269,13 +269,12 @@ public class AddUnitPane extends BorderPane
 		bottomSection.setStyle("-fx-background-color: #565656;");
 		bottomSection.setAlignment(Pos.CENTER);
 		bottomSection.setPadding(new Insets(10,10,10,10));
-		
+				
 		this.setTop(topSection);
 		this.setLeft(leftBox);
 		this.setCenter(centreBox);
 		this.setRight(rightBox);
-		this.setBottom(bottomSection);
-		
+		this.setBottom(bottomSection);	
 	}
 	
 	/*public void populateUnitMemberComboBox(ArrayList<Integer> members)
@@ -338,12 +337,7 @@ public class AddUnitPane extends BorderPane
 				//this.clearSelection();
 			}		
 		}
-	public void setDefaultValues() //clears the combo boxes when the add button is pressed
-	{
-		//unitMemberSelectedCombo.getSelectionModel().clearSelection();
-		//unitMemberSelectedCombo.getItems().clear();
-	}
-	
+
 	public void setweaponsCheckMessage(String message)
 	{
 		weaponsCheckMessage.setText(message);		
@@ -456,5 +450,10 @@ public class AddUnitPane extends BorderPane
 	public BooleanBinding areWeaponUpgradeOptionsEmpty()
 	{
 		return unitMemberSelectedCombo.valueProperty().isNull().or(unitWeaponCombo.valueProperty().isNull());		
+	}
+	
+    public void removeMemberBtnDisableBind(Boolean property)
+	{
+		removeUnitMemberBtn.setDisable(property);
 	}
 }

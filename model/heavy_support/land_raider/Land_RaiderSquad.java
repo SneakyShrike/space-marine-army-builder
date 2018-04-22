@@ -13,9 +13,9 @@ public class Land_RaiderSquad extends UnitSquad
 	}
 	
 	@Override
-	public void addUnitSquad ()//adds scouts to the specified number instead of max
+	public void addUnitSquad ()
 	{
-		for (int i = 0; i < min; i++)
+		for (int i = 0; i <= min; i++)
 		{
 			if (unitList.size() < max)
 				unitList.add(new Land_Raider());	

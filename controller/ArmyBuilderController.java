@@ -139,24 +139,18 @@ public class ArmyBuilderController
 		au.clearArmyHandler(new clearArmyHandler());
 		au.addUnitMemberBtn(new addUnitMemberBtn());
 		au.removeUnitMemberBtn(new removeUnitMemberBtn());
-		au.upgradeUnitWeaponHandler(new upgradeUnitWeaponHandler());
-		
+		au.upgradeUnitWeaponHandler(new upgradeUnitWeaponHandler());		
 	}
 	
 	private void attachBindings() 
 	{
-		//attaches a binding such that the add button in the view will be disabled whenever either of the text fields in the NamePane are empty
-
-		//Binds model's register collection and view's listview display bidirectionally.
-		//If either is updated then the other will automatically mirror these updates.
-		//In this case it means we can remove the submit button and all associated functionality.
 		model.bindContentBidirectional(au.getContents());
 		
 		cp.createBtnDisableBind(cp.isProfileNameEmpty());
 		au.addUnitBtnDisableBind(au.areAddUnitOptionsEmpty());
 		au.unitComboDisableBind(au.isunitTypeComboEmpty());
 		au.unitWeaponComboDisableBind(au.isunitMemberSelectedComboEmpty());
-		au.upgradeUnitWeaponBtnDisableBind(au.areWeaponUpgradeOptionsEmpty());
+		au.upgradeUnitWeaponBtnDisableBind(au.areWeaponUpgradeOptionsEmpty());	
 	}
 	
 	private ArrayList<Integer> setupAndGetMaxPoints()
@@ -211,13 +205,10 @@ public class ArmyBuilderController
 		{
 			try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("armyObj.dat"));) {
 
-				//write name objects individually as cannot serialize the observable list in register
 				for (UnitSquad n : model) 
 				{ 
 					oos.writeObject(model);
 				}
-
-				//oos.writeObject(null);
 
 				oos.flush();
 
@@ -238,7 +229,6 @@ public class ArmyBuilderController
 
 				//dp.clearArmyList(); //THIS CAUSES ISSUES WITH LOADING
 				
-				//read back in names objects individually
 				UnitSquad n = null;
 
 				while ((n = (UnitSquad) ois.readObject()) != null) {
@@ -407,22 +397,10 @@ public class ArmyBuilderController
 			//au.populateUnitMemberComboBox(getUnitSize());
 			model.setCurrentPoints(squad.getSquadPoints());
             au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
-            pointsValueCheck();
-           
-           
-		    	
-			//au.setDefaultValues();					
+            pointsValueCheck();	    	
 		}		
 	}
-	
-	private class SaveArmyHandler implements EventHandler<ActionEvent>
-	{
-		public void handle(ActionEvent e) 
-		{
-									
-		}		
-	}
-	
+		
 	private class removeSquadHandler implements EventHandler<ActionEvent>
 	{
 		//UnitSquad squad = new UnitSquad("");
@@ -433,7 +411,7 @@ public class ArmyBuilderController
 			au.removeSelectedUnitSquad();
 			model.setCurrentPoints(value);
 			au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
-			pointsValueCheck();
+			pointsValueCheck();			
 		}		
 	}
 	
@@ -530,7 +508,7 @@ public class ArmyBuilderController
 			   break;
 			   case "Techmarine" : member = new Techmarine();
 			   break;		   
-			   case "Scout Squad" : member = new Scout(); //create a new scoutSquad with the inputed name		                             
+			   case "Scout Squad" : member = new Scout(); 		                             
 			   break;
 			   case "Tactical Squad" : member = new Tactical();				
 			}
@@ -558,7 +536,6 @@ public class ArmyBuilderController
 			model.setCurrentPoints(value);
 			au.setMaxpoints(model.getCurrentPoints(), model.getTotalPoints());
 			pointsValueCheck();
-			//au.populateUnitMemberComboBox(getUnitSize());
 		}		
 	}
 	
@@ -604,6 +581,5 @@ public class ArmyBuilderController
             selectedSquad.getUnit(au.getSelectedUnitSquadIndex()).resetUnitPoints();
             pointsValueCheck();
 		}		
-	}
-		
+	}		
 }

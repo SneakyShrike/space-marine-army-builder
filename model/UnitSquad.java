@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -89,15 +90,10 @@ public class UnitSquad implements Serializable, Iterable<Unit>
     	   	
     	return message;   		   	
     }
-	
-	public void setSquadSize(int number)
+		
+	public void removeUnit (int number) //remove a single member from a squad, specified by the squad member number
 	{
-		//this.number = number; 
-	}
-					
-	public void removeUnit (int number) //remove a single scout from a squad, specified by the squad member number
-	{
-		unitList.remove(number);
+		unitList.remove(number);		
 	}
 	
 	public void clearUnitList() //clears an entire scout squad
