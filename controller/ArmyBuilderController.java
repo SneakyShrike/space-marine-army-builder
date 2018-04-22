@@ -289,7 +289,16 @@ public class ArmyBuilderController
 	{
 		public void handle(ActionEvent e) 
 		{
-			alertPrompt(AlertType.INFORMATION, "Information Prompt", "7th Edition Space Marine Army Roster Builder", "This program allows you to ");								
+			alertPrompt(AlertType.INFORMATION, "Information Prompt", "7th Edition Space Marine Army Roster Builder V1.0", "This program allows you to build an army roster for a 7th Edition Space Marine Army. \n\n"
+					+ "First give your army roster a name and choose the maximum points for your army, and then press the Create Profile button which will take you to the next stage \n\n"
+					+ "Next you can choose a unit type, and then a unit which you can give a custom name. You can then add the unit to the army roster which will be displayed in the centre panel \n\n"
+					+ "From there you can modify a units size by selecting on the unit and pressing the add or remove unit member buttons to add or remove members from the unit. Otherwise you can select a unit"
+					+ "member on the right hand side, and choose a weapon upgrade. \n\n"
+					+ "Changing both the size and weapons of a unit will be updated in real time on the centre display, and the points at the top will also be updated \n\n"
+					+ "Once all the units have been added, you can remove an entire unit from the army roster by selecting the remove unit button at the bottom of the centre display, alternatively"
+					+ "you can clear all of the units in an army roster by selecting the clear army button \n\n"
+					+ "Finally in the file menu (top left) you can save the army roster and load it back in later, save to an external .txt file, or print out a physical copy of the army roster \n\n"
+					+ "Updates can be found on the GitHub page at: https://github.com/GR412/space-marine-army-builder");								
 		}		
 	}
 	
