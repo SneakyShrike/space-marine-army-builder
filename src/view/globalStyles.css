@@ -1,0 +1,12 @@
+.root {
+	-fx-font-family: "Roboto";
+}
+
+.button {
+	-fx-text-fill: white;
+    -fx-padding: 10px;
+    -fx-background-color:#0D47A1;
+}
+
+
+
