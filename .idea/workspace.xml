@@ -6,331 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87a36e0c-5791-4e30-b3b9-d0e8676f58b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/SpaceMarineArmyBuilder_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.mylyn/.taskListIndex/segments.gen" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.mylyn/.taskListIndex/segments_1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.mylyn/repositories.xml.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/history.version" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.version" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.root/1.tree" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.epp.logging.aeri.ide.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.m2e.discovery.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.context.core.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.monitor.ui.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.tasks.ui.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.team.ui.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.editors.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/assumedExternalFilesCache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.ui/OpenTypeHistory.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.ui/QualifiedTypeNameHistory.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.m2e.logback.configuration/logback.1.7.0.20160603-1933.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.oomph.setup/workspace.setup" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.pde.core/.cache/clean-cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.ui.intro/dialog_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.ui.intro/introstate" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.metadata/version.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.project" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SpaceMarineArmyBuilder.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/controller/ArmyBuilderController$AddUnitHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/controller/ArmyBuilderController$CreateProfileHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/controller/ArmyBuilderController$InfoHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/controller/ArmyBuilderController$LoadHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/controller/ArmyBuilderController$PrintHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/controller/ArmyBuilderController$SaveHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/controller/ArmyBuilderController$TextFileHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/controller/ArmyBuilderController$addUnitMemberBtn.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/controller/ArmyBuilderController$clearArmyHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/controller/ArmyBuilderController$removeSquadHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/controller/ArmyBuilderController$removeUnitMemberBtn.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/controller/ArmyBuilderController$upgradeUnitWeaponHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/controller/ArmyBuilderController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/main/Launcher.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/main/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/Army.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/Unit.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/UnitSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/Unit_Type.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/centurion_assault/Centurion_Assault.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/centurion_assault/Centurion_AssaultSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/command/Command.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/command/CommandSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/deadnought/Dreadnought.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/deadnought/DreadnoughtSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/honour_guard/Honour_Guard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/honour_guard/Honour_GuardSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/ironclad_dreadnought/Ironclad_Dreadnought.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/ironclad_dreadnought/Ironclad_DreadnoughtSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/sternguard_veteran/Sternguard_Veteran.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/sternguard_veteran/Sternguard_VeteranSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/terminator/Terminator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/terminator/TerminatorSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/terminator_assault/Terminator_Assault.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/terminator_assault/Terminator_AssaultSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/vanguard_veteran/Vanguard_Veteran.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/vanguard_veteran/Vanguard_VeteranSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/venerable_dreadnought/Venerable_Dreadnought.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/elites/venerable_dreadnought/Venerable_DreadnoughtSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/assault/Assault.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/assault/AssaultSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/attack_bike/Attack_Bike.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/attack_bike/Attack_BikeSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/bike/Bike.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/bike/BikeSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/drop_pod/Drop_Pod.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/drop_pod/Drop_PodSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/land_speeder/Land_Speeder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/land_speeder/Land_SpeederSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/land_speeder_storm/Land_Speeder_Storm.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/land_speeder_storm/Land_Speeder_StormSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/razorback/Razorback.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/razorback/RazorbackSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/rhino/Rhino.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/rhino/RhinoSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/scout_bike/Scout_Bike.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/scout_bike/Scout_BikeSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/stormhawk_interceptor/Stormhawk_Interceptor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/stormhawk_interceptor/Stormhawk_InterceptorSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/stormtalon_gunship/Stormtalon_Gunship.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/fast_attack/stormtalon_gunship/Stormtalon_GunshipSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/centurion_devastator/Centurion_Devastator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/centurion_devastator/Centurion_DevastatorSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/devastator/Devastator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/devastator/DevastatorSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/hunter/Hunter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/hunter/HunterSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/land_raider/Land_Raider.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/land_raider/Land_RaiderSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/land_raider_crusader/Land_Raider_Crusader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/land_raider_crusader/Land_Raider_CrusaderSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/land_raider_redeemer/Land_Raider_Redeemer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/land_raider_redeemer/Land_Raider_RedeemerSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/predator/Predator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/predator/PredatorSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/stalker/Stalker.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/stalker/StalkerSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/stormraven_gunship/Stormraven_Gunship.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/stormraven_gunship/Stormraven_GunshipSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/thunderfire_cannon/Thunderfire_Cannon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/thunderfire_cannon/Thunderfire_CannonSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/vindicator/Vindicator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/vindicator/VindicatorSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/whirlwind/Whirlwind.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/heavy_support/whirlwind/WhirlwindSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/hq/captain/Captain.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/hq/captain/CaptainSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/hq/chaplain/Chaplain.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/hq/chaplain/ChaplainSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/hq/librarian/Librarian.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/hq/librarian/LibrarianSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/hq/techmarine/Techmarine.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/hq/techmarine/TechmarineSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/troops/scout/Scout.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/troops/scout/ScoutSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/troops/tactical/Tactical.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/troops/tactical/TacticalSquad.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/BikeWeapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/CenturionWeapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/DreadnoughtWeapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/Drop_PodWeapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/GunshipWeapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/HQWeapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/Heavy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/Honour_GuardWeapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/Ironclad_DreadnoughtWeapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/Land_SpeederWeapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/Melee.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/Ranged.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/RazorbackWeapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/ScoutWeapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/Special.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/TankWeapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/TerminatorWeapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/Weapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$10.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$11.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$12.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$13.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$14.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$15.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$16.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$17.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$4.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$5.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$6.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$7.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$8.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList$9.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/model/wargear/weapon/WeaponList.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/view/AddUnitPane$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/view/AddUnitPane$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/view/AddUnitPane.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/view/ArmyBuilderMenuBar.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/view/ArmyBuilderRootPane.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/view/CreateProfilePane.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_diagrams/Class Diagram Elites.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_diagrams/Class Diagram Elites.ucls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_diagrams/Class Diagram Fast Attack.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_diagrams/Class Diagram Fast Attack.ucls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_diagrams/Class Diagram HQ.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_diagrams/Class Diagram HQ.ucls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_diagrams/Class Diagram Heavy Support.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_diagrams/Class Diagram Heavy Support.ucls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_diagrams/Class Diagram Troops.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_diagrams/Class Diagram Troops.ucls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/artifacts/SpaceMarineArmyBuilder_jar/SpaceMarineArmyBuilder.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Launcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Unit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/globalStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Periodic Progress Report 1.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Periodic Progress Report 2.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Periodic Progress Report 3.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Periodic Progress Report 4.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Periodic Progress Report 5.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Periodic Progress Report 6.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ArmyBuilderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ArmyBuilderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final report.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/ApplicationLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Army.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Army.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Unit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/UnitSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/UnitSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Unit_Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Unit_Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/centurion_assault/Centurion_Assault.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/centurion_assault/Centurion_Assault.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/centurion_assault/Centurion_AssaultSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/centurion_assault/Centurion_AssaultSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/command/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/command/CommandSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/command/CommandSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/deadnought/Dreadnought.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/deadnought/Dreadnought.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/deadnought/DreadnoughtSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/deadnought/DreadnoughtSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/honour_guard/Honour_Guard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/honour_guard/Honour_Guard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/honour_guard/Honour_GuardSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/honour_guard/Honour_GuardSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/ironclad_dreadnought/Ironclad_Dreadnought.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/ironclad_dreadnought/Ironclad_Dreadnought.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/ironclad_dreadnought/Ironclad_DreadnoughtSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/ironclad_dreadnought/Ironclad_DreadnoughtSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/sternguard_veteran/Sternguard_Veteran.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/sternguard_veteran/Sternguard_Veteran.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/sternguard_veteran/Sternguard_VeteranSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/sternguard_veteran/Sternguard_VeteranSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/terminator/Terminator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/terminator/Terminator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/terminator/TerminatorSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/terminator/TerminatorSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/terminator_assault/Terminator_Assault.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/terminator_assault/Terminator_Assault.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/terminator_assault/Terminator_AssaultSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/terminator_assault/Terminator_AssaultSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/vanguard_veteran/Vanguard_Veteran.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/vanguard_veteran/Vanguard_Veteran.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/vanguard_veteran/Vanguard_VeteranSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/vanguard_veteran/Vanguard_VeteranSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/venerable_dreadnought/Venerable_Dreadnought.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/venerable_dreadnought/Venerable_Dreadnought.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/elites/venerable_dreadnought/Venerable_DreadnoughtSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/elites/venerable_dreadnought/Venerable_DreadnoughtSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/assault/Assault.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/assault/Assault.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/assault/AssaultSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/assault/AssaultSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/attack_bike/Attack_Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/attack_bike/Attack_Bike.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/attack_bike/Attack_BikeSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/attack_bike/Attack_BikeSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/bike/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/bike/Bike.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/bike/BikeSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/bike/BikeSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/drop_pod/Drop_Pod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/drop_pod/Drop_Pod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/drop_pod/Drop_PodSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/drop_pod/Drop_PodSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/land_speeder/Land_Speeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/land_speeder/Land_Speeder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/land_speeder/Land_SpeederSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/land_speeder/Land_SpeederSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/land_speeder_storm/Land_Speeder_Storm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/land_speeder_storm/Land_Speeder_Storm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/land_speeder_storm/Land_Speeder_StormSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/land_speeder_storm/Land_Speeder_StormSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/razorback/Razorback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/razorback/Razorback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/razorback/RazorbackSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/razorback/RazorbackSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/rhino/Rhino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/rhino/Rhino.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/rhino/RhinoSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/rhino/RhinoSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/scout_bike/Scout_Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/scout_bike/Scout_Bike.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/scout_bike/Scout_BikeSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/scout_bike/Scout_BikeSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/stormhawk_interceptor/Stormhawk_Interceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/stormhawk_interceptor/Stormhawk_Interceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/stormhawk_interceptor/Stormhawk_InterceptorSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/stormhawk_interceptor/Stormhawk_InterceptorSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/stormtalon_gunship/Stormtalon_Gunship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/stormtalon_gunship/Stormtalon_Gunship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/fast_attack/stormtalon_gunship/Stormtalon_GunshipSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/fast_attack/stormtalon_gunship/Stormtalon_GunshipSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/centurion_devastator/Centurion_Devastator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/centurion_devastator/Centurion_Devastator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/centurion_devastator/Centurion_DevastatorSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/centurion_devastator/Centurion_DevastatorSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/devastator/Devastator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/devastator/Devastator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/devastator/DevastatorSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/devastator/DevastatorSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/hunter/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/hunter/Hunter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/hunter/HunterSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/hunter/HunterSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/land_raider/Land_Raider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/land_raider/Land_Raider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/land_raider/Land_RaiderSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/land_raider/Land_RaiderSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/land_raider_crusader/Land_Raider_Crusader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/land_raider_crusader/Land_Raider_Crusader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/land_raider_crusader/Land_Raider_CrusaderSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/land_raider_crusader/Land_Raider_CrusaderSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/land_raider_redeemer/Land_Raider_Redeemer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/land_raider_redeemer/Land_Raider_Redeemer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/land_raider_redeemer/Land_Raider_RedeemerSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/land_raider_redeemer/Land_Raider_RedeemerSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/predator/Predator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/predator/Predator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/predator/PredatorSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/predator/PredatorSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/stalker/Stalker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/stalker/Stalker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/stalker/StalkerSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/stalker/StalkerSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/stormraven_gunship/Stormraven_Gunship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/stormraven_gunship/Stormraven_Gunship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/stormraven_gunship/Stormraven_GunshipSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/stormraven_gunship/Stormraven_GunshipSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/thunderfire_cannon/Thunderfire_Cannon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/thunderfire_cannon/Thunderfire_Cannon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/thunderfire_cannon/Thunderfire_CannonSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/thunderfire_cannon/Thunderfire_CannonSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/vindicator/Vindicator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/vindicator/Vindicator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/vindicator/VindicatorSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/vindicator/VindicatorSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/whirlwind/Whirlwind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/whirlwind/Whirlwind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/heavy_support/whirlwind/WhirlwindSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/heavy_support/whirlwind/WhirlwindSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/hq/captain/Captain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/hq/captain/Captain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/hq/captain/CaptainSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/hq/captain/CaptainSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/hq/chaplain/Chaplain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/hq/chaplain/Chaplain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/hq/chaplain/ChaplainSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/hq/chaplain/ChaplainSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/hq/librarian/Librarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/hq/librarian/Librarian.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/hq/librarian/LibrarianSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/hq/librarian/LibrarianSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/hq/techmarine/Techmarine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/hq/techmarine/Techmarine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/hq/techmarine/TechmarineSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/hq/techmarine/TechmarineSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/troops/scout/Scout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/troops/scout/Scout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/troops/scout/ScoutSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/troops/scout/ScoutSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/troops/tactical/Tactical.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/troops/tactical/Tactical.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/troops/tactical/TacticalSquad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/troops/tactical/TacticalSquad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/BikeWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/BikeWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/CenturionWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/CenturionWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/DreadnoughtWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/DreadnoughtWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/Drop_PodWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/Drop_PodWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/GunshipWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/GunshipWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/HQWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/HQWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/Heavy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/Heavy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/Honour_GuardWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/Honour_GuardWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/Ironclad_DreadnoughtWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/Ironclad_DreadnoughtWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/Land_SpeederWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/Land_SpeederWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/Melee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/Melee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/Ranged.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/Ranged.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/RazorbackWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/RazorbackWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/ScoutWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/ScoutWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/Special.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/Special.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/TankWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/TankWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/TerminatorWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/TerminatorWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/wargear/weapon/WeaponList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/wargear/weapon/WeaponList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/AddUnitPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AddUnitPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/ArmyBuilderMenuBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ArmyBuilderMenuBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/ArmyBuilderRootPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ArmyBuilderRootPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/CreateProfilePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CreateProfilePane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/globalStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/globalStyles.css" afterDir="false" />
-    </list>
+    <list default="true" id="87a36e0c-5791-4e30-b3b9-d0e8676f58b4" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -355,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -367,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/Launcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="170">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -513,12 +189,12 @@
       <workItem from="1573576912394" duration="3148000" />
       <workItem from="1573580094964" duration="3992000" />
       <workItem from="1573586204249" duration="24000" />
-      <workItem from="1574182367748" duration="1173000" />
+      <workItem from="1574182367748" duration="1843000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15336000" />
+    <option name="totallyTimeSpent" value="16006000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -550,7 +226,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32969603" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32969603" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32967034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -589,13 +265,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Launcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -603,6 +272,13 @@
             <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Launcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
